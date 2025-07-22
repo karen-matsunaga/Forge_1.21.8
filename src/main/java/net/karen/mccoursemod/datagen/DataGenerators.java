@@ -2,7 +2,7 @@ package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.datagen.model.ModModelProvider;
-//import net.karen.mccoursemod.datagen.recipe.ModRecipeProviderRunner;
+import net.karen.mccoursemod.datagen.recipe.ModRecipeProviderRunner;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -33,7 +33,7 @@ public class DataGenerators {
                                                                              LootContextParamSets.BLOCK)), lookupProvider));
 
         // CUSTOM Recipes
-//        generator.addProvider(event.includeServer(), new ModRecipeProviderRunner(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModRecipeProviderRunner(packOutput, lookupProvider));
 
         // CUSTOM Block tags
         generator.addProvider(event.includeServer(), new ModVanillaBlockTagsProvider(packOutput, lookupProvider, existingFileHelper));
