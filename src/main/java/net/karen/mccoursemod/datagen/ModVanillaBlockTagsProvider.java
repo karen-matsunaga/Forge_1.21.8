@@ -18,7 +18,9 @@ public class ModVanillaBlockTagsProvider extends VanillaBlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-        this.tag(Tags.Blocks.NEEDS_WOOD_TOOL).add(ModBlocks.ENCHANT.get());
+        this.tag(Tags.Blocks.NEEDS_WOOD_TOOL).add(ModBlocks.ENCHANT.get(), ModBlocks.ALEXANDRITE_BLOCK.get());
+        this.tag(Tags.Blocks.NEEDS_GOLD_TOOL).add(ModBlocks.ENCHANT.get(), ModBlocks.ALEXANDRITE_BLOCK.get());
+        this.tag(Tags.Blocks.NEEDS_NETHERITE_TOOL).add(ModBlocks.ENCHANT.get(), ModBlocks.ALEXANDRITE_BLOCK.get());
 //        super.addTags(provider);
     }
 }
