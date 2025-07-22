@@ -20,6 +20,7 @@ public class ModBlockModelGenerators extends BlockModelGenerators {
     @Override
     public void run() {
         this.createTrivialCube(ModBlocks.ENCHANT.get());
+        this.createTrivialCube(ModBlocks.ALEXANDRITE_BLOCK.get());
         // super.run();
     }
 }

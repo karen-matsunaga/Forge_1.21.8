@@ -3,6 +3,7 @@ package net.karen.mccoursemod.datagen;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.datagen.block.ModBlockFamilies;
+import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.CachedOutput;
@@ -30,6 +31,8 @@ public class ModRecipeProvider extends RecipeProvider implements DataProvider {
     @Override
     protected void buildRecipes() {
         this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.ANVIL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENCHANT.get());
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.ALEXANDRITE.get(),
+                                     RecipeCategory.BUILDING_BLOCKS, ModBlocks.ALEXANDRITE_BLOCK.get());
     }
 
     @Override

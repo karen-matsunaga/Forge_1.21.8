@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
 import net.minecraft.client.data.models.model.ModelInstance;
@@ -18,6 +19,8 @@ public class ModItemModelGenerators extends ItemModelGenerators {
     @Override
     public void run() {
         this.generateFlatItem(ModBlocks.ENCHANT.get().asItem(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.ALEXANDRITE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModBlocks.ALEXANDRITE_BLOCK.get().asItem(), ModelTemplates.FLAT_ITEM);
         // super.run();
     }
 }

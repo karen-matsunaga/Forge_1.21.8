@@ -1,5 +1,8 @@
 {
+  "block.mccoursemod.alexandrite_block": "Alexandrite Block",
   "block.mccoursemod.enchant": "Enchant Block",
   "creativetab.mccoursemod.enchant_blocks": "Mccourse Blocks",
+  "item.mccoursemod.alexandrite": "Alexandrite Gem",
+  "item.mccoursemod.alexandrite_block": "Alexandrite Block",
   "item.mccoursemod.enchant": "Enchant Block"
 }

@@ -23,9 +23,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), provider);
     }
 
+    // Registry all custom Block Loot Tables
     @Override
     protected void generate() {
         this.dropSelf(ModBlocks.ENCHANT.get());
+        this.dropSelf(ModBlocks.ALEXANDRITE_BLOCK.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block block, Item item, float min, float max) {

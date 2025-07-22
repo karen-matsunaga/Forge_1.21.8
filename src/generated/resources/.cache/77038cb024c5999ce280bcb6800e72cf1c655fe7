@@ -1,5 +1,11 @@
-// 1.21.8	2025-07-22T12:47:03.099043	Model Definitions
+// 1.21.8	2025-07-22T14:04:45.4968216	Model Definitions
+f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 159f4b050a7c6570ee1d9417d621862277c6d56d assets/mccoursemod/blockstates/enchant.json
+fb056aea612cc39d954e70ae76624108b8ea1d4a assets/mccoursemod/items/alexandrite.json
+634754ba4bb408db26a4fe05d7f7c083d833ed63 assets/mccoursemod/items/alexandrite_block.json
 7d88805164463391a445d810379f3b3790044998 assets/mccoursemod/items/enchant.json
+95c3daff44ee914f6e5a83a0eeda8c2ac8632439 assets/mccoursemod/models/block/alexandrite_block.json
 45de311c2f1e0dc3a34333c1ec4f0ca80a70e5dd assets/mccoursemod/models/block/enchant.json
+5af1bd1c0b012a9b1507dafdb35d5a969ed3c225 assets/mccoursemod/models/item/alexandrite.json
+2cba39dc91df315d77cd590173e53fbd377fd70c assets/mccoursemod/models/item/alexandrite_block.json
 72ea36406e2552b840d69889a97002dd45e7b281 assets/mccoursemod/models/item/enchant.json

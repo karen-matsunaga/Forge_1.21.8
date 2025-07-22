@@ -29,6 +29,14 @@ public class ModBlocks {
                                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "enchant")
                                                       ))));
 
+    public static final RegistryObject<Block> ALEXANDRITE_BLOCK = registerBlock("alexandrite_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
+                                                     .requiresCorrectToolForDrops()
+                                                     .strength(5F, 5F)
+                                                     .setId(ResourceKey.create(Registries.BLOCK,
+                                                             ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "alexandrite_block")
+                                                     ))));
+
     //
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
