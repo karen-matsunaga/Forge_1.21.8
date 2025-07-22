@@ -13,7 +13,8 @@ public class ModLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         // CUSTOM Blocks
-        addBlock(ModBlocks.ENCHANT, "Enchant");
+        addBlock(ModBlocks.ENCHANT, "Enchant Block");
+        add("item.mccoursemod.enchant", "Enchant Block");
         add("creativetab.mccoursemod.enchant_blocks", "Mccourse Blocks");
     }
 }

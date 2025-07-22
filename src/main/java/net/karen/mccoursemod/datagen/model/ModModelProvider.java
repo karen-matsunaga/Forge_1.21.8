@@ -8,8 +8,7 @@ import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
-import net.minecraft.client.data.models.model.ItemModelUtils;
-import net.minecraft.client.data.models.model.ModelLocationUtils;
+import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.ClientItem;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -22,9 +21,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
@@ -66,19 +63,16 @@ public class ModModelProvider extends ModelProvider {
 
     @Override
     public @NotNull CompletableFuture<?> run(@NotNull CachedOutput cachedOutput) {
-        super.run(cachedOutput);
-        ModelProvider.ItemInfoCollector modelprovider$iteminfocollector = new ModelProvider.ItemInfoCollector(this::getKnownItems);
-        ModelProvider.BlockStateGeneratorCollector modelprovider$blockstategeneratorcollector = new ModelProvider.BlockStateGeneratorCollector(this::getKnownBlocks);
-        ModelProvider.SimpleModelCollector modelprovider$simplemodelcollector = new ModelProvider.SimpleModelCollector();
-        getBlockModelGenerators(modelprovider$blockstategeneratorcollector, modelprovider$iteminfocollector, modelprovider$simplemodelcollector).run();
-        getItemModelGenerators(modelprovider$iteminfocollector, modelprovider$simplemodelcollector).run();
-        modelprovider$blockstategeneratorcollector.validate();
-        modelprovider$iteminfocollector.finalizeAndValidate();
-        return CompletableFuture.allOf(
-                modelprovider$blockstategeneratorcollector.save(cachedOutput, this.blockStatePathProvider),
-                modelprovider$simplemodelcollector.save(cachedOutput, this.modelPathProvider),
-                modelprovider$iteminfocollector.save(cachedOutput, this.itemInfoPathProvider)
-        );
+        ModItemInfoCollector iteminfocollector = new ModItemInfoCollector(this::getKnownItems);
+        ModModelProvider.BlockStateGeneratorCollector blockstategeneratorcollector = new BlockStateGeneratorCollector(this::getKnownBlocks);
+        ModModelProvider.SimpleModelCollector simplemodelcollector = new SimpleModelCollector();
+        this.getBlockModelGenerators(blockstategeneratorcollector, iteminfocollector, simplemodelcollector).run();
+        this.getItemModelGenerators(iteminfocollector, simplemodelcollector).run();
+        blockstategeneratorcollector.validate();
+        iteminfocollector.finalizeAndValidate();
+        return CompletableFuture.allOf(blockstategeneratorcollector.save(cachedOutput, this.blockStatePathProvider),
+                                       simplemodelcollector.save(cachedOutput, this.modelPathProvider),
+                                       iteminfocollector.save(cachedOutput, this.itemInfoPathProvider));
     }
 
     public static class ModItemInfoCollector extends ItemInfoCollector {
