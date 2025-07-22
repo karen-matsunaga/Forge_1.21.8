@@ -2,12 +2,9 @@ package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
-import net.karen.mccoursemod.datagen.block.ModBlockFamilies;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.BlockFamily;
-import net.minecraft.data.CachedOutput;
-import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -17,15 +14,38 @@ import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 /* Credits by frankint - https://github.com/frankint/Forge-1.21.4-datagen/blob/main/LICENSE */
-public class ModRecipeProvider extends RecipeProvider implements DataProvider {
+public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     protected RecipeOutput output;
+
     public ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput output) {
         super(provider, output);
+    }
+
+    public static class ModRecipeProviderRunner extends ModRecipeProvider.Runner {
+        public ModRecipeProviderRunner(PackOutput packOutput,
+                                       CompletableFuture<HolderLookup.Provider> registries) {
+            super(packOutput, registries);
+        }
+
+        @Override
+        protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.@NotNull Provider registries,
+                                                               @NotNull RecipeOutput output) {
+            // Return an instance of your actual recipe provider that implements buildRecipes.
+            // The ModRecipeProvider must extend RecipeProvider.
+            return new ModRecipeProvider(registries, output);
+        }
+
+        @Override
+        public @NotNull String getName() {
+            return "Mccourse Recipes";
+        }
     }
 
     @Override
@@ -33,6 +53,7 @@ public class ModRecipeProvider extends RecipeProvider implements DataProvider {
         this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.ANVIL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENCHANT.get());
         this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.ALEXANDRITE.get(),
                                      RecipeCategory.BUILDING_BLOCKS, ModBlocks.ALEXANDRITE_BLOCK.get());
+        this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.NETHER_STAR, RecipeCategory.BUILDING_BLOCKS, Blocks.BONE_BLOCK);
     }
 
     @Override
@@ -65,33 +86,6 @@ public class ModRecipeProvider extends RecipeProvider implements DataProvider {
                                       .unlockedBy(getHasName(itemlike), this.has(itemlike))
                                       .save(this.output, MccourseMod.MOD_ID + ":" + getItemName(result) +
                                             suffix + "_" + getItemName(itemlike));
-        }
-    }
-
-    @Override
-    public CompletableFuture<?> run(CachedOutput cachedOutput) {
-        return null;
-    }
-
-    @Override
-    public @NotNull String getName() {
-        return "";
-    }
-
-    public static class Runner extends RecipeProvider.Runner {
-        public Runner(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-            super(output, registries);
-        }
-
-        @Override
-        protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.@NotNull Provider registries,
-                                                               @NotNull RecipeOutput output) {
-            return new ModRecipeProvider(registries, output);
-        }
-
-        @Override
-        public @NotNull String getName() {
-            return "Mccourse Recipes";
         }
     }
 }

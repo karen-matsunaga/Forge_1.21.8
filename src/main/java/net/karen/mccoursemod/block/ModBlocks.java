@@ -8,7 +8,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.bus.BusGroup;
 import net.minecraftforge.registries.DeferredRegister;
@@ -22,33 +21,31 @@ public class ModBlocks {
 
     // CUSTOM Enchant block
     public static final RegistryObject<Block> ENCHANT = registerBlock("enchant",
-            () -> new MagicEnchantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
-                                                      .requiresCorrectToolForDrops()
-                                                      .strength(5.0F, 3600000.0F)
-                                                      .setId(ResourceKey.create(Registries.BLOCK,
-                                                             ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "enchant")
-                                                      ))));
+            () -> new MagicEnchantBlock(BlockBehaviour.Properties.of().strength(5.0F, 3600000.0F)
+                                                                      .requiresCorrectToolForDrops()
+                                                                      .setId(ResourceKey.create(Registries.BLOCK,
+                                                                             ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                                                                "enchant")))));
 
     public static final RegistryObject<Block> ALEXANDRITE_BLOCK = registerBlock("alexandrite_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
-                                                     .requiresCorrectToolForDrops()
-                                                     .strength(5F, 5F)
-                                                     .setId(ResourceKey.create(Registries.BLOCK,
-                                                             ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "alexandrite_block")
-                                                     ))));
+            () -> new Block(BlockBehaviour.Properties.of().strength(5F, 5F)
+                                                          .requiresCorrectToolForDrops()
+                                                          .setId(ResourceKey.create(Registries.BLOCK,
+                                                                 ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                                                 "alexandrite_block")))));
 
-    //
+    // Register all custom blocks
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
         return toReturn;
     }
 
-    //
+    // Register all custom blocks as block items
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-        new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name)))));
+                new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                               ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name)))));
     }
 
     // CUSTOM METHOD - Registry all custom blocks on event bus

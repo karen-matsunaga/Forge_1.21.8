@@ -1,4 +1,4 @@
-package net.karen.mccoursemod.datagen.block;
+package net.karen.mccoursemod.datagen;
 
 import com.google.common.collect.Maps;
 import net.minecraft.core.registries.BuiltInRegistries;

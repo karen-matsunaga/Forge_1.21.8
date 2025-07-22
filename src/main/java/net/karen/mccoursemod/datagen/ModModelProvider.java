@@ -1,8 +1,6 @@
-package net.karen.mccoursemod.datagen.model;
+package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.block.ModBlocks;
-import net.karen.mccoursemod.datagen.ModBlockModelGenerators;
-import net.karen.mccoursemod.datagen.ModItemModelGenerators;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
@@ -27,8 +25,6 @@ public class ModModelProvider extends ModelProvider {
     private final PackOutput.PathProvider blockStatePathProvider;
     private final PackOutput.PathProvider itemInfoPathProvider;
     private final PackOutput.PathProvider modelPathProvider;
-
-
 
     @Override
     protected @NotNull Stream<Block> getKnownBlocks() {

@@ -1,9 +1,13 @@
-// 1.21.8	2025-07-22T14:05:58.741299	Mccourse Recipes
+// 1.21.8	2025-07-22T16:33:51.7795936	Mccourse Recipes
 68ed575f1cd6b634a87ed9fccdf054c22a7e472f data/minecraft/advancement/recipes/building_blocks/alexandrite_block.json
+9578c882a60557d03e9c2f70bd72dedf61a7c146 data/minecraft/advancement/recipes/building_blocks/bone_block.json
 75b7397254faee3b11995f6a43622472d0251d82 data/minecraft/advancement/recipes/building_blocks/enchant.json
 cba6b7910266c1417963eb0d25426a665bf141fc data/minecraft/advancement/recipes/misc/alexandrite.json
 848b384f6774a18ed5200a50e93a95c2f7b3bc50 data/minecraft/advancement/recipes/misc/anvil.json
+dfc578657c2c2132842d0c1232f19a503e35c86e data/minecraft/advancement/recipes/misc/nether_star.json
 901ffc760c38cebc4a89ca8b9043160b1b4ed616 data/minecraft/recipe/alexandrite.json
 26f1d8efa691e2143cf547b7a57e21e348231c95 data/minecraft/recipe/alexandrite_block.json
 fa60ce84c317e47bf185127bb6ddeaec753f8f54 data/minecraft/recipe/anvil.json
+ceb00c4e07ab9a3492412626397174cbdb2eb63c data/minecraft/recipe/bone_block.json
 d2217a3657e82978b7adb1b41203f2320eafb15a data/minecraft/recipe/enchant.json
+876e5d6324f96b3a4102e8bef409ad5d2d38c539 data/minecraft/recipe/nether_star.json

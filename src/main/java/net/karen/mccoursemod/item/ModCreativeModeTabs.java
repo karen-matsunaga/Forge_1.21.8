@@ -16,27 +16,28 @@ public class ModCreativeModeTabs extends CreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MccourseMod.MOD_ID);
 
-//    public static final RegistryObject<CreativeModeTab> ALEXANDRITE_ITEMS_TAB =
-//            CREATIVE_MODE_TABS.register("alexandrite_items_tab",
-//                    () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ALEXANDRITE.get()))
-//                            .title(Component.translatable("creativetab.mccoursemod.alexandrite_items"))
-//                            .displayItems((itemDisplayParameters, output) -> {
-//                                // Custom item
-//                                output.accept(ModItems.ALEXANDRITE.get());
-//                            }).build());
+    // Register all custom items
+    public static final RegistryObject<CreativeModeTab> MCCOURSE_ITEMS_TAB =
+            CREATIVE_MODE_TABS.register("mccourse_items_tab",
+                    () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ALEXANDRITE.get()))
+                            .title(Component.translatable("creativetab.mccoursemod.mccourse_items"))
+                            .displayItems((itemDisplayParameters, output) -> {
+                                // Custom item
+                                output.accept(ModItems.ALEXANDRITE.get());
+                            }).build());
 
-    public static final RegistryObject<CreativeModeTab> ENCHANT_BLOCKS_TAB =
-            CREATIVE_MODE_TABS.register("enchant_blocks_tab",
+    // Register all custom blocks
+    public static final RegistryObject<CreativeModeTab> MCCOURSE_BLOCKS_TAB =
+            CREATIVE_MODE_TABS.register("mccourse_blocks_tab",
                     () -> CreativeModeTab.builder().icon(() -> new ItemStack(Items.ANVIL))
-//                            .withTabsBefore(ALEXANDRITE_ITEMS_TAB.getId())
-                            .title(Component.translatable("creativetab.mccoursemod.enchant_blocks"))
+                            .withTabsBefore(MCCOURSE_ITEMS_TAB.getId())
+                            .title(Component.translatable("creativetab.mccoursemod.mccourse_blocks"))
                             .displayItems((itemDisplayParameters, output) -> {
                                 // Custom block
                                 output.accept(ModBlocks.ENCHANT.get());
                                 output.accept(ModBlocks.ALEXANDRITE_BLOCK.get());
-                                output.accept(ModItems.ALEXANDRITE.get());
                             }).build());
 
-
-    public static void register(BusGroup eventBus) { CREATIVE_MODE_TABS.register(eventBus); }
+    // Register all custom items and blocks on bus group event
+    public static void register(BusGroup busGroup) { CREATIVE_MODE_TABS.register(busGroup); }
 }

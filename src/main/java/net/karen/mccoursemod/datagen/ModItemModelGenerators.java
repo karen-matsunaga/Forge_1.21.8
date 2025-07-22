@@ -21,6 +21,5 @@ public class ModItemModelGenerators extends ItemModelGenerators {
         this.generateFlatItem(ModBlocks.ENCHANT.get().asItem(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.ALEXANDRITE.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModBlocks.ALEXANDRITE_BLOCK.get().asItem(), ModelTemplates.FLAT_ITEM);
-        // super.run();
     }
 }

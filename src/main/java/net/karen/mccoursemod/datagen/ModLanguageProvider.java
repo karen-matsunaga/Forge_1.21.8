@@ -21,6 +21,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.enchant", "Enchant Block");
         add("item.mccoursemod.alexandrite_block", "Alexandrite Block");
         // CUSTOM Creative Mode Tabs
-        add("creativetab.mccoursemod.enchant_blocks", "Mccourse Blocks");
+        add("creativetab.mccoursemod.mccourse_blocks", "Mccourse Blocks");
+        add("creativetab.mccoursemod.mccourse_items", "Mccourse Items");
     }
 }
