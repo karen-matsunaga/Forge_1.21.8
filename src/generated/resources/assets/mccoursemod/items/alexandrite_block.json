@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "mccoursemod:item/alexandrite_block"
+    "model": "mccoursemod:block/alexandrite_block"
   }
 }
