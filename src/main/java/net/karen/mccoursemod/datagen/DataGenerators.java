@@ -40,7 +40,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ModVanillaItemTagsProvider(packOutput, lookupProvider, existingFileHelper));
 
         // CUSTOM Enchantment tags
-//        generator.addProvider(event.includeServer(), new ModEnchantmentTagsProvider(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new ModEnchantmentTagsProvider(packOutput, lookupProvider, existingFileHelper));
 
         // CUSTOM Languages
         generator.addProvider(event.includeClient(), new ModLanguageProvider(packOutput, "en_us"));
