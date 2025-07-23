@@ -24,18 +24,18 @@ import java.util.Map;
 import java.util.function.Predicate;
 
 public class MagicEnchantBlock extends Block {
-    public MagicEnchantBlock(Properties properties) {
-        super(properties);
-    }
+    public MagicEnchantBlock(Properties properties) { super(properties); }
 
     @Override
     public void stepOn(Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Entity entity) {
         if (!level.isClientSide() && entity instanceof ItemEntity) {
-            List<ItemEntity> enchantedBooks = findItems(level, pos, book -> book.getItem().getItem() == Items.ENCHANTED_BOOK),
-                    enchantedItems = findItems(level, pos, item -> item.getItem().isEnchantable() || item.getItem().isEnchanted());
+            List<ItemEntity> enchantedBooks = findItems(level, pos, book -> // Book dropped on ground
+                                                        book.getItem().getItem() == Items.ENCHANTED_BOOK),
+                             enchantedItems = findItems(level, pos, item -> // Item dropped on ground
+                                                        item.getItem().isEnchantable() || item.getItem().isEnchanted());
             if (enchantedBooks.size() > 1) { combineBooks(level, pos, enchantedBooks); } // Combine enchanted books
             else if (enchantedBooks.size() == 1 && !enchantedItems.isEmpty()) {
-                applyBookToItem(level, pos, enchantedBooks.getFirst(), enchantedItems.getFirst()); // Combine book and item
+               applyBookToItem(level, pos, enchantedBooks.getFirst(), enchantedItems.getFirst()); // Combine book and item
             }
             else if (enchantedItems.size() > 1) { combineItems(level, pos, enchantedItems); } // Combine items
         }
@@ -53,19 +53,15 @@ public class MagicEnchantBlock extends Block {
                                      Item drop, Level level, BlockPos pos) {
         list.forEach(item -> {
             ItemEnchantments enchants = EnchantmentHelper.getEnchantmentsForCrafting(item.getItem()); // Get item enchantment
-            for (Map.Entry<Holder<Enchantment>, Integer> entry : enchants.entrySet()) {
-                Holder<Enchantment> ench = entry.getKey();
-                int lvl = entry.getValue();
-                if (lvl > 0) { combine.merge(ench, lvl, Integer::sum); } // Added and sum enchantment level
-            }
+            enchants.entrySet().forEach((ench) -> { // Added and sum enchantment level
+                if (ench.getIntValue() > 0) { combine.merge(ench.getKey(), ench.getIntValue(), Integer::sum); }
+            });
             item.discard(); // Remove enchanted book or item
         });
         ItemStack newValue = new ItemStack(drop); // Enchanted book or item with new enchantment
         ItemEnchantments newDropItem = ItemEnchantments.EMPTY;
         ItemEnchantments.Mutable newDrop = new ItemEnchantments.Mutable(newDropItem);
-        combine.forEach((ench, lvl) -> {
-            if (lvl > 0) { newDrop.set(ench, lvl); }
-        });
+        combine.forEach((ench, lvl) -> { if (lvl > 0) { newDrop.set(ench, lvl); } });
         EnchantmentHelper.setEnchantments(newValue, newDrop.toImmutable()); // Set item enchantments
         dropItem(level, pos, newValue); // Drop item on ground
     }
@@ -84,27 +80,22 @@ public class MagicEnchantBlock extends Block {
         ItemEnchantments bookEnchantments = EnchantmentHelper.getEnchantmentsForCrafting(bookStack), // Enchanted book
                 toolEnchantments = EnchantmentHelper.getEnchantmentsForCrafting(toolStack); // Base item
         Map<Holder<Enchantment>, Integer> sumLevel = new HashMap<>();
-        // Added and sum enchantment level (Book -> Item) -> BOOK
-        for (Map.Entry<Holder<Enchantment>, Integer> entry : bookEnchantments.entrySet()) {
-            Holder<Enchantment> ench = entry.getKey();
-            int lvl = entry.getValue();
-            if (lvl > 0) { sumLevel.put(ench, lvl); }
-        }
-        for (Map.Entry<Holder<Enchantment>, Integer> entry : toolEnchantments.entrySet()) {
-            Holder<Enchantment> ench = entry.getKey();
-            int lvl = entry.getValue();
-            if (lvl > 0) { sumLevel.merge(ench, lvl, Integer::sum); }
-        }
+        // Added enchantment level -> BOOK
+        bookEnchantments.entrySet().forEach((ench) -> {
+            if (ench.getIntValue() > 0) { sumLevel.put(ench.getKey(), ench.getIntValue()); }
+        });
+        // Added and sum enchantment level -> ITEM
+        toolEnchantments.entrySet().forEach((ench) -> {
+            if (ench.getIntValue() > 0) { sumLevel.merge(ench.getKey(), ench.getIntValue(), Integer::sum); }
+        });
+        // Store all new enchantment levels
         ItemEnchantments.Mutable enchantments = new ItemEnchantments.Mutable(toolEnchantments);
-        for (Map.Entry<Holder<Enchantment>, Integer> entry : sumLevel.entrySet()) {
-            Holder<Enchantment> key = entry.getKey(); // Set enchantment
-            Integer lvl = entry.getValue(); // Set enchantment level
-            enchantments.set(key, lvl); // Store new enchantment level
-        }
+        sumLevel.forEach(enchantments::set); // Stored new enchantment level
         EnchantmentHelper.setEnchantments(toolStack, enchantments.toImmutable());
-        dropItem(level, pos, toolStack); // If you can't deliver, drop it in the world
-        toolEntity.discard();
-        bookStack.shrink(1);
+        // If you can't deliver, drop it in the world
+        dropItem(level, pos, toolStack);
+        toolEntity.discard(); // Remove old item
+        bookStack.shrink(1); // Remove old book
         if (bookStack.isEmpty()) { bookEntity.discard(); }
         else { bookEntity.setItem(bookStack); }
         playSound(level, pos);
