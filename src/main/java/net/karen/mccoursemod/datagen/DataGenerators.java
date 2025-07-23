@@ -37,12 +37,15 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ModVanillaBlockTagsProvider(packOutput, lookupProvider, existingFileHelper));
 
         // CUSTOM Item tags
-//        generator.addProvider(event.includeServer(), new ModVanillaItemTagsProvider(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new ModVanillaItemTagsProvider(packOutput, lookupProvider, existingFileHelper));
 
         // CUSTOM Enchantment tags
 //        generator.addProvider(event.includeServer(), new ModEnchantmentTagsProvider(packOutput, lookupProvider, existingFileHelper));
 
         // CUSTOM Languages
         generator.addProvider(event.includeClient(), new ModLanguageProvider(packOutput, "en_us"));
+
+        // CUSTOM Trim, Enchantments Effects, World generation etc.
+        generator.addProvider(event.includeServer(), new ModDatapackEntries(packOutput, lookupProvider));
     }
 }

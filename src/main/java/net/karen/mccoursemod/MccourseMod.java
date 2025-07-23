@@ -1,6 +1,7 @@
 package net.karen.mccoursemod;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.enchantment.ModEnchantmentEffects;
 import net.karen.mccoursemod.item.ModCreativeModeTabs;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -27,6 +28,8 @@ public final class MccourseMod {
         ModItems.register(modBusGroup);
         // Register the Deferred Register to the mod event bus so tabs get registered
         ModCreativeModeTabs.register(modBusGroup);
+        // Register the Deferred Register to the mod event bus so enchantments get registered
+        ModEnchantmentEffects.register(modBusGroup);
 
         // Register the item to a creative tab
         BuildCreativeModeTabContentsEvent.getBus(modBusGroup).addListener(MccourseMod::addCreative);
