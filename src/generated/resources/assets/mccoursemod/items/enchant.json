@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "mccoursemod:item/enchant"
+    "model": "mccoursemod:block/enchant"
   }
 }
