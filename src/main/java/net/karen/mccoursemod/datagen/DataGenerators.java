@@ -47,5 +47,8 @@ public class DataGenerators {
 
         // CUSTOM Trim, Enchantments Effects, World generation etc.
         generator.addProvider(event.includeServer(), new ModDatapackEntries(packOutput, lookupProvider));
+
+        // CUSTOM Equipment Assets
+        generator.addProvider(event.includeClient(), new ModEquipmentAssetsProvider(packOutput));
     }
 }

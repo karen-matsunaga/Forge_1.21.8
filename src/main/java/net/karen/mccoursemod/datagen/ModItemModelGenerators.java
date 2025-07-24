@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.item.ModEquipmentAssets;
 import net.karen.mccoursemod.item.ModItems;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
@@ -28,5 +29,17 @@ public class ModItemModelGenerators extends ItemModelGenerators {
                                     ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(ModBlocks.ALEXANDRITE_BLOCK.get())));
         this.itemModelOutput.accept(ModBlocks.ENCHANT.get().asItem(),
                                     ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(ModBlocks.ENCHANT.get())));
+        // Custom armors
+        this.generateTrimmableItem(ModItems.ALEXANDRITE_HELMET.get(), ModEquipmentAssets.ALEXANDRITE,
+                                   TRIM_PREFIX_HELMET, false);
+
+        this.generateTrimmableItem(ModItems.ALEXANDRITE_CHESTPLATE.get(), ModEquipmentAssets.ALEXANDRITE,
+                                   TRIM_PREFIX_CHESTPLATE, false);
+
+        this.generateTrimmableItem(ModItems.ALEXANDRITE_LEGGINGS.get(), ModEquipmentAssets.ALEXANDRITE,
+                                   TRIM_PREFIX_LEGGINGS, false);
+
+        this.generateTrimmableItem(ModItems.ALEXANDRITE_BOOTS.get(), ModEquipmentAssets.ALEXANDRITE,
+                                   TRIM_PREFIX_BOOTS, false);
     }
 }

@@ -42,7 +42,11 @@ public class ModTags {
 //        public static final TagKey<Item> LEVEL_CHARGER_GENERAL = createTag("level_charger_general");
 
         // Alexandrite Ingredients
+        public static final TagKey<Item> ALEXANDRITE_ARMOR = createTag("alexandrite_armor");
+        // Tools
         public static final TagKey<Item> ALEXANDRITE_TOOL_MATERIALS = createTag("alexandrite_tool_materials");
+        // Armor ingredient
+        public static final TagKey<Item> REPAIRS_ALEXANDRITE_ARMOR = createTag("repairs_alexandrite_armor");
 
         // CUSTOM METHOD - Registry all custom item tags
         private static TagKey<Item> createTag(String name) {

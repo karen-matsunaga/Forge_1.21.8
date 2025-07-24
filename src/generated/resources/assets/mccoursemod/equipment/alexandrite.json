@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "mccoursemod:alexandrite"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "mccoursemod:alexandrite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "mccoursemod:alexandrite"
+      }
+    ]
+  }
+}

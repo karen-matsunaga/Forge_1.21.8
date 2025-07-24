@@ -22,9 +22,15 @@ public class ModCreativeModeTabs extends CreativeModeTabs {
                     () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ALEXANDRITE.get()))
                             .title(Component.translatable("creativetab.mccoursemod.mccourse_items"))
                             .displayItems((itemDisplayParameters, output) -> {
-                                // Custom item
+                                // CUSTOM items
                                 output.accept(ModItems.ALEXANDRITE.get());
+                                // CUSTOM tools
                                 output.accept(ModItems.ALEXANDRITE_HAMMER.get());
+                                // CUSTOM armors
+                                output.accept(ModItems.ALEXANDRITE_HELMET.get());
+                                output.accept(ModItems.ALEXANDRITE_CHESTPLATE.get());
+                                output.accept(ModItems.ALEXANDRITE_LEGGINGS.get());
+                                output.accept(ModItems.ALEXANDRITE_BOOTS.get());
                             }).build());
 
     // Register all custom blocks
@@ -34,7 +40,7 @@ public class ModCreativeModeTabs extends CreativeModeTabs {
                             .withTabsBefore(MCCOURSE_ITEMS_TAB.getId())
                             .title(Component.translatable("creativetab.mccoursemod.mccourse_blocks"))
                             .displayItems((itemDisplayParameters, output) -> {
-                                // Custom block
+                                // CUSTOM blocks
                                 output.accept(ModBlocks.ENCHANT.get());
                                 output.accept(ModBlocks.ALEXANDRITE_BLOCK.get());
                             }).build());
