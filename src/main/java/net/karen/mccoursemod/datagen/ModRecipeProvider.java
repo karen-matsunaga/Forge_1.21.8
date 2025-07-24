@@ -28,9 +28,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         super(provider, output);
     }
 
-    public static class ModRecipeProviderRunner extends ModRecipeProvider.Runner {
-        public ModRecipeProviderRunner(PackOutput packOutput,
-                                       CompletableFuture<HolderLookup.Provider> registries) {
+    public static class Runner extends RecipeProvider.Runner {
+        public Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> registries) {
             super(packOutput, registries);
         }
 
@@ -50,6 +49,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes() {
+        // CUSTOM block
         this.nineBlockStorageRecipes(RecipeCategory.MISC, Items.ANVIL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENCHANT.get());
         this.nineBlockStorageRecipes(RecipeCategory.MISC, ModItems.ALEXANDRITE.get(),
                                      RecipeCategory.BUILDING_BLOCKS, ModBlocks.ALEXANDRITE_BLOCK.get());
@@ -62,18 +62,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                                          .forEach(family -> this.generateRecipes(family, featureFlagSet));
     }
 
+    // CUSTOM METHOD - Smelting
     protected void oreSmelting(@NotNull List<ItemLike> itemLikes, @NotNull RecipeCategory category,
                                @NotNull ItemLike result, float experience, int cookingTime, @NotNull String group) {
         this.oreCooking(RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new, itemLikes, category, result,
                         experience, cookingTime, group, "_from_smelting");
     }
 
+    // CUSTOM METHOD - Blasting
     protected void oreBlasting(@NotNull List<ItemLike> itemLikes, @NotNull RecipeCategory category,
                                @NotNull ItemLike result, float experience, int cookingTime, @NotNull String group) {
         this.oreCooking(RecipeSerializer.BLASTING_RECIPE, BlastingRecipe::new, itemLikes, category, result,
                         experience, cookingTime, group, "_from_blasting");
     }
 
+    // CUSTOM METHOD - Smelting and Blasting
     private <T extends AbstractCookingRecipe> void oreCooking(RecipeSerializer<T> serializer,
                                                               AbstractCookingRecipe.Factory<T> recipeFactory,
                                                               List<ItemLike> itemLikes, RecipeCategory category,

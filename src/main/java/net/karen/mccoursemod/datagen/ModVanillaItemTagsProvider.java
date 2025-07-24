@@ -11,12 +11,20 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CompletableFuture;
 
 public class ModVanillaItemTagsProvider extends VanillaItemTagsProvider {
-    public ModVanillaItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
+    public ModVanillaItemTagsProvider(PackOutput output,
+                                      CompletableFuture<HolderLookup.Provider> lookupProvider,
+                                      ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, MccourseMod.MOD_ID, existingFileHelper);
     }
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-        this.tag(ItemTags.BEACON_PAYMENT_ITEMS).add(ModItems.ALEXANDRITE.get());
+        // CUSTOM Items
+        tag(ItemTags.BEACON_PAYMENT_ITEMS).add(ModItems.ALEXANDRITE.get());
+        // CUSTOM Tools
+        tag(ItemTags.DURABILITY_ENCHANTABLE).add(ModItems.ALEXANDRITE_HAMMER.get());
+        tag(ItemTags.MINING_LOOT_ENCHANTABLE).add(ModItems.ALEXANDRITE_HAMMER.get());
+        tag(ItemTags.VANISHING_ENCHANTABLE).add(ModItems.ALEXANDRITE_HAMMER.get());
+        tag(ItemTags.MINING_ENCHANTABLE).add(ModItems.ALEXANDRITE_HAMMER.get());
     }
 }

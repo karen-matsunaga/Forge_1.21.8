@@ -18,6 +18,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.ALEXANDRITE_BLOCK, "Alexandrite Block");
         // CUSTOM Items
         addItem(ModItems.ALEXANDRITE, "Alexandrite Gem");
+        addItem(ModItems.ALEXANDRITE_HAMMER, "Alexandrite Hammer");
         add("item.mccoursemod.enchant", "Enchant Block");
         add("item.mccoursemod.alexandrite_block", "Alexandrite Block");
         // CUSTOM Enchantment

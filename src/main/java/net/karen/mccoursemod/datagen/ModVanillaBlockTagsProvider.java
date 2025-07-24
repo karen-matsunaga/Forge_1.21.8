@@ -12,7 +12,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CompletableFuture;
 
 public class ModVanillaBlockTagsProvider extends VanillaBlockTagsProvider {
-    public ModVanillaBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
+    public ModVanillaBlockTagsProvider(PackOutput output,
+                                       CompletableFuture<HolderLookup.Provider> lookupProvider,
+                                       ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, MccourseMod.MOD_ID, existingFileHelper);
     }
 

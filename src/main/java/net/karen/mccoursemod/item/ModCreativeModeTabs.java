@@ -24,6 +24,7 @@ public class ModCreativeModeTabs extends CreativeModeTabs {
                             .displayItems((itemDisplayParameters, output) -> {
                                 // Custom item
                                 output.accept(ModItems.ALEXANDRITE.get());
+                                output.accept(ModItems.ALEXANDRITE_HAMMER.get());
                             }).build());
 
     // Register all custom blocks

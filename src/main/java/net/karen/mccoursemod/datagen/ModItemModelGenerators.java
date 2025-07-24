@@ -22,6 +22,7 @@ public class ModItemModelGenerators extends ItemModelGenerators {
     public void run() {
         // Custom items
         this.generateFlatItem(ModItems.ALEXANDRITE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.ALEXANDRITE_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         // Custom blocks
         this.itemModelOutput.accept(ModBlocks.ALEXANDRITE_BLOCK.get().asItem(),
                                     ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(ModBlocks.ALEXANDRITE_BLOCK.get())));

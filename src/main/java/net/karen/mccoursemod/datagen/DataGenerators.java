@@ -31,7 +31,7 @@ public class DataGenerators {
                                                                              LootContextParamSets.BLOCK)), lookupProvider));
 
         // CUSTOM Recipes
-        generator.addProvider(event.includeServer(), new ModRecipeProvider.ModRecipeProviderRunner(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModRecipeProvider.Runner(packOutput, lookupProvider));
 
         // CUSTOM Block tags
         generator.addProvider(event.includeServer(), new ModVanillaBlockTagsProvider(packOutput, lookupProvider, existingFileHelper));
