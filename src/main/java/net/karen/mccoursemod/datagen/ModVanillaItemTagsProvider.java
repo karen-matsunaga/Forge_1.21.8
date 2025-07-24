@@ -2,6 +2,7 @@ package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.item.ModItems;
+import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.VanillaItemTagsProvider;
@@ -26,5 +27,7 @@ public class ModVanillaItemTagsProvider extends VanillaItemTagsProvider {
         tag(ItemTags.MINING_LOOT_ENCHANTABLE).add(ModItems.ALEXANDRITE_HAMMER.get());
         tag(ItemTags.VANISHING_ENCHANTABLE).add(ModItems.ALEXANDRITE_HAMMER.get());
         tag(ItemTags.MINING_ENCHANTABLE).add(ModItems.ALEXANDRITE_HAMMER.get());
+        // CUSTOM Tools ingredients repair
+        tag(ModTags.Items.ALEXANDRITE_TOOL_MATERIALS).add(ModItems.ALEXANDRITE.get());
     }
 }

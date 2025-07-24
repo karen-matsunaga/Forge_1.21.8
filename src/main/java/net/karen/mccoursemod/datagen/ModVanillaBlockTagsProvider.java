@@ -2,6 +2,7 @@ package net.karen.mccoursemod.datagen;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.VanillaBlockTagsProvider;
@@ -24,5 +25,8 @@ public class ModVanillaBlockTagsProvider extends VanillaBlockTagsProvider {
         this.tag(Tags.Blocks.NEEDS_GOLD_TOOL).add(ModBlocks.ENCHANT.get(), ModBlocks.ALEXANDRITE_BLOCK.get());
         this.tag(Tags.Blocks.NEEDS_NETHERITE_TOOL).add(ModBlocks.ENCHANT.get(), ModBlocks.ALEXANDRITE_BLOCK.get());
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.ENCHANT.get(), ModBlocks.ALEXANDRITE_BLOCK.get());
+        // CUSTOM Tier Tools - Alexandrite as Netherite tier
+        tag(ModTags.Blocks.NEEDS_ALEXANDRITE_TOOL).add(ModBlocks.ENCHANT.get(), ModBlocks.ALEXANDRITE_BLOCK.get());
+        tag(ModTags.Blocks.INCORRECT_FOR_ALEXANDRITE_TOOL);
     }
 }

@@ -1,4 +1,5 @@
-// 1.21.8	2025-07-23T19:33:20.3802224	Tags for minecraft:item mod id mccoursemod
+// 1.21.8	2025-07-24T09:19:14.420491	Tags for minecraft:item mod id mccoursemod
+17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/alexandrite_tool_materials.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/minecraft/tags/item/beacon_payment_items.json
 ec5fcf9088dec6adc90717c3473b326b09fedae9 data/minecraft/tags/item/enchantable/durability.json
 ec5fcf9088dec6adc90717c3473b326b09fedae9 data/minecraft/tags/item/enchantable/mining.json

@@ -1,5 +1,7 @@
-// 1.21.8	2025-07-22T17:19:16.5432247	Tags for minecraft:block mod id mccoursemod
+// 1.21.8	2025-07-24T09:19:14.420491	Tags for minecraft:block mod id mccoursemod
 3fb5a5e1535d60ed8d7d884126c5bb6a204b8020 data/forge/tags/block/needs_gold_tool.json
 3fb5a5e1535d60ed8d7d884126c5bb6a204b8020 data/forge/tags/block/needs_netherite_tool.json
 3fb5a5e1535d60ed8d7d884126c5bb6a204b8020 data/forge/tags/block/needs_wood_tool.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_alexandrite_tool.json
+3fb5a5e1535d60ed8d7d884126c5bb6a204b8020 data/mccoursemod/tags/block/needs_alexandrite_tool.json
 3fb5a5e1535d60ed8d7d884126c5bb6a204b8020 data/minecraft/tags/block/mineable/pickaxe.json
