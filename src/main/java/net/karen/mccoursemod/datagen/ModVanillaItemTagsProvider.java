@@ -51,5 +51,8 @@ public class ModVanillaItemTagsProvider extends VanillaItemTagsProvider {
         tag(ItemTags.LEG_ARMOR).add(ModItems.ALEXANDRITE_LEGGINGS.get());
         tag(ItemTags.CHEST_ARMOR).add(ModItems.ALEXANDRITE_CHESTPLATE.get());
         tag(ItemTags.HEAD_ARMOR).add(ModItems.ALEXANDRITE_HELMET.get());
+
+        // Level Charger
+        tag(ModTags.Items.LEVEL_CHARGER_GENERAL).add(ModItems.LEVEL_CHARGER_PLUS.get(), ModItems.LEVEL_CHARGER_MINUS.get());
     }
 }

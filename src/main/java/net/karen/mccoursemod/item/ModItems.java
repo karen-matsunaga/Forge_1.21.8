@@ -52,6 +52,18 @@ public class ModItems {
                                                     "alexandrite_boots")))
                                                 .humanoidArmor(ModArmorMaterials.ALEXANDRITE, ArmorType.BOOTS)));
 
+    public static final RegistryObject<Item> LEVEL_CHARGER_PLUS = ITEMS.register("level_charger_plus",
+            () -> new LevelChargerItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                   ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                   "level_charger_plus")))
+                                                            .fireResistant(), 1));
+
+    public static final RegistryObject<Item> LEVEL_CHARGER_MINUS = ITEMS.register("level_charger_minus",
+            () -> new LevelChargerItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                   ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                   "level_charger_minus")))
+                                                            .fireResistant(), -1));
+
     // CUSTOM METHOD - Registry all items on MccourseMod file
     public static void register(BusGroup busGroup) { ITEMS.register(busGroup); }
 }

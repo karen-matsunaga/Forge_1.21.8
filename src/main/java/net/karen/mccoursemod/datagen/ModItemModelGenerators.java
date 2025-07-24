@@ -41,5 +41,9 @@ public class ModItemModelGenerators extends ItemModelGenerators {
 
         this.generateTrimmableItem(ModItems.ALEXANDRITE_BOOTS.get(), ModEquipmentAssets.ALEXANDRITE,
                                    TRIM_PREFIX_BOOTS, false);
+
+        // Custom items
+        this.generateFlatItem(ModItems.LEVEL_CHARGER_PLUS.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.LEVEL_CHARGER_MINUS.get(), ModelTemplates.FLAT_ITEM);
     }
 }

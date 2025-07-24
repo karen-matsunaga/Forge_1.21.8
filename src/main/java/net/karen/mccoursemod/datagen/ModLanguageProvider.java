@@ -18,6 +18,8 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.ALEXANDRITE_BLOCK, "Alexandrite Block");
         // CUSTOM Items
         addItem(ModItems.ALEXANDRITE, "Alexandrite Gem");
+        addItem(ModItems.LEVEL_CHARGER_PLUS, "Level Charger Plus");
+        addItem(ModItems.LEVEL_CHARGER_MINUS, "Level Charger Minus");
         addItem(ModItems.ALEXANDRITE_HAMMER, "Alexandrite Hammer");
         addItem(ModItems.ALEXANDRITE_HELMET, "Alexandrite Helmet");
         addItem(ModItems.ALEXANDRITE_CHESTPLATE, "Alexandrite Chestplate");

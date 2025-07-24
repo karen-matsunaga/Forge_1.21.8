@@ -39,7 +39,7 @@ public class ModTags {
 //        public static final TagKey<Item> BOOTS_FLY = createTag("boots_fly");
 //
 //        // Level Charger items
-//        public static final TagKey<Item> LEVEL_CHARGER_GENERAL = createTag("level_charger_general");
+        public static final TagKey<Item> LEVEL_CHARGER_GENERAL = createTag("level_charger_general");
 
         // Alexandrite Ingredients
         public static final TagKey<Item> ALEXANDRITE_ARMOR = createTag("alexandrite_armor");

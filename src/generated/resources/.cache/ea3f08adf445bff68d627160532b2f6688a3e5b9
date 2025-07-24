@@ -1,6 +1,7 @@
-// 1.21.8	2025-07-24T13:03:02.4378114	Tags for minecraft:item mod id mccoursemod
+// 1.21.8	2025-07-24T18:49:31.8140854	Tags for minecraft:item mod id mccoursemod
 23322585108afbbd5f20fd5e29aa83527532621d data/mccoursemod/tags/item/alexandrite_armor.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/alexandrite_tool_materials.json
+aab193eeeca5accc13bd0c1e4f2a0ef6b147cb58 data/mccoursemod/tags/item/level_charger_general.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/repairs_alexandrite_armor.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/minecraft/tags/item/beacon_payment_items.json
 34cda53d5b073a8b36e6ae776797bc148890b805 data/minecraft/tags/item/chest_armor.json
