@@ -71,13 +71,11 @@ public class LevelChargerItem extends Item {
             }
             // Create new map with increased levels and store original enchantment and level
             Map<Holder<Enchantment>, Integer> upgraded = new HashMap<>();
-            // ** CREATE A FAKE ENCHANTMENT TO FUNCTION **
             allEnch.entrySet().forEach((enc) -> {
-                if (changerStack.is(ModTags.Items.LEVEL_CHARGER_GENERAL)) {
-                    upgraded.put(enc.getKey(), Math.max(1, enc.getIntValue() + amount));
-                }
-                // Store new enchantment and new enchantment level
-                if (changerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF) && enc.getKey().equals(specifEnch)) {
+                // ** CREATE A FAKE ENCHANTMENT TO FUNCTION ** -> Store new enchantment level of all enchants
+                // Store new specif enchantment level
+                if (changerStack.is(ModTags.Items.LEVEL_CHARGER_GENERAL) && !enc.getKey().equals(specifEnch) ||
+                    changerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF) && enc.getKey().equals(specifEnch)) {
                     upgraded.put(enc.getKey(), Math.max(1, enc.getIntValue() + amount));
                 }
             });
@@ -85,7 +83,7 @@ public class LevelChargerItem extends Item {
             ItemEnchantments.Mutable enchantments = new ItemEnchantments.Mutable(allEnch);
             upgraded.forEach(enchantments::set);
             EnchantmentHelper.setEnchantments(targetStack, enchantments.toImmutable()); // New enchantment level
-            itemHurt(player, changerStack); // Message on screen
+            if (specifEnch != null) { itemHurt(player, changerStack, specifEnch); } // Message on screen
             changerStack.shrink(1); // Consumes Level Charger
             return InteractionResult.SUCCESS;
         }
@@ -97,13 +95,11 @@ public class LevelChargerItem extends Item {
     public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context,
                                 @NotNull TooltipDisplay tooltipDisplay, @NotNull Consumer<Component> consumer,
                                 @NotNull TooltipFlag flag) {
-        String name = stack.getItem().getDescriptionId().replace("item.mccoursemod.", "");
-        if (stack.is(ModItems.LEVEL_CHARGER_PLUS.get()) || stack.is(ModItems.LEVEL_CHARGER_PLUS_FORTUNE.get())) {
-            tooltipLine(consumer, itemLines(splitWord(name)) + " increase +" + amount + " level.", green);
-        }
-        else if (stack.is(ModItems.LEVEL_CHARGER_MINUS.get()) || stack.is(ModItems.LEVEL_CHARGER_MINUS_FORTUNE.get())) {
-            tooltipLine(consumer, itemLines(splitWord(name)) + " decrease " + amount + " level.", red);
-        }
+        String name = stack.getItem().getDescriptionId().replace("item.mccoursemod.", ""),
+               newName = itemLines(splitWord(name)), general = amount + " level.",
+               pos = newName + " increase +" + general, neg = newName + " decrease " + general;
+        boolean value = (amount == 1);
+        if (stack.is(ModTags.Items.LEVEL_CHARGER_ITEMS)) { tooltipLine(consumer, value ? pos : neg, value ? green : red); }
         super.appendHoverText(stack, context, tooltipDisplay, consumer, flag);
     }
 
@@ -117,13 +113,17 @@ public class LevelChargerItem extends Item {
     }
 
     // CUSTOM METHOD - Message when consumed Level Charger (Plus / Minus) items
-    private void itemHurt(Player player, ItemStack chargerStack) {
-        String pos = "Increased +", neg = "Decreased ", screen = amount + " level(s)!",
-               item = itemLine(enchantment.registry().toString(), vanilla, "", mod, ""),
-               message = amount + " " + itemLines(item) + " level!";
-        if (chargerStack.is(ModItems.LEVEL_CHARGER_PLUS.get())) { player(player, pos + screen, green); }
-        if (chargerStack.is(ModItems.LEVEL_CHARGER_MINUS.get())) { player(player, neg + screen, red); }
-        if (chargerStack.is(ModItems.LEVEL_CHARGER_PLUS_FORTUNE.get())) { player(player, pos + message, green); }
-        if (chargerStack.is(ModItems.LEVEL_CHARGER_MINUS_FORTUNE.get())) { player(player, neg + message, red); }
+    private void itemHurt(Player player, ItemStack chargerStack, Holder<Enchantment> ench) {
+        String pos = "Increased +", neg = "Decreased ";
+        boolean value = (amount == 1);
+        if (chargerStack.is(ModTags.Items.LEVEL_CHARGER_GENERAL)) {
+           String screen = amount + " level(s)!", positive = pos + screen, negative = neg + screen;
+           player(player, value ? positive : negative, value ? green : red);
+        }
+        if (chargerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF)) {
+            String i18 = ench.getRegisteredName(),
+                   message = amount + " " + itemLines(i18.replace("minecraft:", "")) + " level!";
+            player(player, value ? (pos + message) : (neg + message), value ? green : red);
+        }
     }
 }
