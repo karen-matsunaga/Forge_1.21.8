@@ -38,8 +38,13 @@ public class ModTags {
 //        public static final TagKey<Item> LEGGINGS_FLY = createTag("leggings_fly");
 //        public static final TagKey<Item> BOOTS_FLY = createTag("boots_fly");
 //
-//        // Level Charger items
+        // Level Charger items
+        public static final TagKey<Item> LEVEL_CHARGER_ITEMS = createTag("level_charger_items");
         public static final TagKey<Item> LEVEL_CHARGER_GENERAL = createTag("level_charger_general");
+        public static final TagKey<Item> LEVEL_CHARGER_SPECIF = createTag("level_charger_specif");
+        public static final TagKey<Item> LEVEL_CHARGER_ENCHANTABLE = createTag("level_charger_enchantable");
+        public static final TagKey<Item> LEVEL_CHARGER_GREEN = createTag("level_charger_green");
+        public static final TagKey<Item> LEVEL_CHARGER_RED = createTag("level_charger_red");
 
         // Alexandrite Ingredients
         public static final TagKey<Item> ALEXANDRITE_ARMOR = createTag("alexandrite_armor");
@@ -57,6 +62,7 @@ public class ModTags {
     // CUSTOM CLASS - Registry all custom enchantment tags
     public static class Enchantments {
         public static final TagKey<Enchantment> LIGHTNING_STRIKER_TAG = createTag("lightning_striker_tag");
+        public static final TagKey<Enchantment> MESSAGE_TAG = createTag("message_tag");
 
         // CUSTOM METHOD - Registry all custom enchantment tags
         private static TagKey<Enchantment> createTag(String name) {

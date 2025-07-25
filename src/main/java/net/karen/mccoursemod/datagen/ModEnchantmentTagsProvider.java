@@ -23,5 +23,6 @@ public class ModEnchantmentTagsProvider extends EnchantmentTagsProvider {
         this.tag(EnchantmentTags.DAMAGE_EXCLUSIVE).addOptional(ModEnchantments.LIGHTNING_STRIKER.location());
         this.tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER.location());
         this.tag(ModTags.Enchantments.LIGHTNING_STRIKER_TAG).addOptional(ModEnchantments.LIGHTNING_STRIKER.location());
+        this.tag(ModTags.Enchantments.MESSAGE_TAG).addOptional(ModEnchantments.MESSAGE.location());
     }
 }

@@ -3,6 +3,7 @@ package net.karen.mccoursemod.item;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -24,45 +25,65 @@ import static net.karen.mccoursemod.util.Util.offhand;
 
 public class LevelChargerItem extends Item {
     private final int amount;
+    private final ResourceKey<Enchantment> enchantment;
 
-    public LevelChargerItem(Properties properties, int amount) {
+    public LevelChargerItem(Properties properties, int amount,
+                            ResourceKey<Enchantment> enchantment) {
         super(properties);
         this.amount = amount;
+        this.enchantment = enchantment;
     }
 
     @Override
     public @NotNull InteractionResult use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
         InteractionHand otherHand = (hand == mainHand) ? offhand : mainHand; // Player's MAIN HAND and OFFHAND
-        ItemStack changerStack = player.getItemInHand(hand),
-                targetStack = player.getItemInHand(otherHand);
-        if (!player.level().isClientSide() && changerStack.is(ModTags.Items.LEVEL_CHARGER_GENERAL)) {
+        ItemStack changerStack = player.getItemInHand(hand), // Level Charger item - OFFHAND
+                   targetStack = player.getItemInHand(otherHand); // Armor, Tool, Enchanted book, etc. - TARGET MAIN HAND
+        if (!(changerStack.getItem() instanceof LevelChargerItem self)) { return InteractionResult.FAIL; }
+        if (!player.level().isClientSide() && changerStack.is(ModTags.Items.LEVEL_CHARGER_ITEMS)) {
             // Get all enchantments and enchantment levels
             ItemEnchantments allEnch = EnchantmentHelper.getEnchantmentsForCrafting(targetStack);
-            if (allEnch.isEmpty()) {
+            Holder<Enchantment> specifEnch = self.enchantment.getOrThrow(level); // SPECIF enchantment
+            int amount = self.amount;
+            if (allEnch.isEmpty() || targetStack.is(ModTags.Items.LEVEL_CHARGER_ITEMS)) {
                 player(player, "The item has no enchantments!", darkRed);
                 return InteractionResult.FAIL;
             }
+            // Specif enchantment types
+            if (changerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF) && specifEnch != null && !allEnch.keySet().contains(specifEnch)) {
+                player(player, "This item doesn't have the required enchantment!", gray);
+                return InteractionResult.FAIL;
+            }
             if (amount < 0) { // Check enchantment levels
-                boolean allMin = allEnch.entrySet().stream().allMatch(e -> e.getIntValue() <= 1);
-                if (allMin) { // All enchantment are with min level is 1
+                boolean allMin; // All enchantment are with min level is 1
+                if (changerStack.is(ModItems.LEVEL_CHARGER_MINUS.get())) {
+                    allMin = allEnch.entrySet().stream().allMatch(e -> e.getIntValue() <= 1);
+                }
+                else if (changerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF) && specifEnch != null) {
+                    allMin = allEnch.entrySet().stream().filter(e -> e.getKey().equals(specifEnch))
+                                                        .allMatch(e -> e.getIntValue() <= 1);
+                }
+                else { return InteractionResult.FAIL; }
+                if (allMin) {
                     player(player, "All enchantments are already at level 1!", aqua);
                     return InteractionResult.FAIL;
                 }
             }
             // Create new map with increased levels and store original enchantment and level
             Map<Holder<Enchantment>, Integer> upgraded = new HashMap<>();
-            for (Map.Entry<Holder<Enchantment>, Integer> entry : allEnch.entrySet()) {
-                Holder<Enchantment> enchant = entry.getKey(); // Get enchantment
-                int newLevel = Math.max(1, entry.getValue() + amount); // Get enchantment level
-                upgraded.put(enchant, newLevel); // Store new enchantment and new enchantment level
-            }
+            // ** CREATE A FAKE ENCHANTMENT TO FUNCTION **
+            allEnch.entrySet().forEach((enc) -> {
+                if (changerStack.is(ModTags.Items.LEVEL_CHARGER_GENERAL)) {
+                    upgraded.put(enc.getKey(), Math.max(1, enc.getIntValue() + amount));
+                }
+                // Store new enchantment and new enchantment level
+                if (changerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF) && enc.getKey().equals(specifEnch)) {
+                    upgraded.put(enc.getKey(), Math.max(1, enc.getIntValue() + amount));
+                }
+            });
             // Apply the updated enchantments to the original item
             ItemEnchantments.Mutable enchantments = new ItemEnchantments.Mutable(allEnch);
-            for (Map.Entry<Holder<Enchantment>, Integer> entry : upgraded.entrySet()) {
-                Holder<Enchantment> key = entry.getKey(); // Set enchantment
-                Integer lvl = entry.getValue(); // Set enchantment level
-                enchantments.set(key, lvl); // Store new enchantment level
-            }
+            upgraded.forEach(enchantments::set);
             EnchantmentHelper.setEnchantments(targetStack, enchantments.toImmutable()); // New enchantment level
             itemHurt(player, changerStack); // Message on screen
             changerStack.shrink(1); // Consumes Level Charger
@@ -77,10 +98,10 @@ public class LevelChargerItem extends Item {
                                 @NotNull TooltipDisplay tooltipDisplay, @NotNull Consumer<Component> consumer,
                                 @NotNull TooltipFlag flag) {
         String name = stack.getItem().getDescriptionId().replace("item.mccoursemod.", "");
-        if (stack.is(ModItems.LEVEL_CHARGER_PLUS.get())) {
+        if (stack.is(ModItems.LEVEL_CHARGER_PLUS.get()) || stack.is(ModItems.LEVEL_CHARGER_PLUS_FORTUNE.get())) {
             tooltipLine(consumer, itemLines(splitWord(name)) + " increase +" + amount + " level.", green);
         }
-        else if (stack.is(ModItems.LEVEL_CHARGER_MINUS.get())) {
+        else if (stack.is(ModItems.LEVEL_CHARGER_MINUS.get()) || stack.is(ModItems.LEVEL_CHARGER_MINUS_FORTUNE.get())) {
             tooltipLine(consumer, itemLines(splitWord(name)) + " decrease " + amount + " level.", red);
         }
         super.appendHoverText(stack, context, tooltipDisplay, consumer, flag);
@@ -90,15 +111,19 @@ public class LevelChargerItem extends Item {
     @Override
     public @NotNull Component getName(@NotNull ItemStack stack) {
         Component baseName = super.getName(stack);
-        if (stack.is(ModItems.LEVEL_CHARGER_PLUS.get())) { return baseName.copy().withStyle(green); }
-        else if (stack.is(ModItems.LEVEL_CHARGER_MINUS.get())) { return baseName.copy().withStyle(red); }
+        if (stack.is(ModTags.Items.LEVEL_CHARGER_GREEN)) { return baseName.copy().withStyle(green); }
+        else if (stack.is(ModTags.Items.LEVEL_CHARGER_RED)) { return baseName.copy().withStyle(red); }
         return baseName;
     }
 
     // CUSTOM METHOD - Message when consumed Level Charger (Plus / Minus) items
     private void itemHurt(Player player, ItemStack chargerStack) {
-        String pos = "Increased +", neg = "Decreased ", screen = amount + " level(s)!";
+        String pos = "Increased +", neg = "Decreased ", screen = amount + " level(s)!",
+               item = itemLine(enchantment.registry().toString(), vanilla, "", mod, ""),
+               message = amount + " " + itemLines(item) + " level!";
         if (chargerStack.is(ModItems.LEVEL_CHARGER_PLUS.get())) { player(player, pos + screen, green); }
         if (chargerStack.is(ModItems.LEVEL_CHARGER_MINUS.get())) { player(player, neg + screen, red); }
+        if (chargerStack.is(ModItems.LEVEL_CHARGER_PLUS_FORTUNE.get())) { player(player, pos + message, green); }
+        if (chargerStack.is(ModItems.LEVEL_CHARGER_MINUS_FORTUNE.get())) { player(player, neg + message, red); }
     }
 }

@@ -20,6 +20,8 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.ALEXANDRITE, "Alexandrite Gem");
         addItem(ModItems.LEVEL_CHARGER_PLUS, "Level Charger Plus");
         addItem(ModItems.LEVEL_CHARGER_MINUS, "Level Charger Minus");
+        addItem(ModItems.LEVEL_CHARGER_MINUS_FORTUNE, "Level Charger Minus Fortune");
+        addItem(ModItems.LEVEL_CHARGER_PLUS_FORTUNE, "Level Charger Plus Fortune");
         addItem(ModItems.ALEXANDRITE_HAMMER, "Alexandrite Hammer");
         addItem(ModItems.ALEXANDRITE_HELMET, "Alexandrite Helmet");
         addItem(ModItems.ALEXANDRITE_CHESTPLATE, "Alexandrite Chestplate");
@@ -29,6 +31,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("item.mccoursemod.alexandrite_block", "Alexandrite Block");
         // CUSTOM Enchantment
         add("enchantment.mccoursemod.lightning_striker", "Lightning Striker");
+        add("enchantment.mccoursemod.message", "Message");
         // CUSTOM Creative Mode Tabs
         add("creativetab.mccoursemod.mccourse_blocks", "Mccourse Blocks");
         add("creativetab.mccoursemod.mccourse_items", "Mccourse Items");

@@ -1,0 +1,37 @@
+{
+  "anvil_cost": 1,
+  "description": {
+    "translate": "enchantment.mccoursemod.message"
+  },
+  "effects": {
+    "minecraft:post_attack": [
+      {
+        "affected": "victim",
+        "effect": {
+          "type": "mccoursemod:message",
+          "value": {
+            "type": "minecraft:linear",
+            "base": 0.0,
+            "per_level_above_first": 0.0
+          }
+        },
+        "enchanted": "victim"
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 1,
+    "per_level_above_first": 1
+  },
+  "max_level": 2,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 1
+  },
+  "primary_items": "#mccoursemod:level_charger_general",
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#mccoursemod:level_charger_enchantable",
+  "weight": 1
+}

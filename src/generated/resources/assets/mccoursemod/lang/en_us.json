@@ -4,6 +4,7 @@
   "creativetab.mccoursemod.mccourse_blocks": "Mccourse Blocks",
   "creativetab.mccoursemod.mccourse_items": "Mccourse Items",
   "enchantment.mccoursemod.lightning_striker": "Lightning Striker",
+  "enchantment.mccoursemod.message": "Message",
   "item.mccoursemod.alexandrite": "Alexandrite Gem",
   "item.mccoursemod.alexandrite_block": "Alexandrite Block",
   "item.mccoursemod.alexandrite_boots": "Alexandrite Boots",
@@ -13,5 +14,7 @@
   "item.mccoursemod.alexandrite_leggings": "Alexandrite Leggings",
   "item.mccoursemod.enchant": "Enchant Block",
   "item.mccoursemod.level_charger_minus": "Level Charger Minus",
-  "item.mccoursemod.level_charger_plus": "Level Charger Plus"
+  "item.mccoursemod.level_charger_minus_fortune": "Level Charger Minus Fortune",
+  "item.mccoursemod.level_charger_plus": "Level Charger Plus",
+  "item.mccoursemod.level_charger_plus_fortune": "Level Charger Plus Fortune"
 }
