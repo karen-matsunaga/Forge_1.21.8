@@ -15,8 +15,6 @@ import java.util.StringJoiner;
 import java.util.function.Consumer;
 
 public class ChatUtil { // GENERAL METHODS
-    public static String mod = "enchantment.mccourse.", vanilla = "enchantment.minecraft.";
-
     public static ChatFormatting blue = ChatFormatting.BLUE, darkBlue = ChatFormatting.DARK_BLUE,
             aqua = ChatFormatting.AQUA, darkAqua = ChatFormatting.DARK_AQUA, purple = ChatFormatting.LIGHT_PURPLE,
             darkPurple = ChatFormatting.DARK_PURPLE, green = ChatFormatting.GREEN, darkGreen = ChatFormatting.DARK_GREEN,
