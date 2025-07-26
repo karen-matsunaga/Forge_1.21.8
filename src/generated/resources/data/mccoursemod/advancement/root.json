@@ -1,0 +1,33 @@
+{
+  "criteria": {
+    "has_alexandrite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mccoursemod:alexandrite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "mccoursemod:textures/item/alexandrite.png",
+    "description": {
+      "translate": "advancement.mccoursemod.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "mccoursemod:alexandrite"
+    },
+    "title": {
+      "translate": "advancement.mccoursemod.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_alexandrite"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

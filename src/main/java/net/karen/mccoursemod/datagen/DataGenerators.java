@@ -33,6 +33,9 @@ public class DataGenerators {
         // CUSTOM Recipes
         generator.addProvider(event.includeServer(), new ModRecipeProvider.Runner(packOutput, lookupProvider));
 
+        // CUSTOM Advancements
+        generator.addProvider(event.includeServer(), new ModAdvancementProvider(packOutput, lookupProvider, existingFileHelper));
+
         // CUSTOM Block tags
         generator.addProvider(event.includeServer(), new ModVanillaBlockTagsProvider(packOutput, lookupProvider, existingFileHelper));
 

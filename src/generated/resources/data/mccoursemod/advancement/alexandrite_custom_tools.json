@@ -1,0 +1,33 @@
+{
+  "parent": "mccoursemod:alexandrite_vanilla_tools",
+  "criteria": {
+    "has_alexandrite_hammer": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mccoursemod:alexandrite_hammer"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.mccoursemod.alexandritecustomtools.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "mccoursemod:alexandrite_hammer"
+    },
+    "title": {
+      "translate": "advancement.mccoursemod.alexandritecustomtools.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_alexandrite_hammer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

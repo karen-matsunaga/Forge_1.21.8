@@ -1,0 +1,72 @@
+{
+  "parent": "mccoursemod:root",
+  "criteria": {
+    "has_alexandrite_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mccoursemod:alexandrite_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_alexandrite_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mccoursemod:alexandrite_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_alexandrite_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mccoursemod:alexandrite_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_alexandrite_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mccoursemod:alexandrite_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.mccoursemod.alexandritecustomarmors.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "mccoursemod:alexandrite_chestplate"
+    },
+    "title": {
+      "translate": "advancement.mccoursemod.alexandritecustomarmors.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_alexandrite_helmet"
+    ],
+    [
+      "has_alexandrite_chestplate"
+    ],
+    [
+      "has_alexandrite_leggings"
+    ],
+    [
+      "has_alexandrite_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,4 +1,12 @@
 {
+  "advancement.mccoursemod.alexandritecustomarmors.description": "Collect all exclusive Alexandrite custom armors!",
+  "advancement.mccoursemod.alexandritecustomarmors.title": "Alexandrite Custom Armors",
+  "advancement.mccoursemod.alexandritecustomtools.description": "Collect all exclusive Alexandrite custom tools!",
+  "advancement.mccoursemod.alexandritecustomtools.title": "Alexandrite Custom Tools",
+  "advancement.mccoursemod.alexandritevanillatools.description": "Collect all exclusive Alexandrite vanilla tools!",
+  "advancement.mccoursemod.alexandritevanillatools.title": "Alexandrite Vanilla Tools",
+  "advancement.mccoursemod.root.description": "Collect all exclusive ores, armors, tools, etc. on your journey!",
+  "advancement.mccoursemod.root.title": "Mccourse Mod",
   "block.mccoursemod.alexandrite_block": "Alexandrite Block",
   "block.mccoursemod.enchant": "Enchant Block",
   "creativetab.mccoursemod.mccourse_blocks": "Mccourse Blocks",
