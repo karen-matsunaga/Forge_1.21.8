@@ -1,6 +1,8 @@
 {
   "values": [
     "mccoursemod:enchant",
+    "mccoursemod:disenchant_individual",
+    "mccoursemod:disenchant_grouped",
     "mccoursemod:alexandrite_block"
   ]
 }

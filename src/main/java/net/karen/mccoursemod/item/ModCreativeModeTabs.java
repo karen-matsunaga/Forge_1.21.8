@@ -52,6 +52,8 @@ public class ModCreativeModeTabs extends CreativeModeTabs {
                             .displayItems((itemDisplayParameters, output) -> {
                                 // CUSTOM blocks
                                 output.accept(ModBlocks.ENCHANT.get());
+                                output.accept(ModBlocks.DISENCHANT_INDIVIDUAL.get());
+                                output.accept(ModBlocks.DISENCHANT_GROUPED.get());
                                 output.accept(ModBlocks.ALEXANDRITE_BLOCK.get());
                             }).build());
 

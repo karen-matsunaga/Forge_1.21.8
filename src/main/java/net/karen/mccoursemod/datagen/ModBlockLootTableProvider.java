@@ -27,6 +27,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
         this.dropSelf(ModBlocks.ENCHANT.get());
+        this.dropSelf(ModBlocks.DISENCHANT_INDIVIDUAL.get());
+        this.dropSelf(ModBlocks.DISENCHANT_GROUPED.get());
         this.dropSelf(ModBlocks.ALEXANDRITE_BLOCK.get());
     }
 

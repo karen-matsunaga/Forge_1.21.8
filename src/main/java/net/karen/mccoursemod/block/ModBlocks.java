@@ -21,18 +21,34 @@ public class ModBlocks {
 
     // CUSTOM Enchant block
     public static final RegistryObject<Block> ENCHANT = registerBlock("enchant",
-            () -> new MagicEnchantBlock(BlockBehaviour.Properties.of().strength(5.0F, 3600000.0F)
-                                                                      .requiresCorrectToolForDrops()
-                                                                      .setId(ResourceKey.create(Registries.BLOCK,
-                                                                             ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                                                                "enchant")))));
+            () -> new EnchantBlock(BlockBehaviour.Properties.of().strength(5.0F, 3600000.0F)
+                                                                 .requiresCorrectToolForDrops()
+                                                                 .setId(ResourceKey.create(Registries.BLOCK,
+                                                                        ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                        "enchant")))));
+
+    // CUSTOM Disenchant individual block
+    public static final RegistryObject<Block> DISENCHANT_INDIVIDUAL = registerBlock("disenchant_individual",
+            () -> new DisenchantBlock(BlockBehaviour.Properties.of().strength(5.0F, 3600000.0F)
+                                                                    .requiresCorrectToolForDrops()
+                                                                    .setId(ResourceKey.create(Registries.BLOCK,
+                                                                           ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                           "disenchant_individual"))), 1));
+
+    // CUSTOM Disenchant grouped block
+    public static final RegistryObject<Block> DISENCHANT_GROUPED = registerBlock("disenchant_grouped",
+            () -> new DisenchantBlock(BlockBehaviour.Properties.of().strength(5.0F, 3600000.0F)
+                                                                    .requiresCorrectToolForDrops()
+                                                                    .setId(ResourceKey.create(Registries.BLOCK,
+                                                                           ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                           "disenchant_grouped"))), 2));
 
     public static final RegistryObject<Block> ALEXANDRITE_BLOCK = registerBlock("alexandrite_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(5F, 5F)
                                                           .requiresCorrectToolForDrops()
                                                           .setId(ResourceKey.create(Registries.BLOCK,
                                                                  ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                                                 "alexandrite_block")))));
+                                                                 "alexandrite_block")))));
 
     // Register all custom blocks
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

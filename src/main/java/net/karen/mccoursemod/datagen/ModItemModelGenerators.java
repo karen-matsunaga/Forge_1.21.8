@@ -10,6 +10,8 @@ import net.minecraft.client.data.models.model.ModelInstance;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+
 import java.util.function.BiConsumer;
 
 public class ModItemModelGenerators extends ItemModelGenerators {
@@ -21,8 +23,19 @@ public class ModItemModelGenerators extends ItemModelGenerators {
     // Registry all custom item models
     @Override
     public void run() {
+        // Custom blocks
+        blockTexture(ModBlocks.ALEXANDRITE_BLOCK.get());
+        blockTexture(ModBlocks.ENCHANT.get());
+        blockTexture(ModBlocks.DISENCHANT_INDIVIDUAL.get());
+        blockTexture(ModBlocks.DISENCHANT_GROUPED.get());
+
         // Custom items
         this.generateFlatItem(ModItems.ALEXANDRITE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.LEVEL_CHARGER_GENERIC_PLUS.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
+
         // Custom tools
         this.generateFlatItem(ModItems.ALEXANDRITE_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.ALEXANDRITE_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
@@ -30,11 +43,7 @@ public class ModItemModelGenerators extends ItemModelGenerators {
         this.generateFlatItem(ModItems.ALEXANDRITE_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.ALEXANDRITE_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.ALEXANDRITE_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
-        // Custom blocks
-        this.itemModelOutput.accept(ModBlocks.ALEXANDRITE_BLOCK.get().asItem(),
-                                    ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(ModBlocks.ALEXANDRITE_BLOCK.get())));
-        this.itemModelOutput.accept(ModBlocks.ENCHANT.get().asItem(),
-                                    ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(ModBlocks.ENCHANT.get())));
+
         // Custom armors
         this.generateTrimmableItem(ModItems.ALEXANDRITE_HELMET.get(), ModEquipmentAssets.ALEXANDRITE,
                                    TRIM_PREFIX_HELMET, false);
@@ -47,11 +56,10 @@ public class ModItemModelGenerators extends ItemModelGenerators {
 
         this.generateTrimmableItem(ModItems.ALEXANDRITE_BOOTS.get(), ModEquipmentAssets.ALEXANDRITE,
                                    TRIM_PREFIX_BOOTS, false);
+    }
 
-        // Custom items
-        this.generateFlatItem(ModItems.LEVEL_CHARGER_GENERIC_PLUS.get(), ModelTemplates.FLAT_ITEM);
-        this.generateFlatItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get(), ModelTemplates.FLAT_ITEM);
-        this.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
-        this.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
+    // CUSTOM METHOD - Block texture
+    protected void blockTexture(Block block) {
+        this.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(block)));
     }
 }

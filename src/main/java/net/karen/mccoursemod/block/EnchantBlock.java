@@ -23,8 +23,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class MagicEnchantBlock extends Block {
-    public MagicEnchantBlock(Properties properties) { super(properties); }
+public class EnchantBlock extends Block {
+    public EnchantBlock(Properties properties) { super(properties); }
 
     @Override
     public void stepOn(Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Entity entity) {

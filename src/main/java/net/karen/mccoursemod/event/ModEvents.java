@@ -18,19 +18,19 @@ import java.util.Set;
 
 @Mod.EventBusSubscriber(modid = MccourseMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModEvents {
-    // CUSTOM EVENT - Item tooltip
-    @SubscribeEvent
-    public static void itemTooltip(ItemTooltipEvent event) {
-        ItemStack stack = event.getItemStack(); // Check if it is the specific block
-        if (stack.getItem() == ModBlocks.ENCHANT.get().asItem()) {
-            List<Component> tooltip = event.getToolTip(); // Original tooltip
-            if (!tooltip.isEmpty()) {
-                Component original = tooltip.getFirst(),
-                          colored = original.copy().withStyle(style -> style.withColor(0x00ff00));
-                tooltip.set(0, colored); // Change only the name (first line of the tooltip)
-            }
-        }
-    }
+//    // CUSTOM EVENT - Item tooltip
+//    @SubscribeEvent
+//    public static void itemTooltip(ItemTooltipEvent event) {
+//        ItemStack stack = event.getItemStack(); // Check if it is the specific block
+//        if (stack.getItem() == ModBlocks.ENCHANT.get().asItem()) {
+//            List<Component> tooltip = event.getToolTip(); // Original tooltip
+//            if (!tooltip.isEmpty()) {
+//                Component original = tooltip.getFirst(),
+//                          colored = original.copy().withStyle(style -> style.withColor(0x00ff00));
+//                tooltip.set(0, colored); // Change only the name (first line of the tooltip)
+//            }
+//        }
+//    }
 
     // CUSTOM EVENT - Hammer Item
     // Done with the help of https://github.com/CoFH/CoFHCore/blob/1.19.x/src/main/java/cofh/core/event/AreaEffectEvents.java

@@ -11,10 +11,14 @@ public class ModLanguageProvider extends LanguageProvider {
         super(output, MccourseMod.MOD_ID, locale);
     }
 
+    String item = "item.mccoursemod.";
+
     @Override
     protected void addTranslations() {
         // CUSTOM Blocks
         addBlock(ModBlocks.ENCHANT, "Enchant Block");
+        addBlock(ModBlocks.DISENCHANT_INDIVIDUAL, "Disenchant Individual");
+        addBlock(ModBlocks.DISENCHANT_GROUPED, "Disenchant Grouped");
         addBlock(ModBlocks.ALEXANDRITE_BLOCK, "Alexandrite Block");
         // CUSTOM Items
         addItem(ModItems.ALEXANDRITE, "Alexandrite Gem");
@@ -35,8 +39,10 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.ALEXANDRITE_LEGGINGS, "Alexandrite Leggings");
         addItem(ModItems.ALEXANDRITE_BOOTS, "Alexandrite Boots");
         // CUSTOM block item
-        add("item.mccoursemod.enchant", "Enchant Block");
-        add("item.mccoursemod.alexandrite_block", "Alexandrite Block");
+        add(item + "enchant", "Enchant Block");
+        add(item + "alexandrite_block", "Alexandrite Block");
+        add(item + "disenchant_individual", "Disenchant Individual");
+        add(item + "disenchant_grouped", "Disenchant Grouped");
         // CUSTOM Enchantment
         add("enchantment.mccoursemod.lightning_striker", "Lightning Striker");
         add("enchantment.mccoursemod.message", "Message");

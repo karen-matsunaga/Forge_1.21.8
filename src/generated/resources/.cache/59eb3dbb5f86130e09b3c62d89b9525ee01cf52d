@@ -1,3 +1,5 @@
-// 1.21.8	2025-07-22T14:14:44.2640948	Loot Tables
+// 1.21.8	2025-07-26T17:53:16.356834	Loot Tables
 cdb697b4f47740809ecdb90e81e8e5d2f56cfc86 data/mccoursemod/loot_table/blocks/alexandrite_block.json
+a2593e7f37c3c4eca39527b411c5a0986adc355f data/mccoursemod/loot_table/blocks/disenchant_grouped.json
+5d536a91c53a18ca37b7af22758af735ec56e730 data/mccoursemod/loot_table/blocks/disenchant_individual.json
 7518e7ec9c98f15771c8ed722bc02b8c548d74af data/mccoursemod/loot_table/blocks/enchant.json
