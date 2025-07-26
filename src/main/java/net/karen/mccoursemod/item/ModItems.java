@@ -2,11 +2,13 @@ package net.karen.mccoursemod.item;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.item.custom.HammerItem;
+import net.karen.mccoursemod.item.custom.LevelChargerGenericItem;
+import net.karen.mccoursemod.item.custom.LevelChargerSpecifItem;
+import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraftforge.eventbus.api.bus.BusGroup;
@@ -25,17 +27,61 @@ public class ModItems {
                                                        ))));
 
     // Custom tools
+    // CUSTOM Sword
+    public static final RegistryObject<Item> ALEXANDRITE_SWORD = ITEMS.register("alexandrite_sword",
+            () -> new Item(new Item.Properties().sword(ModToolMaterials.ALEXANDRITE, 3, -2.4f)
+                                                .fireResistant()
+                                                .setId(ResourceKey.create(Registries.ITEM,
+                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                       "alexandrite_sword")))
+                                                .repairable(ModTags.Items.ALEXANDRITE_TOOL_MATERIALS)));
+
+    // CUSTOM Pickaxe
+    public static final RegistryObject<Item> ALEXANDRITE_PICKAXE = ITEMS.register("alexandrite_pickaxe",
+            () -> new Item(new Item.Properties().pickaxe(ModToolMaterials.ALEXANDRITE, 1, -2.8f)
+                                                .fireResistant()
+                                                .setId(ResourceKey.create(Registries.ITEM,
+                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                       "alexandrite_pickaxe")))
+                                                .repairable(ModTags.Items.ALEXANDRITE_TOOL_MATERIALS)));
+
+    // CUSTOM Shovel
+    public static final RegistryObject<Item> ALEXANDRITE_SHOVEL = ITEMS.register("alexandrite_shovel",
+            () -> new ShovelItem(ModToolMaterials.ALEXANDRITE, 1.5f, -3.0f,
+                  new Item.Properties().fireResistant()
+                                       .setId(ResourceKey.create(Registries.ITEM,
+                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                              "alexandrite_shovel")))
+                                       .repairable(ModTags.Items.ALEXANDRITE_TOOL_MATERIALS)));
+
+    // CUSTOM Axe
+    public static final RegistryObject<Item> ALEXANDRITE_AXE = ITEMS.register("alexandrite_axe",
+            () -> new AxeItem(ModToolMaterials.ALEXANDRITE,6, -3.2f,
+                  new Item.Properties().fireResistant()
+                                       .setId(ResourceKey.create(Registries.ITEM,
+                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                              "alexandrite_axe")))
+                                       .repairable(ModTags.Items.ALEXANDRITE_TOOL_MATERIALS)));
+
+    // CUSTOM Hoe
+    public static final RegistryObject<Item> ALEXANDRITE_HOE = ITEMS.register("alexandrite_hoe",
+            () -> new HoeItem(ModToolMaterials.ALEXANDRITE, 0, -3.0f,
+                    new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                "alexandrite_hoe")))));
+
     public static final RegistryObject<Item> ALEXANDRITE_HAMMER = ITEMS.register("alexandrite_hammer",
             () -> new HammerItem(ModToolMaterials.ALEXANDRITE, 1F, -3.3F,
                   new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "alexandrite_hammer")))
-                                       .repairable(ItemTags.NETHERITE_TOOL_MATERIALS)));
+                                              ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                              "alexandrite_hammer")))
+                                       .repairable(ModTags.Items.ALEXANDRITE_TOOL_MATERIALS)));
 
     // Custom armors
     public static final RegistryObject<Item> ALEXANDRITE_HELMET = ITEMS.register("alexandrite_helmet",
             () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                        ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                                        "alexandrite_helmet")))
+                                                       "alexandrite_helmet")))
                                                 .humanoidArmor(ModArmorMaterials.ALEXANDRITE, ArmorType.HELMET)));
 
     public static final RegistryObject<Item> ALEXANDRITE_CHESTPLATE = ITEMS.register("alexandrite_chestplate",
@@ -47,13 +93,13 @@ public class ModItems {
     public static final RegistryObject<Item> ALEXANDRITE_LEGGINGS = ITEMS.register("alexandrite_leggings",
             () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                        ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                 "alexandrite_leggings")))
+                                                       "alexandrite_leggings")))
                                                 .humanoidArmor(ModArmorMaterials.ALEXANDRITE, ArmorType.LEGGINGS)));
 
     public static final RegistryObject<Item> ALEXANDRITE_BOOTS = ITEMS.register("alexandrite_boots",
             () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                        ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                    "alexandrite_boots")))
+                                                       "alexandrite_boots")))
                                                 .humanoidArmor(ModArmorMaterials.ALEXANDRITE, ArmorType.BOOTS)));
 
     // Level Charger

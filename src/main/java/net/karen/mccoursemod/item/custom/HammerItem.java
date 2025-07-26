@@ -1,11 +1,11 @@
 package net.karen.mccoursemod.item.custom;
 
-import net.karen.mccoursemod.item.ModToolMaterials;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HammerItem extends Item {
-    public HammerItem(ModToolMaterials material, float attackDamage, float attackSpeed, Properties settings) {
+    public HammerItem(ToolMaterial material, float attackDamage, float attackSpeed, Properties settings) {
         super(material.applyToolProperties(settings, BlockTags.MINEABLE_WITH_PICKAXE,
                                            attackDamage, attackSpeed, 0F));
     }

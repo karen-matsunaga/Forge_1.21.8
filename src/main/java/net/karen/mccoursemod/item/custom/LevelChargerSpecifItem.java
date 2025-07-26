@@ -1,4 +1,4 @@
-package net.karen.mccoursemod.item;
+package net.karen.mccoursemod.item.custom;
 
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.Holder;

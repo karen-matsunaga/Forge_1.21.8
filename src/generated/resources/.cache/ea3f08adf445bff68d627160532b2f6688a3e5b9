@@ -1,5 +1,6 @@
-// 1.21.8	2025-07-26T13:24:20.2552395	Tags for minecraft:item mod id mccoursemod
+// 1.21.8	2025-07-26T14:57:16.477355	Tags for minecraft:item mod id mccoursemod
 23322585108afbbd5f20fd5e29aa83527532621d data/mccoursemod/tags/item/alexandrite_armor.json
+532ef531eaf6c7a49e75f41afd3805e794ee9491 data/mccoursemod/tags/item/alexandrite_tools.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/alexandrite_tool_materials.json
 4d4acaf97f045bb5e8bbba8d0fcec1f8eab36ae5 data/mccoursemod/tags/item/level_charger_enchantable.json
 67330d0adf55b62dd108765727e04d7437d6441a data/mccoursemod/tags/item/level_charger_generic.json
@@ -8,18 +9,14 @@
 565fa3bcd84d88f945f7ac9e622a8db2910916a1 data/mccoursemod/tags/item/level_charger_red.json
 e1296da21ce7727ca34c6b4ca53792959f1c4ce3 data/mccoursemod/tags/item/level_charger_specif.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/repairs_alexandrite_armor.json
+cf21164e7fa78b937328e7306078456ee2ff9923 data/minecraft/tags/item/axes.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/minecraft/tags/item/beacon_payment_items.json
 34cda53d5b073a8b36e6ae776797bc148890b805 data/minecraft/tags/item/chest_armor.json
-e1224ab6d41bc2c450571973573e5992872c0c54 data/minecraft/tags/item/enchantable/armor.json
-34cda53d5b073a8b36e6ae776797bc148890b805 data/minecraft/tags/item/enchantable/chest_armor.json
-29fb7a8817b6e9ce087e3ea08295c12398b19d15 data/minecraft/tags/item/enchantable/durability.json
-d45d4111413aab72202a4c8f187cbbc3f21ed31f data/minecraft/tags/item/enchantable/foot_armor.json
-a5985a831c29f5e2c153a2f02ff6caf4e8ecd745 data/minecraft/tags/item/enchantable/head_armor.json
-8144dad1b686f566a86b154565be552914597116 data/minecraft/tags/item/enchantable/leg_armor.json
-ec5fcf9088dec6adc90717c3473b326b09fedae9 data/minecraft/tags/item/enchantable/mining.json
-ec5fcf9088dec6adc90717c3473b326b09fedae9 data/minecraft/tags/item/enchantable/mining_loot.json
-29fb7a8817b6e9ce087e3ea08295c12398b19d15 data/minecraft/tags/item/enchantable/vanishing.json
 d45d4111413aab72202a4c8f187cbbc3f21ed31f data/minecraft/tags/item/foot_armor.json
 a5985a831c29f5e2c153a2f02ff6caf4e8ecd745 data/minecraft/tags/item/head_armor.json
+0909a2137a93fd3966f71ad519112d83418b616e data/minecraft/tags/item/hoes.json
 8144dad1b686f566a86b154565be552914597116 data/minecraft/tags/item/leg_armor.json
+d4dbc5bd40256f565321a99ecb5b91847cf2e149 data/minecraft/tags/item/pickaxes.json
+85a4466370153d2a016bec67fe7359860e4db2c0 data/minecraft/tags/item/shovels.json
+94e8f218aefc260faf0e2166a3453cd88a7f58cb data/minecraft/tags/item/swords.json
 e1224ab6d41bc2c450571973573e5992872c0c54 data/minecraft/tags/item/trimmable_armor.json

@@ -26,11 +26,17 @@ public class ModCreativeModeTabs extends CreativeModeTabs {
                                 output.accept(ModItems.ALEXANDRITE.get());
                                 // CUSTOM tools
                                 output.accept(ModItems.ALEXANDRITE_HAMMER.get());
+                                output.accept(ModItems.ALEXANDRITE_SWORD.get());
+                                output.accept(ModItems.ALEXANDRITE_PICKAXE.get());
+                                output.accept(ModItems.ALEXANDRITE_SHOVEL.get());
+                                output.accept(ModItems.ALEXANDRITE_AXE.get());
+                                output.accept(ModItems.ALEXANDRITE_HOE.get());
                                 // CUSTOM armors
                                 output.accept(ModItems.ALEXANDRITE_HELMET.get());
                                 output.accept(ModItems.ALEXANDRITE_CHESTPLATE.get());
                                 output.accept(ModItems.ALEXANDRITE_LEGGINGS.get());
                                 output.accept(ModItems.ALEXANDRITE_BOOTS.get());
+                                // CUSTOM Level Charger items
                                 output.accept(ModItems.LEVEL_CHARGER_GENERIC_PLUS.get());
                                 output.accept(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get());
                                 output.accept(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get());

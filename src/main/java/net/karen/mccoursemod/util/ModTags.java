@@ -46,6 +46,9 @@ public class ModTags {
         public static final TagKey<Item> LEVEL_CHARGER_GREEN = createTag("level_charger_green");
         public static final TagKey<Item> LEVEL_CHARGER_RED = createTag("level_charger_red");
 
+        // Alexandrite Tools
+        public static final TagKey<Item> ALEXANDRITE_TOOLS = createTag("alexandrite_tools");
+
         // Alexandrite Ingredients
         public static final TagKey<Item> ALEXANDRITE_ARMOR = createTag("alexandrite_armor");
         // Tools

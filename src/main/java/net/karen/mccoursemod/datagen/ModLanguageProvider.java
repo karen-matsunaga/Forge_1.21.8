@@ -22,11 +22,19 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS, "Level Charger Generic Minus");
         addItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE, "Level Charger Specif Minus Fortune");
         addItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE, "Level Charger Specif Plus Fortune");
+        // CUSTOM Tools
         addItem(ModItems.ALEXANDRITE_HAMMER, "Alexandrite Hammer");
+        addItem(ModItems.ALEXANDRITE_SWORD, "Alexandrite Sword");
+        addItem(ModItems.ALEXANDRITE_PICKAXE, "Alexandrite Pickaxe");
+        addItem(ModItems.ALEXANDRITE_SHOVEL, "Alexandrite Shovel");
+        addItem(ModItems.ALEXANDRITE_AXE, "Alexandrite Axe");
+        addItem(ModItems.ALEXANDRITE_HOE, "Alexandrite Hoe");
+        // CUSTOM Armors
         addItem(ModItems.ALEXANDRITE_HELMET, "Alexandrite Helmet");
         addItem(ModItems.ALEXANDRITE_CHESTPLATE, "Alexandrite Chestplate");
         addItem(ModItems.ALEXANDRITE_LEGGINGS, "Alexandrite Leggings");
         addItem(ModItems.ALEXANDRITE_BOOTS, "Alexandrite Boots");
+        // CUSTOM block item
         add("item.mccoursemod.enchant", "Enchant Block");
         add("item.mccoursemod.alexandrite_block", "Alexandrite Block");
         // CUSTOM Enchantment
