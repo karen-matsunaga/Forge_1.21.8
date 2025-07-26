@@ -37,8 +37,8 @@ public class LevelChargerItem extends Item {
     @Override
     public @NotNull InteractionResult use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
         InteractionHand otherHand = (hand == mainHand) ? offhand : mainHand; // Player's MAIN HAND and OFFHAND
-        ItemStack changerStack = player.getItemInHand(hand), // Level Charger item - OFFHAND
-                   targetStack = player.getItemInHand(otherHand); // Armor, Tool, Enchanted book, etc. - TARGET MAIN HAND
+        // changerStack -> Level Charger item - OFFHAND || targetStack -> Armor, Tool, Enchanted book, etc. - TARGET MAIN HAND
+        ItemStack changerStack = player.getItemInHand(hand), targetStack = player.getItemInHand(otherHand);
         if (!(changerStack.getItem() instanceof LevelChargerItem self)) { return InteractionResult.FAIL; }
         if (!player.level().isClientSide() && changerStack.is(ModTags.Items.LEVEL_CHARGER_ITEMS)) {
             // Get all enchantments and enchantment levels
@@ -72,8 +72,8 @@ public class LevelChargerItem extends Item {
             // Create new map with increased levels and store original enchantment and level
             Map<Holder<Enchantment>, Integer> upgraded = new HashMap<>();
             allEnch.entrySet().forEach((enc) -> {
-                // ** CREATE A FAKE ENCHANTMENT TO FUNCTION ** -> Store new enchantment level of all enchants
-                // Store new specif enchantment level
+                // ** CREATE A FAKE ENCHANTMENT TO FUNCTION **
+                // Store new enchantment level of all enchants or Store new specif enchantment level
                 if (changerStack.is(ModTags.Items.LEVEL_CHARGER_GENERAL) && !enc.getKey().equals(specifEnch) ||
                     changerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF) && enc.getKey().equals(specifEnch)) {
                     upgraded.put(enc.getKey(), Math.max(1, enc.getIntValue() + amount));
@@ -121,8 +121,7 @@ public class LevelChargerItem extends Item {
            player(player, value ? positive : negative, value ? green : red);
         }
         if (chargerStack.is(ModTags.Items.LEVEL_CHARGER_SPECIF)) {
-            String i18 = ench.getRegisteredName(),
-                   message = amount + " " + itemLines(i18.replace("minecraft:", "")) + " level!";
+            String message = amount + " " + itemLines(ench.getRegisteredName().replace("minecraft:", "")) + " level!";
             player(player, value ? (pos + message) : (neg + message), value ? green : red);
         }
     }
