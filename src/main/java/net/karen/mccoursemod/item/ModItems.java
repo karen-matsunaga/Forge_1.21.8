@@ -1,7 +1,6 @@
 package net.karen.mccoursemod.item;
 
 import net.karen.mccoursemod.MccourseMod;
-import net.karen.mccoursemod.enchantment.ModEnchantments;
 import net.karen.mccoursemod.item.custom.HammerItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -59,31 +58,30 @@ public class ModItems {
 
     // Level Charger
     public static final RegistryObject<Item> LEVEL_CHARGER_PLUS = ITEMS.register("level_charger_plus",
-            () -> new LevelChargerItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                   ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                   "level_charger_plus")))
-                                                            .fireResistant(), 1, ModEnchantments.MESSAGE));
+            () -> new LevelChargerGenericItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                          ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                          "level_charger_plus")))
+                                                                   .fireResistant(), 1));
 
     public static final RegistryObject<Item> LEVEL_CHARGER_MINUS = ITEMS.register("level_charger_minus",
-            () -> new LevelChargerItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                   ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                   "level_charger_minus")))
-                                                            .fireResistant(), -1, ModEnchantments.MESSAGE));
+            () -> new LevelChargerGenericItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                          ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                          "level_charger_minus")))
+                                                                   .fireResistant(), -1));
 
     public static final RegistryObject<Item> LEVEL_CHARGER_PLUS_FORTUNE =
             ITEMS.register("level_charger_plus_fortune",
-            () -> new LevelChargerItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                   ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                            "level_charger_plus_fortune")))
-                                                            .fireResistant(), 1, Enchantments.FORTUNE));
+            () -> new LevelChargerSpecifItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                         ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                         "level_charger_plus_fortune")))
+                                                                  .fireResistant(), 1, Enchantments.FORTUNE));
 
     public static final RegistryObject<Item> LEVEL_CHARGER_MINUS_FORTUNE =
             ITEMS.register("level_charger_minus_fortune",
-            () -> new LevelChargerItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                   ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                   "level_charger_minus_fortune")))
-                                                            .fireResistant(), -1, Enchantments.FORTUNE));
-
+            () -> new LevelChargerSpecifItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                         ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                         "level_charger_minus_fortune")))
+                                                                  .fireResistant(), -1, Enchantments.FORTUNE));
 
     // CUSTOM METHOD - Registry all items on MccourseMod file
     public static void register(BusGroup busGroup) { ITEMS.register(busGroup); }
