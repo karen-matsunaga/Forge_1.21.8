@@ -57,30 +57,30 @@ public class ModItems {
                                                 .humanoidArmor(ModArmorMaterials.ALEXANDRITE, ArmorType.BOOTS)));
 
     // Level Charger
-    public static final RegistryObject<Item> LEVEL_CHARGER_PLUS = ITEMS.register("level_charger_plus",
+    public static final RegistryObject<Item> LEVEL_CHARGER_GENERIC_PLUS = ITEMS.register("level_charger_generic_plus",
             () -> new LevelChargerGenericItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                                           ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                          "level_charger_plus")))
+                                                                          "level_charger_generic_plus")))
                                                                    .fireResistant(), 1));
 
-    public static final RegistryObject<Item> LEVEL_CHARGER_MINUS = ITEMS.register("level_charger_minus",
+    public static final RegistryObject<Item> LEVEL_CHARGER_GENERIC_MINUS = ITEMS.register("level_charger_generic_minus",
             () -> new LevelChargerGenericItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                                           ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                          "level_charger_minus")))
+                                                                          "level_charger_generic_minus")))
                                                                    .fireResistant(), -1));
 
-    public static final RegistryObject<Item> LEVEL_CHARGER_PLUS_FORTUNE =
-            ITEMS.register("level_charger_plus_fortune",
+    public static final RegistryObject<Item> LEVEL_CHARGER_SPECIF_PLUS_FORTUNE =
+            ITEMS.register("level_charger_specif_plus_fortune",
             () -> new LevelChargerSpecifItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                                          ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                         "level_charger_plus_fortune")))
+                                                                         "level_charger_specif_plus_fortune")))
                                                                   .fireResistant(), 1, Enchantments.FORTUNE));
 
-    public static final RegistryObject<Item> LEVEL_CHARGER_MINUS_FORTUNE =
-            ITEMS.register("level_charger_minus_fortune",
+    public static final RegistryObject<Item> LEVEL_CHARGER_SPECIF_MINUS_FORTUNE =
+            ITEMS.register("level_charger_specif_minus_fortune",
             () -> new LevelChargerSpecifItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                                          ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                         "level_charger_minus_fortune")))
+                                                                         "level_charger_specif_minus_fortune")))
                                                                   .fireResistant(), -1, Enchantments.FORTUNE));
 
     // CUSTOM METHOD - Registry all items on MccourseMod file

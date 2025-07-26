@@ -1,33 +1,33 @@
-[25jul.2025 22:43:41.703] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 26, --assetsDir, C:\Users\karen\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, mccoursemod, --all, --output, C:\Users\karen\Downloads\Udemy\MinecraftModding\Forge_1.21.8\src\generated\resources, --existing, C:\Users\karen\Downloads\Udemy\MinecraftModding\Forge_1.21.8\src\main\resources]
-[25jul.2025 22:43:41.709] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.7+6-LTS
-[25jul.2025 22:43:41.709] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.4 starting: java version 21.0.7 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
-[25jul.2025 22:43:41.844] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
-[25jul.2025 22:43:41.927] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/karen/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
-[25jul.2025 22:43:42.816] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[25jul.2025 22:43:43.642] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\karen\.gradle\caches\forge_gradle\assets, --assetIndex, 26, --mod, mccoursemod, --all, --output, C:\Users\karen\Downloads\Udemy\MinecraftModding\Forge_1.21.8\src\generated\resources, --existing, C:\Users\karen\Downloads\Udemy\MinecraftModding\Forge_1.21.8\src\main\resources]
-[25jul.2025 22:43:52.614] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 58.0.0, for MC 1.21.8 with MCP 20250717.105350
-[25jul.2025 22:43:52.618] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v58.0.0 Initialized
-[25jul.2025 22:43:52.648] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
-[25jul.2025 22:43:53.587] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [mccoursemod]
-[25jul.2025 22:43:54.069] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/karen/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.8-58.0.0_mapped_parchment_2025.06.29-1.21.6/forge-1.21.8-58.0.0_mapped_parchment_2025.06.29-1.21.6-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
-[25jul.2025 22:43:54.071] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/karen/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.8-58.0.0_mapped_parchment_2025.06.29-1.21.6/forge-1.21.8-58.0.0_mapped_parchment_2025.06.29-1.21.6-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
-[25jul.2025 22:43:54.796] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Model Definitions
-[25jul.2025 22:43:55.125] [main/INFO] [net.minecraft.data.DataGenerator/]: Model Definitions finished after 327 ms
-[25jul.2025 22:43:55.125] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[25jul.2025 22:43:55.192] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 66 ms
-[25jul.2025 22:43:55.193] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Mccourse Recipes
-[25jul.2025 22:43:55.286] [main/INFO] [net.minecraft.data.DataGenerator/]: Mccourse Recipes finished after 92 ms
-[25jul.2025 22:43:55.286] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id mccoursemod
-[25jul.2025 22:43:55.314] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id mccoursemod finished after 26 ms
-[25jul.2025 22:43:55.314] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id mccoursemod
-[25jul.2025 22:43:55.329] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id mccoursemod finished after 14 ms
-[25jul.2025 22:43:55.330] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:enchantment mod id mccoursemod
-[25jul.2025 22:43:55.335] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:enchantment mod id mccoursemod finished after 4 ms
-[25jul.2025 22:43:55.335] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Languages: en_us
-[25jul.2025 22:43:55.337] [main/INFO] [net.minecraft.data.DataGenerator/]: Languages: en_us finished after 1 ms
-[25jul.2025 22:43:55.338] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
-[25jul.2025 22:43:55.672] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 334 ms
-[25jul.2025 22:43:55.673] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Mod Equipment Asset Definitions
-[25jul.2025 22:43:55.687] [main/INFO] [net.minecraft.data.DataGenerator/]: Mod Equipment Asset Definitions finished after 14 ms
-[25jul.2025 22:43:55.688] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 893 ms
-[25jul.2025 22:43:55.705] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 122, old count: 122, new count: 123, removed stale: 0, written: 0
+[26jul.2025 13:24:13.038] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 26, --assetsDir, C:\Users\karen\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, mccoursemod, --all, --output, C:\Users\karen\Downloads\Udemy\MinecraftModding\Forge_1.21.8\src\generated\resources, --existing, C:\Users\karen\Downloads\Udemy\MinecraftModding\Forge_1.21.8\src\main\resources]
+[26jul.2025 13:24:13.038] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.7+6-LTS
+[26jul.2025 13:24:13.038] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.4 starting: java version 21.0.7 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[26jul.2025 13:24:13.149] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
+[26jul.2025 13:24:13.234] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/karen/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
+[26jul.2025 13:24:14.130] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[26jul.2025 13:24:14.991] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\karen\.gradle\caches\forge_gradle\assets, --assetIndex, 26, --mod, mccoursemod, --all, --output, C:\Users\karen\Downloads\Udemy\MinecraftModding\Forge_1.21.8\src\generated\resources, --existing, C:\Users\karen\Downloads\Udemy\MinecraftModding\Forge_1.21.8\src\main\resources]
+[26jul.2025 13:24:19.476] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 58.0.0, for MC 1.21.8 with MCP 20250717.105350
+[26jul.2025 13:24:19.476] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v58.0.0 Initialized
+[26jul.2025 13:24:19.491] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
+[26jul.2025 13:24:19.654] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [mccoursemod]
+[26jul.2025 13:24:19.730] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/karen/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.8-58.0.0_mapped_parchment_2025.06.29-1.21.6/forge-1.21.8-58.0.0_mapped_parchment_2025.06.29-1.21.6-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
+[26jul.2025 13:24:19.731] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/karen/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21.8-58.0.0_mapped_parchment_2025.06.29-1.21.6/forge-1.21.8-58.0.0_mapped_parchment_2025.06.29-1.21.6-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
+[26jul.2025 13:24:19.937] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Model Definitions
+[26jul.2025 13:24:20.072] [main/INFO] [net.minecraft.data.DataGenerator/]: Model Definitions finished after 137 ms
+[26jul.2025 13:24:20.072] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[26jul.2025 13:24:20.131] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 61 ms
+[26jul.2025 13:24:20.131] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Mccourse Recipes
+[26jul.2025 13:24:20.159] [main/INFO] [net.minecraft.data.DataGenerator/]: Mccourse Recipes finished after 36 ms
+[26jul.2025 13:24:20.159] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id mccoursemod
+[26jul.2025 13:24:20.175] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id mccoursemod finished after 9 ms
+[26jul.2025 13:24:20.175] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id mccoursemod
+[26jul.2025 13:24:20.175] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id mccoursemod finished after 4 ms
+[26jul.2025 13:24:20.175] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:enchantment mod id mccoursemod
+[26jul.2025 13:24:20.191] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:enchantment mod id mccoursemod finished after 2 ms
+[26jul.2025 13:24:20.191] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Languages: en_us
+[26jul.2025 13:24:20.191] [main/INFO] [net.minecraft.data.DataGenerator/]: Languages: en_us finished after 1 ms
+[26jul.2025 13:24:20.191] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[26jul.2025 13:24:20.255] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 69 ms
+[26jul.2025 13:24:20.255] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Mod Equipment Asset Definitions
+[26jul.2025 13:24:20.255] [main/INFO] [net.minecraft.data.DataGenerator/]: Mod Equipment Asset Definitions finished after 4 ms
+[26jul.2025 13:24:20.255] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 329 ms
+[26jul.2025 13:24:20.271] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 123, old count: 122, new count: 123, removed stale: 1, written: 4

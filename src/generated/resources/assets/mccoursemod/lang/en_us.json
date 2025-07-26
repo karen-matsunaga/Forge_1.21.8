@@ -13,8 +13,8 @@
   "item.mccoursemod.alexandrite_helmet": "Alexandrite Helmet",
   "item.mccoursemod.alexandrite_leggings": "Alexandrite Leggings",
   "item.mccoursemod.enchant": "Enchant Block",
-  "item.mccoursemod.level_charger_minus": "Level Charger Minus",
-  "item.mccoursemod.level_charger_minus_fortune": "Level Charger Minus Fortune",
-  "item.mccoursemod.level_charger_plus": "Level Charger Plus",
-  "item.mccoursemod.level_charger_plus_fortune": "Level Charger Plus Fortune"
+  "item.mccoursemod.level_charger_generic_minus": "Level Charger Generic Minus",
+  "item.mccoursemod.level_charger_generic_plus": "Level Charger Generic Plus",
+  "item.mccoursemod.level_charger_specif_minus_fortune": "Level Charger Specif Minus Fortune",
+  "item.mccoursemod.level_charger_specif_plus_fortune": "Level Charger Specif Plus Fortune"
 }

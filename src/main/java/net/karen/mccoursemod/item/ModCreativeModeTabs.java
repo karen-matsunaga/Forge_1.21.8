@@ -31,10 +31,10 @@ public class ModCreativeModeTabs extends CreativeModeTabs {
                                 output.accept(ModItems.ALEXANDRITE_CHESTPLATE.get());
                                 output.accept(ModItems.ALEXANDRITE_LEGGINGS.get());
                                 output.accept(ModItems.ALEXANDRITE_BOOTS.get());
-                                output.accept(ModItems.LEVEL_CHARGER_PLUS.get());
-                                output.accept(ModItems.LEVEL_CHARGER_MINUS.get());
-                                output.accept(ModItems.LEVEL_CHARGER_PLUS_FORTUNE.get());
-                                output.accept(ModItems.LEVEL_CHARGER_MINUS_FORTUNE.get());
+                                output.accept(ModItems.LEVEL_CHARGER_GENERIC_PLUS.get());
+                                output.accept(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get());
+                                output.accept(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get());
+                                output.accept(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get());
                             }).build());
 
     // Register all custom blocks

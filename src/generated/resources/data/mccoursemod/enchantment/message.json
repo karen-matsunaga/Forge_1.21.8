@@ -28,7 +28,7 @@
     "base": 1,
     "per_level_above_first": 1
   },
-  "primary_items": "#mccoursemod:level_charger_general",
+  "primary_items": "#mccoursemod:level_charger_generic",
   "slots": [
     "mainhand"
   ],

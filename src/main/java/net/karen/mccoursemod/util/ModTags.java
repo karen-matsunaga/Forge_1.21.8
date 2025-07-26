@@ -40,7 +40,7 @@ public class ModTags {
 //
         // Level Charger items
         public static final TagKey<Item> LEVEL_CHARGER_ITEMS = createTag("level_charger_items");
-        public static final TagKey<Item> LEVEL_CHARGER_GENERAL = createTag("level_charger_general");
+        public static final TagKey<Item> LEVEL_CHARGER_GENERIC = createTag("level_charger_generic");
         public static final TagKey<Item> LEVEL_CHARGER_SPECIF = createTag("level_charger_specif");
         public static final TagKey<Item> LEVEL_CHARGER_ENCHANTABLE = createTag("level_charger_enchantable");
         public static final TagKey<Item> LEVEL_CHARGER_GREEN = createTag("level_charger_green");

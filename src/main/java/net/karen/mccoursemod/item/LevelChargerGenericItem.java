@@ -35,15 +35,15 @@ public class LevelChargerGenericItem extends Item {
         InteractionHand otherHand = (hand == mainHand) ? offhand : mainHand; // Player's MAIN HAND and OFFHAND
         ItemStack changerStack = player.getItemInHand(hand), targetStack = player.getItemInHand(otherHand);
         if (!(changerStack.getItem() instanceof LevelChargerGenericItem self)) { return InteractionResult.FAIL; }
-        if (!player.level().isClientSide() && changerStack.is(ModTags.Items.LEVEL_CHARGER_GENERAL)) {
+        if (!player.level().isClientSide() && changerStack.is(ModTags.Items.LEVEL_CHARGER_GENERIC)) {
             // Get all enchantments and enchantment levels
             ItemEnchantments allEnch = EnchantmentHelper.getEnchantmentsForCrafting(targetStack);
             int amount = self.amount; // Amount of enchantment level
-            if (allEnch.isEmpty() || targetStack.is(ModTags.Items.LEVEL_CHARGER_GENERAL)) {
+            if (allEnch.isEmpty() || targetStack.is(ModTags.Items.LEVEL_CHARGER_GENERIC)) {
                 player(player, "The item has no enchantments!", darkRed);
                 return InteractionResult.FAIL;
             }
-            if (amount < 0 && changerStack.is(ModItems.LEVEL_CHARGER_MINUS.get())) { // Check enchantment levels
+            if (amount < 0 && changerStack.is(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get())) { // Check enchantment levels
                 boolean allMin = allEnch.entrySet().stream().allMatch(e -> e.getIntValue() <= 1);
                 if (allMin) { // All enchantment are with min level is 1
                     player(player, "All enchantments are already at level 1!", aqua);
@@ -72,7 +72,7 @@ public class LevelChargerGenericItem extends Item {
                newName = itemLines(splitWord(name)), general = amount + " level.",
                pos = newName + " increase +" + general, neg = newName + " decrease " + general;;
         boolean value = (amount == 1);
-        if (stack.is(ModTags.Items.LEVEL_CHARGER_GENERAL)) { tooltipLine(consumer, value ? (pos) : (neg), value ? green : red); }
+        if (stack.is(ModTags.Items.LEVEL_CHARGER_GENERIC)) { tooltipLine(consumer, value ? (pos) : (neg), value ? green : red); }
         super.appendHoverText(stack, context, tooltipDisplay, consumer, flag);
     }
 
@@ -80,7 +80,7 @@ public class LevelChargerGenericItem extends Item {
     @Override
     public @NotNull Component getName(@NotNull ItemStack stack) {
         Component baseName = super.getName(stack);
-        if (stack.is(ModTags.Items.LEVEL_CHARGER_GENERAL)) { return baseName.copy().withStyle((amount == 1) ? green : red); }
+        if (stack.is(ModTags.Items.LEVEL_CHARGER_GENERIC)) { return baseName.copy().withStyle((amount == 1) ? green : red); }
         return baseName;
     }
 
@@ -88,7 +88,7 @@ public class LevelChargerGenericItem extends Item {
     private void itemHurt(Player player, ItemStack chargerStack) {
         String screen = amount + " level(s)!";
         boolean value = (amount == 1);
-        if (chargerStack.is(ModTags.Items.LEVEL_CHARGER_GENERAL)) {
+        if (chargerStack.is(ModTags.Items.LEVEL_CHARGER_GENERIC)) {
             player(player, value ? ("Increased +" + screen) : ("Decreased " + screen), value ? green : red);
         }
     }

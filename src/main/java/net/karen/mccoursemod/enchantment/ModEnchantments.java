@@ -41,7 +41,7 @@ public class ModEnchantments {
         // Message - Item tool
         register(context, MESSAGE,
                  Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ModTags.Items.LEVEL_CHARGER_ENCHANTABLE),
-                                         items.getOrThrow(ModTags.Items.LEVEL_CHARGER_GENERAL), 1, 2,
+                                         items.getOrThrow(ModTags.Items.LEVEL_CHARGER_GENERIC), 1, 2,
                                          Enchantment.dynamicCost(1, 1), Enchantment.dynamicCost(1, 1),
                                         1, EquipmentSlotGroup.MAINHAND))
                             .withEffect(EnchantmentEffectComponents.POST_ATTACK, EnchantmentTarget.VICTIM,

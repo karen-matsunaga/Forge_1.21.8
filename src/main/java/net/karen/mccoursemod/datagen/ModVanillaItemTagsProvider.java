@@ -53,15 +53,15 @@ public class ModVanillaItemTagsProvider extends VanillaItemTagsProvider {
         tag(ItemTags.HEAD_ARMOR).add(ModItems.ALEXANDRITE_HELMET.get());
 
         // Level Charger
-        tag(ModTags.Items.LEVEL_CHARGER_GENERAL).add(ModItems.LEVEL_CHARGER_PLUS.get(), ModItems.LEVEL_CHARGER_MINUS.get());
-        tag(ModTags.Items.LEVEL_CHARGER_SPECIF).add(ModItems.LEVEL_CHARGER_PLUS_FORTUNE.get(),
-                                                    ModItems.LEVEL_CHARGER_MINUS_FORTUNE.get());
+        tag(ModTags.Items.LEVEL_CHARGER_GENERIC).add(ModItems.LEVEL_CHARGER_GENERIC_PLUS.get(), ModItems.LEVEL_CHARGER_GENERIC_MINUS.get());
+        tag(ModTags.Items.LEVEL_CHARGER_SPECIF).add(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get(),
+                                                    ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get());
 
-        tag(ModTags.Items.LEVEL_CHARGER_ITEMS).addTag(ModTags.Items.LEVEL_CHARGER_GENERAL)
+        tag(ModTags.Items.LEVEL_CHARGER_ITEMS).addTag(ModTags.Items.LEVEL_CHARGER_GENERIC)
                                               .addTag(ModTags.Items.LEVEL_CHARGER_SPECIF);
 
-        tag(ModTags.Items.LEVEL_CHARGER_ENCHANTABLE).addTag(ModTags.Items.LEVEL_CHARGER_GENERAL);
-        tag(ModTags.Items.LEVEL_CHARGER_GREEN).add(ModItems.LEVEL_CHARGER_PLUS.get(), ModItems.LEVEL_CHARGER_PLUS_FORTUNE.get());
-        tag(ModTags.Items.LEVEL_CHARGER_RED).add(ModItems.LEVEL_CHARGER_MINUS.get(), ModItems.LEVEL_CHARGER_MINUS_FORTUNE.get());
+        tag(ModTags.Items.LEVEL_CHARGER_ENCHANTABLE).addTag(ModTags.Items.LEVEL_CHARGER_GENERIC);
+        tag(ModTags.Items.LEVEL_CHARGER_GREEN).add(ModItems.LEVEL_CHARGER_GENERIC_PLUS.get(), ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get());
+        tag(ModTags.Items.LEVEL_CHARGER_RED).add(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get(), ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get());
     }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mccoursemod:item/level_charger_minus_fortune"
+    "layer0": "mccoursemod:item/level_charger_generic_plus"
   }
 }

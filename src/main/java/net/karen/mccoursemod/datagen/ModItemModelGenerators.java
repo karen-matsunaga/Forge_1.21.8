@@ -43,9 +43,9 @@ public class ModItemModelGenerators extends ItemModelGenerators {
                                    TRIM_PREFIX_BOOTS, false);
 
         // Custom items
-        this.generateFlatItem(ModItems.LEVEL_CHARGER_PLUS.get(), ModelTemplates.FLAT_ITEM);
-        this.generateFlatItem(ModItems.LEVEL_CHARGER_MINUS.get(), ModelTemplates.FLAT_ITEM);
-        this.generateFlatItem(ModItems.LEVEL_CHARGER_MINUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
-        this.generateFlatItem(ModItems.LEVEL_CHARGER_PLUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.LEVEL_CHARGER_GENERIC_PLUS.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
     }
 }
