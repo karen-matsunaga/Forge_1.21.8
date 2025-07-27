@@ -19,21 +19,22 @@ public abstract class EnchantmentMixin {
         Enchantment enchantment = holder.value(); // Enchantment name
         MutableComponent enchantmentComponent = enchantment.description().copy(); // Old enchantment tooltip
         int maxLevel = enchantment.getMaxLevel(); // Enchantment max level
-        ChatFormatting color = getEnchantmentColor(holder); // Enchantment by category
-        String icon = icon(holder); // Enchantment by category
+        ChatFormatting color = getEnchantmentColor(holder); // Enchantment color by category
+        String icon = icon(holder); // Enchantment icon by category
         // Apply new enchantment tooltip
-        if (holder.is(EnchantmentTags.CURSE)) {
-            ComponentUtils.mergeStyles(enchantmentComponent, Style.EMPTY.withColor(red).applyFormat(ChatFormatting.ITALIC));
-        }
-        else {
-            ComponentUtils.mergeStyles(enchantmentComponent, Style.EMPTY.withColor(color).applyFormat(ChatFormatting.BOLD));
-        }
+        boolean isCurse = holder.is(EnchantmentTags.CURSE);
+        ComponentUtils.mergeStyles(enchantmentComponent, Style.EMPTY.withColor(isCurse ? red : color)
+                                                                    .applyFormat(isCurse ? italic : bold));
         if (level != 1 || maxLevel != 1) { // Enchantment level equals 1+
-            enchantmentComponent.append(CommonComponents.SPACE).append(Component.literal(level + " / " + maxLevel))
-                                .append(CommonComponents.SPACE).append(Component.literal(icon));
+            MutableComponent line = enchantmentComponent.append(CommonComponents.SPACE)
+                                                         .append(Component.literal(level + " / " + maxLevel)) // Level
+                                                         .append(CommonComponents.SPACE).append(Component.literal(icon))
+                                                         .append(CommonComponents.NEW_LINE).append(CommonComponents.EMPTY)
+                                                         .append(Component.literal("Enchantment description")
+                                                         .withColor(0xFFFFFF));
+            // Return new enchantment tooltip
+            cir.setReturnValue(line);
         }
-        // Return new enchantment tooltip
-        cir.setReturnValue(enchantmentComponent);
     }
 
     // Max Enchantment Level

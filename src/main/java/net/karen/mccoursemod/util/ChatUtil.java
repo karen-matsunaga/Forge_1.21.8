@@ -23,7 +23,8 @@ public class ChatUtil { // GENERAL METHODS
             darkPurple = ChatFormatting.DARK_PURPLE, green = ChatFormatting.GREEN, darkGreen = ChatFormatting.DARK_GREEN,
             gray = ChatFormatting.GRAY, darkGray = ChatFormatting.DARK_GRAY, yellow = ChatFormatting.YELLOW,
             gold = ChatFormatting.GOLD, red = ChatFormatting.RED, darkRed = ChatFormatting.DARK_RED,
-            black = ChatFormatting.BLACK, white = ChatFormatting.WHITE;
+            black = ChatFormatting.BLACK, white = ChatFormatting.WHITE,
+            bold = ChatFormatting.BOLD, italic = ChatFormatting.ITALIC;
 
     // CUSTOM METHOD - COMPONENT LITERAL without color
     public static Component standardLiteral(String message) {
