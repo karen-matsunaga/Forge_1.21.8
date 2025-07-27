@@ -43,6 +43,15 @@ public class ModBlocks {
                                                                            ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                            "disenchant_grouped"))), 2));
 
+    // CUSTOM Magic block
+    public static final RegistryObject<Block> MAGIC = registerBlock("magic",
+            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(5.0F, 3600000.0F)
+                                                               .requiresCorrectToolForDrops()
+                                                               .setId(ResourceKey.create(Registries.BLOCK,
+                                                                      ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                      "magic")))));
+
+    // CUSTOM block
     public static final RegistryObject<Block> ALEXANDRITE_BLOCK = registerBlock("alexandrite_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(5F, 5F)
                                                           .requiresCorrectToolForDrops()

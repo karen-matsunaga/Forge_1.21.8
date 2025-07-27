@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_21",
+  "package": "net.karen.mccoursemod.mixin",
+  "refmap": "mixins.mccoursemod.refmap.json",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "EnchantmentMixin",
+    "ItemStackMixin"
+  ]
+}

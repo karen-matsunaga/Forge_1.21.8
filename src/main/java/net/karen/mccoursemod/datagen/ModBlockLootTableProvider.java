@@ -30,6 +30,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.DISENCHANT_INDIVIDUAL.get());
         this.dropSelf(ModBlocks.DISENCHANT_GROUPED.get());
         this.dropSelf(ModBlocks.ALEXANDRITE_BLOCK.get());
+        this.dropSelf(ModBlocks.MAGIC.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block block, Item item, float min, float max) {

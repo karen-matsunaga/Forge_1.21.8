@@ -1,5 +1,8 @@
-// 1.21.8	2025-07-25T10:42:44.2628936	Tags for minecraft:enchantment mod id mccoursemod
+// 1.21.8	2025-07-27T11:39:10.552177	Tags for minecraft:enchantment mod id mccoursemod
+67fcf0a80c6a4d310666954ea9d665fafda6f960 data/c/tags/enchantment/weapon_damage_enhancements.json
 67fcf0a80c6a4d310666954ea9d665fafda6f960 data/mccoursemod/tags/enchantment/lightning_striker_tag.json
 159e92b12aa869a93195b44c84b083182f75ab90 data/mccoursemod/tags/enchantment/message_tag.json
 67fcf0a80c6a4d310666954ea9d665fafda6f960 data/minecraft/tags/enchantment/exclusive_set/damage.json
 67fcf0a80c6a4d310666954ea9d665fafda6f960 data/minecraft/tags/enchantment/in_enchanting_table.json
+67fcf0a80c6a4d310666954ea9d665fafda6f960 data/minecraft/tags/enchantment/non_treasure.json
+67fcf0a80c6a4d310666954ea9d665fafda6f960 data/minecraft/tags/enchantment/tradeable.json

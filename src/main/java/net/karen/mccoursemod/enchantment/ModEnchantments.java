@@ -8,7 +8,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -23,17 +22,17 @@ public class ModEnchantments {
 
     // CUSTOM METHOD - Registry all custom enchantments (JSON file)
     public static void bootstrap(BootstrapContext<Enchantment> context) {
-        var enchantments = context.lookup(Registries.ENCHANTMENT);
+//        var enchantments = context.lookup(Registries.ENCHANTMENT);
         var items = context.lookup(Registries.ITEM);
 
         // Lightning Striker - Sword tool
         register(context, LIGHTNING_STRIKER,
-                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.SHARP_WEAPON_ENCHANTABLE),
                                          items.getOrThrow(ItemTags.SWORD_ENCHANTABLE), 5, 10,
                                                                Enchantment.dynamicCost(5, 8),
                                                                Enchantment.dynamicCost(25, 8),
                                                               2, EquipmentSlotGroup.MAINHAND))
-                            .exclusiveWith(enchantments.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE))
+//                            .exclusiveWith(enchantments.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE))
                             .withEffect(EnchantmentEffectComponents.POST_ATTACK, EnchantmentTarget.ATTACKER,
                                         EnchantmentTarget.VICTIM, new LightningStrikerEnchantmentEffect(
                                         LevelBasedValue.perLevel(0.5F, 0.15F))));
@@ -57,7 +56,7 @@ public class ModEnchantments {
     }
 
     // CUSTOM METHOD - Registry all custom enchantment resource keys
-    public static ResourceKey<Enchantment> createTag(String name) {
+    private static ResourceKey<Enchantment> createTag(String name) {
         return ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
     }
 }

@@ -28,6 +28,7 @@ public class ModItemModelGenerators extends ItemModelGenerators {
         blockTexture(ModBlocks.ENCHANT.get());
         blockTexture(ModBlocks.DISENCHANT_INDIVIDUAL.get());
         blockTexture(ModBlocks.DISENCHANT_GROUPED.get());
+        blockTexture(ModBlocks.MAGIC.get());
 
         // Custom items
         this.generateFlatItem(ModItems.ALEXANDRITE.get(), ModelTemplates.FLAT_ITEM);

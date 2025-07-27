@@ -2,12 +2,15 @@ package net.karen.mccoursemod.util;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
+import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -247,5 +250,20 @@ public class ChatUtil { // GENERAL METHODS
     // CUSTOM METHOD - SPLIT UPPER STRING -> Example: LuckyBomb -> Lucky Bomb
     public static String upperString(String upper) {
         return upper.replaceAll("([a-z])([A-Z])", "$1 $2");
+    }
+
+    // CUSTOM METHOD - Enchantment color
+    public static ChatFormatting getEnchantmentColor(Holder<Enchantment> holder) {
+        if (holder.is(EnchantmentTags.CURSE)) return red; // CURSE
+        if (holder.is(EnchantmentTags.ARMOR_EXCLUSIVE)) return gold; // ARMOR
+        if (holder.is(EnchantmentTags.BOOTS_EXCLUSIVE)) return blue; // BOOTS ARMOR
+//        if (holder.is(EnchantmentTags.FISHING_ROD)) return ChatFormatting.YELLOW;
+        if (holder.is(EnchantmentTags.MINING_EXCLUSIVE)) return darkPurple; // PICKAXE
+//        if (holder.is(EnchantmentTags.BREAKABLE)) return ChatFormatting.DARK_GREEN;
+        if (holder.is(EnchantmentTags.RIPTIDE_EXCLUSIVE)) return aqua; // TRIDENT
+        if (holder.is(EnchantmentTags.DAMAGE_EXCLUSIVE)) return darkRed; // SWORD
+        if (holder.is(EnchantmentTags.BOW_EXCLUSIVE)) return green; // BOW
+        if (holder.is(EnchantmentTags.CROSSBOW_EXCLUSIVE)) return darkGreen; // CROSSBOW
+        return gray;
     }
 }

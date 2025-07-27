@@ -1,9 +1,10 @@
-// 1.21.8	2025-07-26T17:16:09.2463576	Mccourse Recipes
+// 1.21.8	2025-07-27T12:37:22.8948884	Mccourse Recipes
 c6bd5ff114d655bd0bdf735b7e99a93003cba6e8 data/mccoursemod/advancement/recipes/combat/alexandrite_boots.json
 3a5214395dfd39eb5e7f025afd56fa63aeb73d1c data/mccoursemod/advancement/recipes/combat/alexandrite_chestplate.json
 f90dee637efc3fdb5e8c02a1a10e3c3487a93091 data/mccoursemod/advancement/recipes/combat/alexandrite_helmet.json
 d42f8abc1d18e00e16cd8e4f7c24d251366b3a59 data/mccoursemod/advancement/recipes/combat/alexandrite_leggings.json
 89c52475d199b014521c6c1394d96cf115f96434 data/mccoursemod/advancement/recipes/combat/alexandrite_sword.json
+b0f5fa76785b9594006d13e3e3f6e28d426573c6 data/mccoursemod/advancement/recipes/misc/alexandrite_from_magic_block.json
 2e83daafc3e93d5f301a02d7837dcb456408fa88 data/mccoursemod/advancement/recipes/tools/alexandrite_axe.json
 2c684a5edf5ca1d31e305f14861ed6a9f1017cb9 data/mccoursemod/advancement/recipes/tools/alexandrite_hammer.json
 b83038ad052fee33a99ef5bb9458a907b393e517 data/mccoursemod/advancement/recipes/tools/alexandrite_hoe.json
@@ -12,6 +13,7 @@ b83038ad052fee33a99ef5bb9458a907b393e517 data/mccoursemod/advancement/recipes/to
 22d0ef9f83cb90366948c8f0c675408063c845d6 data/mccoursemod/recipe/alexandrite_axe.json
 aa2ae3125f9469dca155c97a2cef0f278c97ef4b data/mccoursemod/recipe/alexandrite_boots.json
 3ecc08af03f4e9593c9c8128d33d4f75a4f46f65 data/mccoursemod/recipe/alexandrite_chestplate.json
+e8445459ce446f5769f6ce0b9b6788c54bddb2dc data/mccoursemod/recipe/alexandrite_from_magic_block.json
 aac5f0203480b636ebafd79f23a97660fa16f271 data/mccoursemod/recipe/alexandrite_hammer.json
 cd4f3b16d792a426b02042b73ab19142700ae68a data/mccoursemod/recipe/alexandrite_helmet.json
 814a72d1f33be3a5561f2cbba42de76f934ddc6d data/mccoursemod/recipe/alexandrite_hoe.json

@@ -20,6 +20,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.DISENCHANT_INDIVIDUAL, "Disenchant Individual");
         addBlock(ModBlocks.DISENCHANT_GROUPED, "Disenchant Grouped");
         addBlock(ModBlocks.ALEXANDRITE_BLOCK, "Alexandrite Block");
+        addBlock(ModBlocks.MAGIC, "Magic Block");
         // CUSTOM Items
         addItem(ModItems.ALEXANDRITE, "Alexandrite Gem");
         addItem(ModItems.LEVEL_CHARGER_GENERIC_PLUS, "Level Charger Generic Plus");
@@ -41,8 +42,9 @@ public class ModLanguageProvider extends LanguageProvider {
         // CUSTOM block item
         add(item + "enchant", "Enchant Block");
         add(item + "alexandrite_block", "Alexandrite Block");
-        add(item + "disenchant_individual", "Disenchant Individual");
-        add(item + "disenchant_grouped", "Disenchant Grouped");
+        add(item + "disenchant_individual", "Disenchant Individual Block");
+        add(item + "disenchant_grouped", "Disenchant Grouped Block");
+        add(item + "magic", "Magic Block");
         // CUSTOM Enchantment
         add("enchantment.mccoursemod.lightning_striker", "Lightning Striker");
         add("enchantment.mccoursemod.message", "Message");
@@ -62,5 +64,7 @@ public class ModLanguageProvider extends LanguageProvider {
         // ALEXANDRITE CUSTOM ARMORS
         add("advancement.mccoursemod.alexandritecustomarmors.title", "Alexandrite Custom Armors");
         add("advancement.mccoursemod.alexandritecustomarmors.description", "Collect all exclusive Alexandrite custom armors!");
+        // CUSTOM TOOLTIP
+        add("tooltip.mccoursemod.magic_block.tooltip", "This Block is quite §9MAGICAL§r");
     }
 }

@@ -23,5 +23,6 @@ public class ModBlockModelGenerators extends BlockModelGenerators {
         this.createTrivialCube(ModBlocks.DISENCHANT_INDIVIDUAL.get());
         this.createTrivialCube(ModBlocks.DISENCHANT_GROUPED.get());
         this.createTrivialCube(ModBlocks.ALEXANDRITE_BLOCK.get());
+        this.createTrivialCube(ModBlocks.MAGIC.get());
     }
 }

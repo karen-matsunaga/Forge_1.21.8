@@ -21,7 +21,8 @@ public class ModVanillaBlockTagsProvider extends VanillaBlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.ENCHANT.get(), ModBlocks.DISENCHANT_INDIVIDUAL.get(),
-                                                      ModBlocks.DISENCHANT_GROUPED.get(), ModBlocks.ALEXANDRITE_BLOCK.get());
+                                                      ModBlocks.DISENCHANT_GROUPED.get(), ModBlocks.ALEXANDRITE_BLOCK.get(),
+                                                      ModBlocks.MAGIC.get());
         // CUSTOM Tier Tools - Alexandrite as Netherite tier
         tag(ModTags.Blocks.NEEDS_ALEXANDRITE_TOOL);
         tag(ModTags.Blocks.INCORRECT_FOR_ALEXANDRITE_TOOL);

@@ -32,6 +32,8 @@ public class ModVanillaItemTagsProvider extends VanillaItemTagsProvider {
         tag(ItemTags.SHOVELS).add(ModItems.ALEXANDRITE_SHOVEL.get());
         tag(ItemTags.HOES).add(ModItems.ALEXANDRITE_HOE.get());
 
+        tag(ItemTags.WEAPON_ENCHANTABLE).add(ModItems.ALEXANDRITE_SWORD.get());
+
         // CUSTOM Tools ingredients repair
         tag(ModTags.Items.ALEXANDRITE_TOOL_MATERIALS).add(ModItems.ALEXANDRITE.get()); // Tools
         tag(ModTags.Items.REPAIRS_ALEXANDRITE_ARMOR).add(ModItems.ALEXANDRITE.get()); // Armors
@@ -64,5 +66,8 @@ public class ModVanillaItemTagsProvider extends VanillaItemTagsProvider {
 
         // Enchantment
         tag(ModTags.Items.LEVEL_CHARGER_ENCHANTABLE).addTag(ModTags.Items.LEVEL_CHARGER_GENERIC);
+
+        // Magic block items
+        tag(ModTags.Items.MAGIC_BLOCK).add(ModItems.ALEXANDRITE.get());
     }
 }

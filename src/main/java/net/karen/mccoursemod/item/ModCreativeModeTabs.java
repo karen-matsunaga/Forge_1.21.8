@@ -55,6 +55,7 @@ public class ModCreativeModeTabs extends CreativeModeTabs {
                                 output.accept(ModBlocks.DISENCHANT_INDIVIDUAL.get());
                                 output.accept(ModBlocks.DISENCHANT_GROUPED.get());
                                 output.accept(ModBlocks.ALEXANDRITE_BLOCK.get());
+                                output.accept(ModBlocks.MAGIC.get());
                             }).build());
 
     // Register all custom items and blocks on bus group event
