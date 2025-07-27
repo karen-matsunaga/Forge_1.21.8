@@ -69,6 +69,18 @@ public class ModTags {
     public static class Enchantments {
         public static final TagKey<Enchantment> LIGHTNING_STRIKER_TAG = createTag("lightning_striker_tag");
         public static final TagKey<Enchantment> MESSAGE_TAG = createTag("message_tag");
+        public static final TagKey<Enchantment> MINING_ENCHANTMENTS = createTag("mining_enchantments");
+        public static final TagKey<Enchantment> DURABILITY_ENCHANTMENTS = createTag("durability_enchantments");
+        public static final TagKey<Enchantment> FISHING_ENCHANTMENTS = createTag("fishing_enchantments");
+        public static final TagKey<Enchantment> HELMET_ENCHANTMENTS = createTag("helmet_enchantments");
+        public static final TagKey<Enchantment> BOOTS_ENCHANTMENTS = createTag("boots_enchantments");
+        public static final TagKey<Enchantment> LEGGINGS_ENCHANTMENTS = createTag("leggings_enchantments");
+        public static final TagKey<Enchantment> CHESTPLATE_ENCHANTMENTS = createTag("chestplate_enchantments");
+        public static final TagKey<Enchantment> SWORD_ENCHANTMENTS = createTag("sword_enchantments");
+        public static final TagKey<Enchantment> BOW_ENCHANTMENTS = createTag("bow_enchantments");
+        public static final TagKey<Enchantment> CROSSBOW_ENCHANTMENTS = createTag("crossbow_enchantments");
+        public static final TagKey<Enchantment> TRIDENT_ENCHANTMENTS = createTag("trident_enchantments");
+        public static final TagKey<Enchantment> MACE_ENCHANTMENTS = createTag("mace_enchantments");
 
         // CUSTOM METHOD - Registry all custom enchantment tags
         private static TagKey<Enchantment> createTag(String name) {

@@ -1,4 +1,4 @@
-// 1.21.8	2025-07-27T12:34:25.6852386	Tags for minecraft:item mod id mccoursemod
+// 1.21.8	2025-07-27T16:52:02.3377784	Tags for minecraft:item mod id mccoursemod
 23322585108afbbd5f20fd5e29aa83527532621d data/mccoursemod/tags/item/alexandrite_armor.json
 532ef531eaf6c7a49e75f41afd3805e794ee9491 data/mccoursemod/tags/item/alexandrite_tools.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/alexandrite_tool_materials.json
@@ -13,7 +13,6 @@ e1296da21ce7727ca34c6b4ca53792959f1c4ce3 data/mccoursemod/tags/item/level_charge
 cf21164e7fa78b937328e7306078456ee2ff9923 data/minecraft/tags/item/axes.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/minecraft/tags/item/beacon_payment_items.json
 34cda53d5b073a8b36e6ae776797bc148890b805 data/minecraft/tags/item/chest_armor.json
-94e8f218aefc260faf0e2166a3453cd88a7f58cb data/minecraft/tags/item/enchantable/weapon.json
 d45d4111413aab72202a4c8f187cbbc3f21ed31f data/minecraft/tags/item/foot_armor.json
 a5985a831c29f5e2c153a2f02ff6caf4e8ecd745 data/minecraft/tags/item/head_armor.json
 0909a2137a93fd3966f71ad519112d83418b616e data/minecraft/tags/item/hoes.json

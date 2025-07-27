@@ -3,6 +3,10 @@
     {
       "id": "mccoursemod:lightning_striker",
       "required": false
+    },
+    {
+      "id": "mccoursemod:message",
+      "required": false
     }
   ]
 }

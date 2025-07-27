@@ -3,7 +3,6 @@ package net.karen.mccoursemod.datagen;
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.item.ModItems;
-import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.PackOutput;
@@ -58,13 +57,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         this.fullArmor(List.of(ModItems.ALEXANDRITE_HELMET.get(), ModItems.ALEXANDRITE_CHESTPLATE.get(),
                                ModItems.ALEXANDRITE_LEGGINGS.get(), ModItems.ALEXANDRITE_BOOTS.get(),
                                ModItems.ALEXANDRITE.get()));
-        // CUSTOM TEST
-        this.shapeless(RecipeCategory.MISC, Items.DIAMOND, 32)
-                .requires(ModTags.Items.MAGIC_BLOCK)
-                .requires(ModBlocks.MAGIC.get())
-                .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get()))
-                .save(this.output, MccourseMod.MOD_ID + ":" +
-                                   getItemName(ModItems.ALEXANDRITE.get()) + "_from_magic_block");
     }
 
     // CUSTOM METHOD - Block Families (Stairs, Button, Door, etc.)
