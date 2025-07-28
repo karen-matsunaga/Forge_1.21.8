@@ -30,14 +30,12 @@ public class ModTags {
 
     // CUSTOM CLASS - Registry all custom item tags
     public static class Items {
-//        public static final TagKey<Item> TRANSFORMABLE_ITEMS = createTag("transformable_items");
-//
-//        // Created Fly effect item tag
-//        public static final TagKey<Item> HELMET_FLY = createTag("helmet_fly");
-//        public static final TagKey<Item> CHESTPLATE_FLY = createTag("chestplate_fly");
-//        public static final TagKey<Item> LEGGINGS_FLY = createTag("leggings_fly");
-//        public static final TagKey<Item> BOOTS_FLY = createTag("boots_fly");
-//
+        // Created Fly effect item tag
+        public static final TagKey<Item> HELMET_FLY = createTag("helmet_fly");
+        public static final TagKey<Item> CHESTPLATE_FLY = createTag("chestplate_fly");
+        public static final TagKey<Item> LEGGINGS_FLY = createTag("leggings_fly");
+        public static final TagKey<Item> BOOTS_FLY = createTag("boots_fly");
+
         // Level Charger items
         public static final TagKey<Item> LEVEL_CHARGER_ITEMS = createTag("level_charger_items");
         public static final TagKey<Item> LEVEL_CHARGER_GENERIC = createTag("level_charger_generic");

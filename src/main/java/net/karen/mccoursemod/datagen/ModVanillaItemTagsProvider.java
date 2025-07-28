@@ -67,5 +67,11 @@ public class ModVanillaItemTagsProvider extends VanillaItemTagsProvider {
 
         // Magic block items
         tag(ModTags.Items.MAGIC_BLOCK).add(ModItems.ALEXANDRITE.get());
+
+        // Fly effect
+        tag(ModTags.Items.HELMET_FLY).add(ModItems.ALEXANDRITE_HELMET.get());
+        tag(ModTags.Items.CHESTPLATE_FLY).add(ModItems.ALEXANDRITE_CHESTPLATE.get());
+        tag(ModTags.Items.LEGGINGS_FLY).add(ModItems.ALEXANDRITE_LEGGINGS.get());
+        tag(ModTags.Items.BOOTS_FLY).add(ModItems.ALEXANDRITE_BOOTS.get());
     }
 }

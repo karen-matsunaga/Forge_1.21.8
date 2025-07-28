@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.*;
+import static net.karen.mccoursemod.util.ChatUtil.*;
 
 @Mixin(value = ItemStack.class)
 public abstract class ItemStackMixin {
@@ -23,7 +24,10 @@ public abstract class ItemStackMixin {
         ItemStack stack = (ItemStack) (Object) this; // Get all blocks, items, etc.
         List<Component> tooltip = new ArrayList<>(cir.getReturnValue()); // Old tooltip
         if (stack.is(ModBlocks.MAGIC.get().asItem())) { // Item checked is Magic block
-            tooltip.add(Component.translatable("tooltip.mccoursemod.magic_block.tooltip")); // Added more information about block
+            Component original = tooltip.getFirst(), // Original tooltip line 0
+                      colored = original.copy().withStyle(style -> style.withColor(0x00ff00));
+            tooltip.set(0, colored); // Change only the name (first line of the tooltip) -> Color not appears on screen
+            tooltip.add(standardTranslatable("tooltip.mccoursemod.magic_block.tooltip")); // Added more information about block
             cir.setReturnValue(tooltip); // New tooltip
         }
     }

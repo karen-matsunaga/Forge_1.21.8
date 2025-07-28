@@ -1,11 +1,13 @@
 package net.karen.mccoursemod;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.effect.ModEffects;
 import net.karen.mccoursemod.enchantment.ModEnchantmentEffects;
 import net.karen.mccoursemod.item.ModCreativeModeTabs;
 import net.karen.mccoursemod.item.ModItems;
 import net.karen.mccoursemod.particle.AlexandriteParticles;
 import net.karen.mccoursemod.particle.ModParticles;
+import net.karen.mccoursemod.potion.ModPotions;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -39,6 +41,10 @@ public final class MccourseMod {
         ModEnchantmentEffects.register(modBusGroup);
         // Register the Deferred Register to the mod event bus so particles get registered
         ModParticles.register(modBusGroup);
+        // Register the Deferred Register to the mod event bus so effects get registered
+        ModEffects.register(modBusGroup);
+        // Register the Deferred Register to the mod event bus so potions get registered
+        ModPotions.register(modBusGroup);
 
         // Register the item to a creative tab
         BuildCreativeModeTabContentsEvent.getBus(modBusGroup).addListener(MccourseMod::addCreative);

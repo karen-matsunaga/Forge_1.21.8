@@ -12,7 +12,10 @@
     "EnchantmentMenuMixin",
     "EnchantmentMixin",
     "ItemStackMixin",
-    "ServerPlayerMixin"
+    "LivingEntityMixin",
+    "SculkShriekerBlockEntityMixin",
+    "ServerPlayerMixin",
+    "VibrationListenerMixin"
   ],
   "client": [
     "AnvilScreenMixin"
