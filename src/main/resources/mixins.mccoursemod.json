@@ -11,7 +11,8 @@
     "AnvilMenuMixin",
     "EnchantmentMenuMixin",
     "EnchantmentMixin",
-    "ItemStackMixin"
+    "ItemStackMixin",
+    "ServerPlayerMixin"
   ],
   "client": [
     "AnvilScreenMixin"
