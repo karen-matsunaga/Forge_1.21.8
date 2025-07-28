@@ -91,7 +91,9 @@ public class ModLanguageProvider extends LanguageProvider {
         add("enchantment.minecraft.knockback.desc", "When applied on sword or axe increases knockback distance of entities.");
         add("enchantment.minecraft.fire_aspect.desc", "When applied on sword or axe an entity received fire attack when hit.");
         add("enchantment.minecraft.looting.desc", "When applied on sword or axe increases amount of drop loot of entities.");
+        // SWEEPING EDGE ENCHANTMENT
         add("enchantment.minecraft.sweeping.desc", "When applied on sword or axe increases sweep attack damage on entities.");
+        add("enchantment.minecraft.sweeping_edge.desc", "When applied on sword or axe increases sweep attack damage on entities.");
 
         // BOW
         add("enchantment.minecraft.power.desc", "When applied on bow increases arrow damage.");

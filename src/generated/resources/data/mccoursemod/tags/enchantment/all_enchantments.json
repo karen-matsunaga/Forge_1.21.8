@@ -1,0 +1,16 @@
+{
+  "values": [
+    "#mccoursemod:helmet_enchantments",
+    "#mccoursemod:chestplate_enchantments",
+    "#mccoursemod:leggings_enchantments",
+    "#mccoursemod:boots_enchantments",
+    "#mccoursemod:sword_enchantments",
+    "#mccoursemod:bow_enchantments",
+    "#mccoursemod:crossbow_enchantments",
+    "#mccoursemod:trident_enchantments",
+    "#mccoursemod:fishing_enchantments",
+    "#mccoursemod:mace_enchantments",
+    "#mccoursemod:mining_enchantments",
+    "#mccoursemod:durability_enchantments"
+  ]
+}

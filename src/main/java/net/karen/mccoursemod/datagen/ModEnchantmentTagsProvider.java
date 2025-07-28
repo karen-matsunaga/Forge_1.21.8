@@ -96,5 +96,19 @@ public class ModEnchantmentTagsProvider extends EnchantmentTagsProvider {
         this.tag(ModTags.Enchantments.MACE_ENCHANTMENTS).add(Enchantments.BREACH)
                                                         .add(Enchantments.DENSITY)
                                                         .add(Enchantments.WIND_BURST);
+
+        // All enchantments
+        this.tag(ModTags.Enchantments.ALL_ENCHANTMENTS).addTag(ModTags.Enchantments.HELMET_ENCHANTMENTS)
+                                                       .addTag(ModTags.Enchantments.CHESTPLATE_ENCHANTMENTS)
+                                                       .addTag(ModTags.Enchantments.LEGGINGS_ENCHANTMENTS)
+                                                       .addTag(ModTags.Enchantments.BOOTS_ENCHANTMENTS)
+                                                       .addTag(ModTags.Enchantments.SWORD_ENCHANTMENTS)
+                                                       .addTag(ModTags.Enchantments.BOW_ENCHANTMENTS)
+                                                       .addTag(ModTags.Enchantments.CROSSBOW_ENCHANTMENTS)
+                                                       .addTag(ModTags.Enchantments.TRIDENT_ENCHANTMENTS)
+                                                       .addTag(ModTags.Enchantments.FISHING_ENCHANTMENTS)
+                                                       .addTag(ModTags.Enchantments.MACE_ENCHANTMENTS)
+                                                       .addTag(ModTags.Enchantments.MINING_ENCHANTMENTS)
+                                                       .addTag(ModTags.Enchantments.DURABILITY_ENCHANTMENTS);
     }
 }
