@@ -4,9 +4,16 @@ import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.enchantment.ModEnchantmentEffects;
 import net.karen.mccoursemod.item.ModCreativeModeTabs;
 import net.karen.mccoursemod.item.ModItems;
+import net.karen.mccoursemod.particle.AlexandriteParticles;
+import net.karen.mccoursemod.particle.ModParticles;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -30,6 +37,8 @@ public final class MccourseMod {
         ModCreativeModeTabs.register(modBusGroup);
         // Register the Deferred Register to the mod event bus so enchantments get registered
         ModEnchantmentEffects.register(modBusGroup);
+        // Register the Deferred Register to the mod event bus so particles get registered
+        ModParticles.register(modBusGroup);
 
         // Register the item to a creative tab
         BuildCreativeModeTabContentsEvent.getBus(modBusGroup).addListener(MccourseMod::addCreative);
@@ -45,5 +54,22 @@ public final class MccourseMod {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModBlocks.ALEXANDRITE_BLOCK);
         }
+    }
+
+    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    public static class ClientModEvents {
+        // CUSTOM EVENT - Register all custom entity renderers, custom menu screen, etc.
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event) {}
+        // CUSTOM EVENT - Register all custom particles
+        @SubscribeEvent
+        public static void registerParticleProvider(RegisterParticleProvidersEvent event) {
+            // Register all custom particles
+            event.registerSpriteSet(ModParticles.ALEXANDRITE_PARTICLES.get(), AlexandriteParticles.Provider::new);
+        }
+        // CUSTOM EVENT - Register all custom block entity renderers
+        @SubscribeEvent
+        public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {}
     }
 }

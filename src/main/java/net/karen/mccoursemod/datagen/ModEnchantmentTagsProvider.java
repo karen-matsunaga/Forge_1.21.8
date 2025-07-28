@@ -69,7 +69,6 @@ public class ModEnchantmentTagsProvider extends EnchantmentTagsProvider {
                                                          .add(Enchantments.SHARPNESS)
                                                          .add(Enchantments.SMITE)
                                                          .add(Enchantments.BANE_OF_ARTHROPODS)
-                                                         .add(Enchantments.BANE_OF_ARTHROPODS)
                                                          .add(Enchantments.SWEEPING_EDGE)
                                                          .add(Enchantments.KNOCKBACK)
                                                          .add(Enchantments.FIRE_ASPECT)

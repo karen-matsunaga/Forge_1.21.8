@@ -27,11 +27,8 @@ public abstract class EnchantmentMixin {
                                                                     .applyFormat(isCurse ? italic : bold));
         if (level != 1 || maxLevel != 1) { // Enchantment level equals 1+
             MutableComponent line = enchantmentComponent.append(CommonComponents.SPACE)
-                                                         .append(Component.literal(level + " / " + maxLevel)) // Level
-                                                         .append(CommonComponents.SPACE).append(Component.literal(icon))
-                                                         .append(CommonComponents.NEW_LINE).append(CommonComponents.EMPTY)
-                                                         .append(Component.literal("Enchantment description")
-                                                         .withColor(0xFFFFFF));
+                                                        .append(Component.literal(level + " / " + maxLevel)) // Level
+                                                        .append(CommonComponents.SPACE).append(Component.literal(icon));
             // Return new enchantment tooltip
             cir.setReturnValue(line);
         }
