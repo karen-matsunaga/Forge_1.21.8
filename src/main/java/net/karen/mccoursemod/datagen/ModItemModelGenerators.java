@@ -11,7 +11,6 @@ import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-
 import java.util.function.BiConsumer;
 
 public class ModItemModelGenerators extends ItemModelGenerators {
@@ -36,6 +35,7 @@ public class ModItemModelGenerators extends ItemModelGenerators {
         this.generateFlatItem(ModItems.LEVEL_CHARGER_GENERIC_MINUS.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.GEM_EFFECT_SATURATION.get(), ModelTemplates.FLAT_ITEM);
 
         // Custom tools
         this.generateFlatItem(ModItems.ALEXANDRITE_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);

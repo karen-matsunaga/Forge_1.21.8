@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.item;
 
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.item.custom.GemEffectItem;
 import net.karen.mccoursemod.item.custom.HammerItem;
 import net.karen.mccoursemod.item.custom.LevelChargerGenericItem;
 import net.karen.mccoursemod.item.custom.LevelChargerSpecifItem;
@@ -8,6 +9,7 @@ import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.equipment.ArmorType;
@@ -128,6 +130,14 @@ public class ModItems {
                                                                          ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                          "level_charger_specif_minus_fortune")))
                                                                   .fireResistant(), -1, Enchantments.FORTUNE));
+
+    // Gem Effect
+    public static final RegistryObject<Item> GEM_EFFECT_SATURATION =
+            ITEMS.register("gem_effect_saturation",
+            () -> new GemEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                "gem_effect_saturation"))),
+                                                                MobEffects.SATURATION, -1, 0));
 
     // CUSTOM METHOD - Registry all items on MccourseMod file
     public static void register(BusGroup busGroup) { ITEMS.register(busGroup); }

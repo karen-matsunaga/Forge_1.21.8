@@ -104,7 +104,7 @@ public class ChatUtil { // GENERAL METHODS
     public static MutableComponent tooltipLineTranslatableRGB(int[] COLORS, ItemStack stack) {
         int shift = (int) (System.currentTimeMillis() / 200L % COLORS.length); // Calculates color shift based on time
         MutableComponent minerText = Component.literal(""); // Animated text for "Miner Bow" with RGB wave effect
-        String text = itemLine(stack.getItem().getDescriptionId(), "item.mccourse.", "", "_", " "),
+        String text = itemLine(stack.getItem().getDescriptionId(), "item.mccoursemod.", "", "_", " "),
                  on = itemLines(text);
         for (int i = 0; i < on.length(); i++) {
             int colorIndex = (i - shift + COLORS.length) % COLORS.length; // Adjust to move colors from left to right
@@ -127,25 +127,25 @@ public class ChatUtil { // GENERAL METHODS
     }
 
     // CUSTOM METHOD - Tooltip Line Literal with RGB colors
-    public static void tooltipLineLiteralRGB(List<Component> tooltip,
+    public static void tooltipLineLiteralRGB(Consumer<Component> tooltip,
                                              int[] COLORS, ItemStack stack, String message) {
         int shift = (int) (System.currentTimeMillis() / 200L % COLORS.length); // Calculates color shift based on time
         MutableComponent minerText = Component.literal(""); // Animated text for "Miner Bow" with RGB wave effect
-        String text = itemLine(stack.getItem().getDescriptionId(), "item.mccourse.", "", "_", " "),
+        String text = itemLine(stack.getItem().getDescriptionId(), "item.mccoursemod.", "", "_", " "),
                 on = itemLines(text) + message;
         for (int i = 0; i < on.length(); i++) {
             int colorIndex = (i - shift + COLORS.length) % COLORS.length; // Adjust to move colors from left to right
             minerText.append(Component.literal(String.valueOf(on.charAt(i)))
                     .setStyle(Style.EMPTY.withColor(TextColor.fromRgb(COLORS[colorIndex]))));
         }
-        tooltip.add(minerText);
+        tooltip.accept(minerText);
     }
 
     // CUSTOM METHOD - Message Literal on screen with RGB colors
     public static void messageLiteralRGB(Player player, int[] COLORS, ItemStack stack, String message) {
         int shift = (int) (System.currentTimeMillis() / 200L % COLORS.length); // Calculates color shift based on time
         MutableComponent minerText = Component.literal(""); // Animated text for "Miner Bow" with RGB wave effect
-        String text = itemLine(stack.getItem().getDescriptionId(), "item.mccourse.", "", "_", " "),
+        String text = itemLine(stack.getItem().getDescriptionId(), "item.mccoursemod.", "", "_", " "),
                 on = itemLines(text) + message;
         for (int i = 0; i < on.length(); i++) {
             int colorIndex = (i - shift + COLORS.length) % COLORS.length; // Adjust to move colors from left to right

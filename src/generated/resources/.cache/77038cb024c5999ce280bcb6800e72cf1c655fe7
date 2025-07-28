@@ -1,4 +1,4 @@
-// 1.21.8	2025-07-27T12:34:25.6852386	Model Definitions
+// 1.21.8	2025-07-28T19:12:47.9770039	Model Definitions
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 51734bf600a686825e0ec38b2ea4d7ae0080404a assets/mccoursemod/blockstates/disenchant_grouped.json
 5732f9f92cb58ee1208679026d204dafa904d7ed assets/mccoursemod/blockstates/disenchant_individual.json
@@ -19,6 +19,7 @@ d5aa344fc500ef2d480f2900cf12854002e19dd8 assets/mccoursemod/items/alexandrite_sh
 e5ff5f1a8eb00ed1efa344dca5463d48decdf0e1 assets/mccoursemod/items/disenchant_grouped.json
 d1e1537c835ce37fbba409d8bb2f13016b9bd3ad assets/mccoursemod/items/disenchant_individual.json
 c781befbb88c42517afc059c36c95b3d1712bbdb assets/mccoursemod/items/enchant.json
+deb85b66bf85e54260db30cc1cf478f9326fd199 assets/mccoursemod/items/gem_effect_saturation.json
 eab7f2c5f04d122f1b4b8a99efd397286953c77f assets/mccoursemod/items/level_charger_generic_minus.json
 06a75e1b34ff96123a6729785b541173acdea77c assets/mccoursemod/items/level_charger_generic_plus.json
 c2387d52e387dbf791b463a2d0c1f627dc616110 assets/mccoursemod/items/level_charger_specif_minus_fortune.json
@@ -84,6 +85,7 @@ fe8aace7b1daef63bdf21a169eebec17f15d1496 assets/mccoursemod/models/item/alexandr
 154b5950542679b676655e45f6e242f6ed830356 assets/mccoursemod/models/item/alexandrite_pickaxe.json
 63815fe16929eaffa64239a1dff3d60990b10a57 assets/mccoursemod/models/item/alexandrite_shovel.json
 8d2f3048ed4d0e022a47cba962c17041ce414dbe assets/mccoursemod/models/item/alexandrite_sword.json
+423fe9e7057c173f8421a86880c5b2d9b68dd7b1 assets/mccoursemod/models/item/gem_effect_saturation.json
 47db5fdb421a808510dc0ba0a413e54429bb4a77 assets/mccoursemod/models/item/level_charger_generic_minus.json
 53f0103424d2ec44c5649419699bc055dcdf20bb assets/mccoursemod/models/item/level_charger_generic_plus.json
 143d725116ad170320c60a860019737d6dc1d1e1 assets/mccoursemod/models/item/level_charger_specif_minus_fortune.json
