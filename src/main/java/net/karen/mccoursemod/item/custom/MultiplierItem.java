@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Consumer;
 import static net.karen.mccoursemod.util.ChatUtil.*;
 import static net.karen.mccoursemod.util.Util.consumeInfinite;
+import static net.karen.mccoursemod.util.Util.mainHand;
 
 public class MultiplierItem extends Item {
     private final int value; // Multiplier value x10 etc.
@@ -56,9 +57,10 @@ public class MultiplierItem extends Item {
                                 @NotNull TooltipFlag flag) {
         String message = "Click on item to your tools or armors and multiplier ",
                 item = this.toString().replace("_", " ");
-        if (stack.is(ModItems.MULTIPLIER.get())) {
-            tooltipLine(consumer, message + itemLines(item) + " items!", purple);
-        }
+        if (stack.is(ModItems.MULTIPLIER.get())) { tooltipLine(consumer, message + itemLines(item) + " items!", purple); }
+//        setMultiplierValue(stack, value);
+//        Integer multiplier = getMultiplierValue(stack);
+//        if (multiplier > 0) { tooltipLine(consumer, "Multiplier x" + value + itemLines(item) + " items!", aqua); }
         super.appendHoverText(stack, context, display, consumer, flag);
     }
 

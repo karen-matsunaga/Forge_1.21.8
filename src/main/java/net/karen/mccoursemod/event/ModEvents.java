@@ -100,11 +100,11 @@ public class ModEvents {
             int oresFortune = serverLevel.random.nextInt(fortune + 1);
             if (multiplier > 0) { // * RAINBOW ENCHANTMENT *
                 Map<Block, TagKey<Block>> rainbowMap = Map.ofEntries(Map.entry(Blocks.COAL_BLOCK, Tags.Blocks.ORES_COAL),
-                        Map.entry(Blocks.COPPER_BLOCK, Tags.Blocks.ORES_COPPER), Map.entry(Blocks.DIAMOND_BLOCK, Tags.Blocks.ORES_DIAMOND),
-                        Map.entry(Blocks.EMERALD_BLOCK, Tags.Blocks.ORES_EMERALD), Map.entry(Blocks.GOLD_BLOCK, Tags.Blocks.ORES_GOLD),
-                        Map.entry(Blocks.IRON_BLOCK, Tags.Blocks.ORES_IRON), Map.entry(Blocks.LAPIS_BLOCK, Tags.Blocks.ORES_LAPIS),
-                        Map.entry(Blocks.REDSTONE_BLOCK, Tags.Blocks.ORES_REDSTONE),
-                        Map.entry(Blocks.NETHERITE_BLOCK, Tags.Blocks.ORES_NETHERITE_SCRAP));
+                Map.entry(Blocks.COPPER_BLOCK, Tags.Blocks.ORES_COPPER), Map.entry(Blocks.DIAMOND_BLOCK, Tags.Blocks.ORES_DIAMOND),
+                Map.entry(Blocks.EMERALD_BLOCK, Tags.Blocks.ORES_EMERALD), Map.entry(Blocks.GOLD_BLOCK, Tags.Blocks.ORES_GOLD),
+                Map.entry(Blocks.IRON_BLOCK, Tags.Blocks.ORES_IRON), Map.entry(Blocks.LAPIS_BLOCK, Tags.Blocks.ORES_LAPIS),
+                Map.entry(Blocks.REDSTONE_BLOCK, Tags.Blocks.ORES_REDSTONE),
+                Map.entry(Blocks.NETHERITE_BLOCK, Tags.Blocks.ORES_NETHERITE_SCRAP));
                 for (Map.Entry<Block, TagKey<Block>> entry : rainbowMap.entrySet()) {
                     // block(...) -> Blocks normal break || return; -> Other enchantments are not applied
                     if (state.is(entry.getValue())) { block(world, pos, entry.getKey(), event); return; }
@@ -119,14 +119,12 @@ public class ModEvents {
             if (multiplier > 0) { // * MORE ORES ENCHANTMENT *
                 if (blockTag != null) {
                     if (is(state, Blocks.STONE, 0.1f)) {
-                        blockTag.getTag(ModTags.Blocks.MORE_ORES_ALL_DROPS)
-                                .getRandomElement(RandomSource.create())
-                                .ifPresent(
-                                  block -> {
+                        blockTag.getTag(ModTags.Blocks.MORE_ORES_ALL_DROPS).getRandomElement(RandomSource.create())
+                                .ifPresent(block -> {
                                     ItemStack drop = new ItemStack(block); // Increase ore drop with Multiplier enchantment
                                     if (fortune > 0) { drop.setCount(drop.getCount() * (1 + oresFortune)); }
                                     finalDrops.add(drop); // Break block and ore chance drop
-                                  });
+                                });
                         cancelVanillaDrop = true;
                     }
                 }
@@ -135,8 +133,7 @@ public class ModEvents {
                 SingleRecipeInput singleRecipe = new SingleRecipeInput(new ItemStack(state.getBlock()));
                 ServerLevel worldServer = serverLevel.getLevel();
                 Optional<RecipeHolder<SmeltingRecipe>> recipe =
-                        serverLevel.getServer().getRecipeManager()
-                                   .getRecipeFor(RecipeType.SMELTING, singleRecipe, worldServer);
+                        serverLevel.getServer().getRecipeManager().getRecipeFor(RecipeType.SMELTING, singleRecipe, worldServer);
                 if (recipe.isPresent()) {
                     ItemStack result = recipe.get().value().assemble(singleRecipe, worldServer.registryAccess());
                     int drop = 1;
