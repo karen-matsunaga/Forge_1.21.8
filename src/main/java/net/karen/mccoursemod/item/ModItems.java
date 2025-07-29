@@ -1,7 +1,6 @@
 package net.karen.mccoursemod.item;
 
 import net.karen.mccoursemod.MccourseMod;
-import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.custom.*;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.registries.Registries;
@@ -137,12 +136,12 @@ public class ModItems {
                                                                 "gem_effect_saturation"))),
                                                                 MobEffects.SATURATION, -1, 0));
 
-    // Infinite item
+    // Multiplier item
     public static final RegistryObject<Item> MULTIPLIER =
             ITEMS.register("multiplier",
             () -> new MultiplierItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                               ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                               "multiplier"))), 10));
+                                                                 ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                 "multiplier"))), 10));
 
     // CUSTOM METHOD - Registry all items on MccourseMod file
     public static void register(BusGroup busGroup) { ITEMS.register(busGroup); }

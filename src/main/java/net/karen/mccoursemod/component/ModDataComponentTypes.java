@@ -15,15 +15,15 @@ public class ModDataComponentTypes {
     public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES =
             DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, MccourseMod.MOD_ID);
 
-    // Coordinates custom tag -> X, Y, Z positions
+    // Coordinates custom data component -> X, Y, Z positions
     public static final RegistryObject<DataComponentType<BlockPos>> COORDINATES = register("coordinates",
             builder -> builder.persistent(BlockPos.CODEC));
 
-    // Multiplier custom tag
+    // Multiplier custom data component
     public static final RegistryObject<DataComponentType<Integer>> MULTIPLIER = register("multiplier",
             builder -> builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
 
-    // Item Stage custom tag
+    // Item Stage custom data component
     public static final RegistryObject<DataComponentType<Boolean>> ITEM_STAGE = register("item_stage",
             builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
 
