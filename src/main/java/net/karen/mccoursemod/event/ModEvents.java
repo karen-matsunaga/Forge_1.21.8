@@ -106,7 +106,6 @@ public class ModEvents {
                 Map.entry(Blocks.REDSTONE_BLOCK, Tags.Blocks.ORES_REDSTONE),
                 Map.entry(Blocks.NETHERITE_BLOCK, Tags.Blocks.ORES_NETHERITE_SCRAP));
                 for (Map.Entry<Block, TagKey<Block>> entry : rainbowMap.entrySet()) {
-                    // block(...) -> Blocks normal break || return; -> Other enchantments are not applied
                     if (state.is(entry.getValue())) { block(world, pos, entry.getKey(), event); return; }
                 }
                 if (state.is(ModTags.Blocks.RAINBOW_DROPS)) {

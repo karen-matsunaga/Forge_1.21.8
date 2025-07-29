@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Consumer;
 import static net.karen.mccoursemod.util.ChatUtil.*;
 import static net.karen.mccoursemod.util.Util.consumeInfinite;
-import static net.karen.mccoursemod.util.Util.mainHand;
 
 public class MultiplierItem extends Item {
     private final int value; // Multiplier value x10 etc.
