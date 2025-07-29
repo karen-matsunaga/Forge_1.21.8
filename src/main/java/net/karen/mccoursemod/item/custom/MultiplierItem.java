@@ -18,6 +18,7 @@ import static net.karen.mccoursemod.util.Util.consumeInfinite;
 
 public class MultiplierItem extends Item {
     private final int value; // Multiplier value x10 etc.
+    private static final int[] COLORS = { 0xff5555, 0xffaa00, 0xffff55, 0x55ff55, 0x55ffff, 0x5555ff, 0xff55ff };
 
     public MultiplierItem(Properties properties, int value) {
         super(properties);
@@ -29,17 +30,17 @@ public class MultiplierItem extends Item {
         ItemStack offHand = player.getItemInHand(hand), mainHand = player.getMainHandItem();
         if (!level.isClientSide() && !mainHand.isEmpty() && mainHand != offHand) {
             String split = splitWord("Multiplier"), upper = upperString(split);
-            int targetValue = value;
             Integer currentValue = getMultiplierValue(mainHand);
-            if (currentValue != null && currentValue == targetValue) {
+            if (currentValue != null && currentValue == value) {
                 player(player, "This item is already " + upper + " tag and is " + value + "!", yellow);
                 return InteractionResult.FAIL;
             }
-            setMultiplierValue(mainHand, targetValue);
-            player(player, "Multiplier: x" + targetValue + "!", green);
-            player(player, "Added " + upper + " tag!", green);
-            consumeInfinite(player, offHand);
-            return InteractionResult.SUCCESS;
+            else {
+                setMultiplierValue(mainHand);
+                player(player, "Added " + upper + " tag!", green);
+                consumeInfinite(player, offHand);
+                return InteractionResult.SUCCESS;
+            }
         }
         player(player, "Hold the tool in your main hand!", red);
         return InteractionResult.PASS;
@@ -54,12 +55,8 @@ public class MultiplierItem extends Item {
     public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context,
                                 @NotNull TooltipDisplay display, @NotNull Consumer<Component> consumer,
                                 @NotNull TooltipFlag flag) {
-        String message = "Click on item to your tools or armors and multiplier ",
-                item = this.toString().replace("_", " ");
-        if (stack.is(ModItems.MULTIPLIER.get())) { tooltipLine(consumer, message + itemLines(item) + " items!", purple); }
-//        setMultiplierValue(stack, value);
-//        Integer multiplier = getMultiplierValue(stack);
-//        if (multiplier > 0) { tooltipLine(consumer, "Multiplier x" + value + itemLines(item) + " items!", aqua); }
+        String message = " click on item to your tools or armors and multiplier items!";
+        if (stack.is(ModItems.MULTIPLIER.get())) { tooltipLineLiteralRGB(consumer, COLORS, stack, message); }
         super.appendHoverText(stack, context, display, consumer, flag);
     }
 
@@ -69,7 +66,7 @@ public class MultiplierItem extends Item {
     }
 
     // CUSTOM METHOD - Set Multiplier value
-    private void setMultiplierValue(ItemStack stack, int value) {
+    private void setMultiplierValue(ItemStack stack) {
         stack.set(ModDataComponentTypes.MULTIPLIER.get(), value);
     }
 }
