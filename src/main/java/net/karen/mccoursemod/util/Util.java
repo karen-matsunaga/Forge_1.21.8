@@ -19,8 +19,14 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.util.Result;
+import net.minecraftforge.event.level.BlockEvent;
+
 import java.util.Map;
 
 public class Util {
@@ -142,14 +148,12 @@ public class Util {
 //        }
 //    }
 
-
-
     // CUSTOM METHOD - Drop enchanted book and base item on ground [world]
-//    public static void dropItem(ServerLevel world, BlockPos pos, ItemStack stack) {
-//        ItemEntity item = new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, stack);
-//        item.setDeltaMovement(Vec3.ZERO);
-//        world.addFreshEntity(item);
-//    }
+    public static void dropItem(ServerLevel world, BlockPos pos, ItemStack stack) {
+        ItemEntity item = new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, stack);
+        item.setDeltaMovement(Vec3.ZERO);
+        world.addFreshEntity(item);
+    }
 
     // CUSTOM METHOD - Drop Multiplier enchantment items on ground [world]
 //    public static void dropWorld(LivingDropsEvent event, Level level,
@@ -231,38 +235,30 @@ public class Util {
 //    }
 
     // CUSTOM METHOD - More Ores enchantment -> Block, chance ore drop, More Ores level and required level enchantment
-//    public static boolean is(BlockState state, Block block,
-//                             float chance, ItemStack item, int type) {
-//        int moreOres = enchant(item, ModEnchantments.MORE_ORES.get());
-//        boolean hasEnchant = state.is(block) && (Math.random() < chance);
-//        switch (type) {
-//            case 1 -> hasEnchant = state.is(block) && (Math.random() < chance) && (moreOres < 6);
-//            case 2 -> hasEnchant = state.is(block) && (Math.random() < chance) && (moreOres == 6);
-//            case 3 -> hasEnchant = state.is(block) && (Math.random() < chance) && (moreOres >= 7);
-//        }
-//        return hasEnchant;
-//    }
+    public static boolean is(BlockState state, Block block, float chance) {
+        return state.is(block) && (Math.random() < chance);
+    }
 
     // CUSTOM METHOD - Cancel vanilla drop
-//    public static void block(LevelAccessor world, BlockPos pos, Block block,
-//                             BlockEvent.BreakEvent event) {
-//        event.setResult(Result.DENY);
-//        if (world instanceof ServerLevel serverLevel) { serverLevel.setBlockAndUpdate(pos, block.defaultBlockState()); }
-//        else { world.setBlock(pos, block.defaultBlockState(), 3); }
-//    }
+    public static void block(LevelAccessor world, BlockPos pos, Block block,
+                             BlockEvent.BreakEvent event) {
+        event.setResult(Result.DENY);
+        if (world instanceof ServerLevel serverLevel) { serverLevel.setBlockAndUpdate(pos, block.defaultBlockState()); }
+        else { world.setBlock(pos, block.defaultBlockState(), 3); }
+    }
 
     // CUSTOM METHOD - Manually drops XP from blocks and items that have XP in vanilla
-//    public static void dropXp(BlockState state, ServerLevel serverLevel,
-//                              BlockPos pos, int fortune) {
-//        int exp = state.getExpDrop(serverLevel, serverLevel.random, pos, fortune, 0);
-//        if (exp > 0) { state.getBlock().popExperience(serverLevel, pos, exp); }
-//    }
+    public static void dropXp(BlockState state, ServerLevel serverLevel,
+                              BlockPos pos, int fortune) {
+        int exp = state.getExpDrop(serverLevel, serverLevel.random, pos, fortune, 0);
+        if (exp > 0) { state.getBlock().popExperience(serverLevel, pos, exp); }
+    }
 
     // CUSTOM METHOD - Manually drops XP from blocks and items that normally have no XP
-//    public static void setPlayerXP(Player player, Level level, int xp) {
-//        Vec3 position = new Vec3(player.getBlockX(), player.getBlockY(), player.getBlockZ());
-//        ExperienceOrb.award((ServerLevel) level, position, xp);
-//    }
+    public static void setPlayerXP(Player player, Level level, int xp) {
+        Vec3 position = new Vec3(player.getBlockX(), player.getBlockY(), player.getBlockZ());
+        ExperienceOrb.award((ServerLevel) level, position, xp);
+    }
 
     // CUSTOM METHOD - Check if it is a block
 //    public static boolean isBlock(BlockState state, TagKey<Block> block) {
@@ -416,5 +412,14 @@ public class Util {
     // CUSTOM METHOD - Player has enchantment on slots
     public static int hasEnchant(Holder<Enchantment> enchantment, Player player) {
         return EnchantmentHelper.getEnchantmentLevel(enchantment, player);
+    }
+
+
+    // CUSTOM METHOD - Consume Infinite item
+    public static void consumeInfinite(Player player, ItemStack usedStack) {
+        if (!player.getAbilities().instabuild) {
+            usedStack.shrink(1); // Consume Infinite item
+            player.containerMenu.broadcastChanges(); // Update the interface
+        }
     }
 }

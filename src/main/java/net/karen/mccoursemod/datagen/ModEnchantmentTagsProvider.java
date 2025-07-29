@@ -23,8 +23,7 @@ public class ModEnchantmentTagsProvider extends EnchantmentTagsProvider {
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         // Tooltip Order
-        this.tag(EnchantmentTags.TOOLTIP_ORDER).addOptional(ModEnchantments.LIGHTNING_STRIKER)
-                                               .addOptional(ModEnchantments.MESSAGE);
+        this.tag(EnchantmentTags.TOOLTIP_ORDER).addOptional(ModEnchantments.LIGHTNING_STRIKER);
 
         // Not treasure enchantment
         this.tag(EnchantmentTags.NON_TREASURE).addOptional(ModEnchantments.LIGHTNING_STRIKER);
@@ -37,9 +36,6 @@ public class ModEnchantmentTagsProvider extends EnchantmentTagsProvider {
 
         // Lightning Striker tag
         this.tag(ModTags.Enchantments.LIGHTNING_STRIKER_TAG).addOptional(ModEnchantments.LIGHTNING_STRIKER);
-
-        // Message tag
-        this.tag(ModTags.Enchantments.MESSAGE_TAG).addOptional(ModEnchantments.MESSAGE);
 
         // Pickaxe enchantments
         this.tag(ModTags.Enchantments.MINING_ENCHANTMENTS).add(Enchantments.EFFICIENCY)

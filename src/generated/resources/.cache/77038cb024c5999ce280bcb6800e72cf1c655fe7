@@ -1,4 +1,4 @@
-// 1.21.8	2025-07-28T19:12:47.9770039	Model Definitions
+// 1.21.8	2025-07-28T22:49:11.818328	Model Definitions
 f7a9ed05e4c0a1202e8bcf365202ba7cb2be62ac assets/mccoursemod/blockstates/alexandrite_block.json
 51734bf600a686825e0ec38b2ea4d7ae0080404a assets/mccoursemod/blockstates/disenchant_grouped.json
 5732f9f92cb58ee1208679026d204dafa904d7ed assets/mccoursemod/blockstates/disenchant_individual.json
@@ -25,6 +25,7 @@ eab7f2c5f04d122f1b4b8a99efd397286953c77f assets/mccoursemod/items/level_charger_
 c2387d52e387dbf791b463a2d0c1f627dc616110 assets/mccoursemod/items/level_charger_specif_minus_fortune.json
 7a0ca5263abe9f4fd243943ed05f1550c613e38a assets/mccoursemod/items/level_charger_specif_plus_fortune.json
 7704fa6cbfdd4572156a0ce428118db262c9f925 assets/mccoursemod/items/magic.json
+3025775d9408a6d1c9ff0f07f32440ffe7cb4b4d assets/mccoursemod/items/multiplier.json
 95c3daff44ee914f6e5a83a0eeda8c2ac8632439 assets/mccoursemod/models/block/alexandrite_block.json
 a3dde28a1737e3eab87973fea7c9bf78641d8b7c assets/mccoursemod/models/block/disenchant_grouped.json
 ce35b0265e015d78eaae4018188399021b5abda4 assets/mccoursemod/models/block/disenchant_individual.json
@@ -90,3 +91,4 @@ fe8aace7b1daef63bdf21a169eebec17f15d1496 assets/mccoursemod/models/item/alexandr
 53f0103424d2ec44c5649419699bc055dcdf20bb assets/mccoursemod/models/item/level_charger_generic_plus.json
 143d725116ad170320c60a860019737d6dc1d1e1 assets/mccoursemod/models/item/level_charger_specif_minus_fortune.json
 8efd307d669786861e1c019b978ab2ea898c12d8 assets/mccoursemod/models/item/level_charger_specif_plus_fortune.json
+07ca4ade1fc029451b343c194f6bcee7e0c12a9f assets/mccoursemod/models/item/multiplier.json

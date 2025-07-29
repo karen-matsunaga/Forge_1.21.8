@@ -36,6 +36,7 @@ public class ModItemModelGenerators extends ItemModelGenerators {
         this.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.GEM_EFFECT_SATURATION.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.MULTIPLIER.get(), ModelTemplates.FLAT_ITEM);
 
         // Custom tools
         this.generateFlatItem(ModItems.ALEXANDRITE_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);

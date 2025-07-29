@@ -14,13 +14,29 @@ public class ModTags {
     // CUSTOM CLASS - Registry all custom block tags
     public static class Blocks {
         // Created tool tags
-
         // Blocks break
         public static final TagKey<Block> NEEDS_ALEXANDRITE_TOOL = createTag("needs_alexandrite_tool");
 
         // Blocks not break
         public static final TagKey<Block> INCORRECT_FOR_ALEXANDRITE_TOOL =
                 createTag("incorrect_for_alexandrite_tool");
+
+        // Created More Ores's drops - More Ores I, II, III, IV, V, VI, Max Level
+        public static final TagKey<Block> MORE_ORES_ONE_DROPS = createTag("more_ores_one_drops");
+        public static final TagKey<Block> MORE_ORES_TWO_DROPS = createTag("more_ores_two_drops");
+        public static final TagKey<Block> MORE_ORES_THREE_DROPS = createTag("more_ores_three_drops");
+        public static final TagKey<Block> MORE_ORES_FOUR_DROPS = createTag("more_ores_four_drops");
+        public static final TagKey<Block> MORE_ORES_FIVE_DROPS = createTag("more_ores_five_drops");
+        public static final TagKey<Block> MORE_ORES_ALL_DROPS = createTag("more_ores_all_drops");
+
+        // Ores
+        public static final TagKey<Block> ALL_ORES = createTag("all_ores");
+
+        // Rainbow effect
+        public static final TagKey<Block> RAINBOW_DROPS = createTag("rainbow_drops");
+
+        // Accumulator effect
+        public static final TagKey<Block> ACCUMULATOR_EXPERIENCE = createTag("accumulator_experience");
 
         // CUSTOM METHOD - Registry all custom block tags
         private static TagKey<Block> createTag(String name) {
@@ -52,10 +68,18 @@ public class ModTags {
 
         // Alexandrite Ingredients
         public static final TagKey<Item> ALEXANDRITE_ARMOR = createTag("alexandrite_armor");
+
         // Tools
         public static final TagKey<Item> ALEXANDRITE_TOOL_MATERIALS = createTag("alexandrite_tool_materials");
+
         // Armor ingredient
         public static final TagKey<Item> REPAIRS_ALEXANDRITE_ARMOR = createTag("repairs_alexandrite_armor");
+
+        // Ores
+        public static final TagKey<Item> MULTIPLIER_ORES = createTag("multiplier_ores");
+
+        // Ore block items
+        public static final TagKey<Item> ORE_BLOCK_ITEMS = createTag("ore_block_items");
 
         // CUSTOM METHOD - Registry all custom item tags
         private static TagKey<Item> createTag(String name) {
@@ -66,7 +90,6 @@ public class ModTags {
     // CUSTOM CLASS - Registry all custom enchantment tags
     public static class Enchantments {
         public static final TagKey<Enchantment> LIGHTNING_STRIKER_TAG = createTag("lightning_striker_tag");
-        public static final TagKey<Enchantment> MESSAGE_TAG = createTag("message_tag");
         public static final TagKey<Enchantment> MINING_ENCHANTMENTS = createTag("mining_enchantments");
         public static final TagKey<Enchantment> DURABILITY_ENCHANTMENTS = createTag("durability_enchantments");
         public static final TagKey<Enchantment> FISHING_ENCHANTMENTS = createTag("fishing_enchantments");

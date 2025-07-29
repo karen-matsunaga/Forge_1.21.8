@@ -43,6 +43,8 @@ public class ModCreativeModeTabs extends CreativeModeTabs {
                                 output.accept(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get());
                                 // Gem Effect
                                 output.accept(ModItems.GEM_EFFECT_SATURATION.get());
+                                // Multiplier
+                                output.accept(ModItems.MULTIPLIER.get());
                             }).build());
 
     // Register all custom blocks

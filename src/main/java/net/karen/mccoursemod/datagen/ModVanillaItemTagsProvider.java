@@ -7,6 +7,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.VanillaItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CompletableFuture;
@@ -73,5 +74,19 @@ public class ModVanillaItemTagsProvider extends VanillaItemTagsProvider {
         tag(ModTags.Items.CHESTPLATE_FLY).add(ModItems.ALEXANDRITE_CHESTPLATE.get());
         tag(ModTags.Items.LEGGINGS_FLY).add(ModItems.ALEXANDRITE_LEGGINGS.get());
         tag(ModTags.Items.BOOTS_FLY).add(ModItems.ALEXANDRITE_BOOTS.get());
+
+        // Ores
+        this.tag(ModTags.Items.MULTIPLIER_ORES).addTag(Tags.Items.ORES)
+                                               .addTag(ModTags.Items.ORE_BLOCK_ITEMS);
+
+        this.tag(ModTags.Items.ORE_BLOCK_ITEMS).addTag(Tags.Items.STORAGE_BLOCKS_COAL)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_COPPER)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_DIAMOND)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_EMERALD)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_GOLD)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_IRON)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_LAPIS)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_NETHERITE)
+                                               .addTag(Tags.Items.STORAGE_BLOCKS_REDSTONE);
     }
 }

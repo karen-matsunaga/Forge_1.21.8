@@ -1,4 +1,4 @@
-// 1.21.8	2025-07-28T14:46:22.1337636	Tags for minecraft:item mod id mccoursemod
+// 1.21.8	2025-07-28T21:45:10.3900421	Tags for minecraft:item mod id mccoursemod
 23322585108afbbd5f20fd5e29aa83527532621d data/mccoursemod/tags/item/alexandrite_armor.json
 532ef531eaf6c7a49e75f41afd3805e794ee9491 data/mccoursemod/tags/item/alexandrite_tools.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/alexandrite_tool_materials.json
@@ -13,6 +13,8 @@ a5985a831c29f5e2c153a2f02ff6caf4e8ecd745 data/mccoursemod/tags/item/helmet_fly.j
 565fa3bcd84d88f945f7ac9e622a8db2910916a1 data/mccoursemod/tags/item/level_charger_red.json
 e1296da21ce7727ca34c6b4ca53792959f1c4ce3 data/mccoursemod/tags/item/level_charger_specif.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/magic_block.json
+2433c25db68f43091559346562e63c5a4a841c3f data/mccoursemod/tags/item/multiplier_ores.json
+14f2f0d7fa0b19b565d7a9c81210b119d89bc447 data/mccoursemod/tags/item/ore_block_items.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/repairs_alexandrite_armor.json
 cf21164e7fa78b937328e7306078456ee2ff9923 data/minecraft/tags/item/axes.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/minecraft/tags/item/beacon_payment_items.json

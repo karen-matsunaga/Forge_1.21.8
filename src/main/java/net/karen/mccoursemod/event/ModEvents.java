@@ -2,24 +2,37 @@ package net.karen.mccoursemod.event;
 
 import net.karen.mccoursemod.MccourseMod;
 import net.karen.mccoursemod.item.custom.HammerItem;
+import net.karen.mccoursemod.item.custom.MultiplierItem;
 import net.karen.mccoursemod.potion.ModPotions;
+import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.TagKey;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.brewing.BrewingRecipeRegisterEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import net.minecraftforge.registries.ForgeRegistries;
+import java.util.*;
+import static net.karen.mccoursemod.util.Util.*;
 
 @Mod.EventBusSubscriber(modid = MccourseMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModEvents {
@@ -67,5 +80,106 @@ public class ModEvents {
 
         // HASTE POTION
         hastePotion.ifPresent(haste -> builder.addMix(Potions.AWKWARD, Items.CARROT, haste));
+    }
+
+    // CUSTOM EVENT -> MULTIPLIER CUSTOM TAG (** TOOLTIP DESCRIPTION; MULTIPLIER VALUE **)
+    @SubscribeEvent
+    public static void onBlockBreakWithCustomEnchantments(BlockEvent.BreakEvent event) {
+        Player player = event.getPlayer();
+        LevelAccessor world = event.getLevel();
+        BlockPos pos = event.getPos();
+        BlockState state = event.getState();
+        ItemStack tool = player.getMainHandItem();
+        Level level = (Level) event.getLevel();
+        int fortune = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FORTUNE.getOrThrow(level), tool),
+            multiplier = MultiplierItem.getMultiplierValue(tool);
+        var blockTag = ForgeRegistries.BLOCKS.tags();
+        if (!level.isClientSide() && world instanceof ServerLevel serverLevel) {
+            boolean cancelVanillaDrop = false; // Adapt the drop according to the enchantment being true
+            List<ItemStack> finalDrops = new ArrayList<>(); // Items caused by enchantments are stored in the list
+            int oresFortune = serverLevel.random.nextInt(fortune + 1);
+            if (multiplier > 0) { // * RAINBOW ENCHANTMENT *
+                Map<Block, TagKey<Block>> rainbowMap = Map.ofEntries(Map.entry(Blocks.COAL_BLOCK, Tags.Blocks.ORES_COAL),
+                        Map.entry(Blocks.COPPER_BLOCK, Tags.Blocks.ORES_COPPER), Map.entry(Blocks.DIAMOND_BLOCK, Tags.Blocks.ORES_DIAMOND),
+                        Map.entry(Blocks.EMERALD_BLOCK, Tags.Blocks.ORES_EMERALD), Map.entry(Blocks.GOLD_BLOCK, Tags.Blocks.ORES_GOLD),
+                        Map.entry(Blocks.IRON_BLOCK, Tags.Blocks.ORES_IRON), Map.entry(Blocks.LAPIS_BLOCK, Tags.Blocks.ORES_LAPIS),
+                        Map.entry(Blocks.REDSTONE_BLOCK, Tags.Blocks.ORES_REDSTONE),
+                        Map.entry(Blocks.NETHERITE_BLOCK, Tags.Blocks.ORES_NETHERITE_SCRAP));
+                for (Map.Entry<Block, TagKey<Block>> entry : rainbowMap.entrySet()) {
+                    // block(...) -> Blocks normal break || return; -> Other enchantments are not applied
+                    if (state.is(entry.getValue())) { block(world, pos, entry.getKey(), event); return; }
+                }
+                if (state.is(ModTags.Blocks.RAINBOW_DROPS)) {
+                    ItemStack rainbowDrop = new ItemStack(state.getBlock());
+                    if (fortune > 0) { rainbowDrop.setCount(rainbowDrop.getCount() * (1 + oresFortune)); }
+                    finalDrops.add(rainbowDrop);
+                    cancelVanillaDrop = true;
+                }
+            }
+            if (multiplier > 0) { // * MORE ORES ENCHANTMENT *
+                if (blockTag != null) {
+                    if (is(state, Blocks.STONE, 0.1f)) {
+                        blockTag.getTag(ModTags.Blocks.MORE_ORES_ALL_DROPS)
+                                .getRandomElement(RandomSource.create())
+                                .ifPresent(
+                                  block -> {
+                                    ItemStack drop = new ItemStack(block); // Increase ore drop with Multiplier enchantment
+                                    if (fortune > 0) { drop.setCount(drop.getCount() * (1 + oresFortune)); }
+                                    finalDrops.add(drop); // Break block and ore chance drop
+                                  });
+                        cancelVanillaDrop = true;
+                    }
+                }
+            }
+            if (multiplier > 0) { // * AUTO SMELT ENCHANTMENT *
+                SingleRecipeInput singleRecipe = new SingleRecipeInput(new ItemStack(state.getBlock()));
+                ServerLevel worldServer = serverLevel.getLevel();
+                Optional<RecipeHolder<SmeltingRecipe>> recipe =
+                        serverLevel.getServer().getRecipeManager()
+                                   .getRecipeFor(RecipeType.SMELTING, singleRecipe, worldServer);
+                if (recipe.isPresent()) {
+                    ItemStack result = recipe.get().value().assemble(singleRecipe, worldServer.registryAccess());
+                    int drop = 1;
+                    if (state.is(ModTags.Blocks.ALL_ORES) && fortune > 0) { drop += oresFortune; }
+                    drop *= multiplier;
+                    for (int i = 0; i < drop; i++) { finalDrops.add(result.copy()); }
+                }
+                cancelVanillaDrop = true;
+            }
+            if (multiplier > 1 && !finalDrops.isEmpty()) { // * MULTIPLIER ENCHANTMENT *
+                List<ItemStack> multipliedDrops = new ArrayList<>();
+                finalDrops.forEach(drop -> {
+                    ItemStack multiplied = drop.copy(); // Copy ORIGINAL drop
+                    if (drop.is(ModTags.Items.MULTIPLIER_ORES)) {
+                        multiplied.setCount(drop.getCount() * multiplier); // Duplicate drops with Multiplier
+                        multipliedDrops.add(multiplied);
+                    }
+                    else { multipliedDrops.add(multiplied); }});
+                finalDrops.clear(); // Remove the non-multiplied originals
+                finalDrops.addAll(multipliedDrops); // Adds the multiplied values
+            }
+            if (multiplier > 0) { // * ACCUMULATOR ENCHANTMENT *
+                // Gain experience orb when mined block and checks if the broken block is one that usually does not give XP
+                if (state.is(ModTags.Blocks.ACCUMULATOR_EXPERIENCE)) {
+                    // Amount of XP you want to give - Default gain 1 experience orb per level
+                    setPlayerXP(player, level, multiplier);
+                }
+            }
+            if (multiplier > 0 && !state.isAir()) { // * MAGNETIC ENCHANTMENT *
+                if (finalDrops.isEmpty()) { // FinalDrops empty list added all items on it is
+                    finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
+                }
+                finalDrops.forEach(drop -> { // FinalDrops list added on Player's inventory
+                    if (!player.getInventory().add(drop)) { player.drop(drop, false); }});
+                block(serverLevel, pos, Blocks.AIR, event);
+                dropXp(state, serverLevel, pos, fortune);
+                return;
+            }
+            if (cancelVanillaDrop) { // FinalDrops list accumulate drop on world
+                block(serverLevel, pos, Blocks.AIR, event);
+                finalDrops.forEach(drop -> dropItem(serverLevel, pos, drop));
+                dropXp(state, serverLevel, pos, fortune);
+            }
+        }
     }
 }

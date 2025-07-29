@@ -207,12 +207,6 @@ public class ChatUtil { // GENERAL METHODS
                 .withStyle(Style.EMPTY.withColor(color).withItalic(false));
     }
 
-    // CUSTOM METHOD - Interaction Result Holder FAIL messages
-    public static boolean fail(Player player, String message, ChatFormatting color) {
-        player(player, message, color);
-        return false;
-    }
-
     // CUSTOM METHOD - Renamed string on TOOLTIP -> Ex: Fortune etc. (Only one word) -> Capitalize First Letters
     public static String itemLine(String var, String old, String value,
                                   String old2, String value2) {
