@@ -33,9 +33,13 @@ public abstract class ItemStackMixin {
             tooltip.set(0, colored); // Change only the name (first line of the tooltip) -> Color not appears on screen
             tooltip.add(standardTranslatable("tooltip.mccoursemod.magic_block.tooltip")); // Added more information about block
         }
-        if (stack.has(ModDataComponentTypes.MULTIPLIER.get())) {
+        if (stack.has(ModDataComponentTypes.MULTIPLIER.get())) { // Multiplier effect
             tooltip.add(CommonComponents.EMPTY);
             tooltip.add(ChatUtil.componentLiteral("Multiplier x" + MultiplierItem.getMultiplierValue(stack) + "!", yellow));
+        }
+        if (stack.has(ModDataComponentTypes.ITEM_STAGE.get())) { // Magnet effect
+            tooltip.add(CommonComponents.EMPTY);
+            tooltip.add(ChatUtil.componentLiteral("Magnet!", darkGray));
         }
         cir.setReturnValue(tooltip); // New tooltip
     }

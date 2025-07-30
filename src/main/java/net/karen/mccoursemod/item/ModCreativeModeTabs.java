@@ -45,6 +45,8 @@ public class ModCreativeModeTabs extends CreativeModeTabs {
                                 output.accept(ModItems.GEM_EFFECT_SATURATION.get());
                                 // Multiplier
                                 output.accept(ModItems.MULTIPLIER.get());
+                                // Magnet
+                                output.accept(ModItems.MAGNET.get());
                             }).build());
 
     // Register all custom blocks

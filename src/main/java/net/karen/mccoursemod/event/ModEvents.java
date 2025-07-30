@@ -163,7 +163,8 @@ public class ModEvents {
                     setPlayerXP(player, level, multiplier);
                 }
             }
-            if (multiplier > 0 && !state.isAir()) { // * MAGNETIC EFFECT *
+            // ** TEST ** if (multiplier > 0) (MAGNETIC works with MULTIPLIER) + (WITHOUT MULTIPLIER doesn't work)
+            if (tool.has(ModDataComponentTypes.ITEM_STAGE.get()) && !state.isAir()) { // * MAGNETIC EFFECT *
                 if (finalDrops.isEmpty()) { // FinalDrops empty list added all items on it is
                     finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
                 }

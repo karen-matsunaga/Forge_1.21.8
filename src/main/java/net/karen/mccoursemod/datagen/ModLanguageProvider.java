@@ -30,6 +30,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE, "Level Charger Specif Plus Fortune");
         addItem(ModItems.GEM_EFFECT_SATURATION, "Gem Effect Saturation");
         addItem(ModItems.MULTIPLIER, "Multiplier");
+        addItem(ModItems.MAGNET, "Magnet");
 
         // CUSTOM Tools
         addItem(ModItems.ALEXANDRITE_HAMMER, "Alexandrite Hammer");

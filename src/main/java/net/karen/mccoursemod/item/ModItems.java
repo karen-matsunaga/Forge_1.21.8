@@ -143,6 +143,13 @@ public class ModItems {
                                                                  ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                  "multiplier"))), 10));
 
+    // Multiplier item
+    public static final RegistryObject<Item> MAGNET =
+            ITEMS.register("magnet",
+            () -> new MagnetItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                 ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                 "magnet")))));
+
     // CUSTOM METHOD - Registry all items on MccourseMod file
     public static void register(BusGroup busGroup) { ITEMS.register(busGroup); }
 }
