@@ -1,7 +1,11 @@
 package net.karen.mccoursemod.mixin;
 
 import net.karen.mccoursemod.block.ModBlocks;
+import net.karen.mccoursemod.component.ModDataComponentTypes;
+import net.karen.mccoursemod.item.custom.MultiplierItem;
+import net.karen.mccoursemod.util.ChatUtil;
 import net.karen.mccoursemod.util.Util;
+import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -28,8 +32,12 @@ public abstract class ItemStackMixin {
                       colored = original.copy().withStyle(style -> style.withColor(0x00ff00));
             tooltip.set(0, colored); // Change only the name (first line of the tooltip) -> Color not appears on screen
             tooltip.add(standardTranslatable("tooltip.mccoursemod.magic_block.tooltip")); // Added more information about block
-            cir.setReturnValue(tooltip); // New tooltip
         }
+        if (stack.has(ModDataComponentTypes.MULTIPLIER.get())) {
+            tooltip.add(CommonComponents.EMPTY);
+            tooltip.add(ChatUtil.componentLiteral("Multiplier x" + MultiplierItem.getMultiplierValue(stack) + "!", yellow));
+        }
+        cir.setReturnValue(tooltip); // New tooltip
     }
 
     // Lapis Lazuli consumption is blocked
