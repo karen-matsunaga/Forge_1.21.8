@@ -1,7 +1,6 @@
 package net.karen.mccoursemod.util;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -11,8 +10,6 @@ import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.StringJoiner;
 import java.util.function.Consumer;
@@ -46,16 +43,6 @@ public class ChatUtil { // GENERAL METHODS
         return Component.translatable(message).withStyle(color);
     }
 
-    // CUSTOM METHOD - COMPONENT LITERAL with BOLD format
-    public static Component componentLiteralStyle(String message, ChatFormatting color) {
-        return Component.literal(message).setStyle(Style.EMPTY.applyFormats(color, ChatFormatting.BOLD));
-    }
-
-    // CUSTOM METHOD - Message appears on screen with COMPONENT LITERAL without color (BOOL)
-    public static void playerBool(Player player, String message) {
-        player.displayClientMessage(standardLiteral(message), true);
-    }
-
     // CUSTOM METHOD - Message appears on screen without BOLD format
     public static void player(Player player, String message, ChatFormatting color) {
         player.displayClientMessage(componentLiteral(message, color), true);
@@ -65,23 +52,11 @@ public class ChatUtil { // GENERAL METHODS
         player.displayClientMessage(message, true);
     }
 
-    // CUSTOM METHOD - Message appears on screen with BOLD format
-    public static void playerStyle(Player player, String message, ChatFormatting color) {
-        player.displayClientMessage(componentLiteralStyle(message, color), true);
-    }
-
-    // CUSTOM METHOD - Message appears on screen with STAGE change
-    public static void playerStyleBool(Player player, boolean bool, boolean bool2,
-                                       String message, String message2, ChatFormatting color, ChatFormatting color2) {
-        if (bool) { player.displayClientMessage(componentLiteral(message, color), true); }
-        if (bool2) { player.displayClientMessage(componentLiteral(message2, color2), true); }
-    }
-
     // CUSTOM METHOD - Using RGB colors and BOLD format
-    public static void glow(Player player, boolean test, String message, String message1) {
-        player.displayClientMessage(componentLiteralStyle("Glowing " + (test ? message : message1),
-                (test ? green : red)), true);
-    }
+//    public static void glow(Player player, boolean test, String message, String message1) {
+//        player.displayClientMessage(componentLiteralStyle("Glowing " + (test ? message : message1),
+//                (test ? green : red)), true);
+//    }
 
     // CUSTOM METHOD - Using RGB colors and BOLD format
     public static MutableComponent description(String tooltip, ChatFormatting color,
@@ -93,11 +68,6 @@ public class ChatUtil { // GENERAL METHODS
     // CUSTOM METHOD - Text appears on TOOLTIP item
     public static void tooltipLine(Consumer<Component> tooltip, String message, ChatFormatting color) {
         tooltip.accept(componentLiteral(message, color));
-    }
-
-    // CUSTOM METHOD - Text appears on TOOLTIP item (Translatable version)
-    public static void tooltipLineTranslatable(List<Component> tooltip, String message) {
-        tooltip.add(standardTranslatable(message));
     }
 
     // CUSTOM METHOD - Text appears on TOOLTIP item (Translatable version) with RGB color
@@ -112,18 +82,6 @@ public class ChatUtil { // GENERAL METHODS
                     .setStyle(Style.EMPTY.withColor(TextColor.fromRgb(COLORS[colorIndex]))));
         }
         return minerText;
-    }
-
-    // CUSTOM METHOD - Text appears on TOOLTIP item with BOLD format
-    public static void tooltipLineBold(List<Component> tooltip, String message, ChatFormatting color) {
-        tooltip.add(componentLiteralStyle(message, color));
-    }
-
-    // CUSTOM METHOD - Text appears on TOOLTIP item with STAGE change
-    public static void tooltipLines(List<Component> tooltip, ItemStack item,
-                                    String message, ChatFormatting color) {
-        tooltip.add(Component.translatable(item.getItem().getDescriptionId()).withStyle(color)
-               .append(componentLiteral(message, color)));
     }
 
     // CUSTOM METHOD - Tooltip Line Literal with RGB colors
@@ -156,9 +114,9 @@ public class ChatUtil { // GENERAL METHODS
     }
 
     // CUSTOM METHOD - UNIQUE message
-    public static void normalMessage(Player player, String message, ChatFormatting color) {
-        player(player, message, color);
-    }
+//    public static void normalMessage(Player player, String message, ChatFormatting color) {
+//        player(player, message, color);
+//    }
 
     // CUSTOM METHOD - Icon message TOOLTIP
 //    public static void image(List<Either<FormattedText, TooltipComponent>> element,
@@ -170,42 +128,42 @@ public class ChatUtil { // GENERAL METHODS
 //    }
 
     // CUSTOM METHOD - INVALID message with BOLD format
-    public static void invalidMessage(Player player, String invalid) {
-        playerStyle(player, invalid, darkRed);
-    }
+//    public static void invalidMessage(Player player, String invalid) {
+//        playerStyle(player, invalid, darkRed);
+//    }
 
     // CUSTOM METHOD - TRADE message with BOLD format
-    public static void tradeMessage(Player player, String trade) {
-        player(player, trade, red);
-    }
+//    public static void tradeMessage(Player player, String trade) {
+//        player(player, trade, red);
+//    }
 
     // CUSTOM METHOD - [X, Y, Z] Coordinates
-    public static Component literal(double x, double y, double z) {
-        return Component.literal("X: ").append(componentLiteral(String.format("%.3f", x), aqua))
-                .append(standardLiteral("  Y: ")).append(componentLiteral(String.format("%.5f", y), purple))
-                .append(standardLiteral("  Z: ")).append(componentLiteral(String.format("%.3f", z), gold));
-    }
+//    public static Component literal(double x, double y, double z) {
+//        return Component.literal("X: ").append(componentLiteral(String.format("%.3f", x), aqua))
+//                .append(standardLiteral("  Y: ")).append(componentLiteral(String.format("%.5f", y), purple))
+//                .append(standardLiteral("  Z: ")).append(componentLiteral(String.format("%.3f", z), gold));
+//    }
 
     // CUSTOM METHOD - Light numbers
-    public static Component numbers(int totalLight, int skyLight, int blockLight) {
-        return Component.literal("Light:").append(customStyle(" " + totalLight, totalLight))
-                .append(standardLiteral("  Sky:")).append(customStyle(" " + skyLight, skyLight))
-                .append(standardLiteral("  Block:")).append(customStyle(" " + blockLight, blockLight));
-    }
+//    public static Component numbers(int totalLight, int skyLight, int blockLight) {
+//        return Component.literal("Light:").append(customStyle(" " + totalLight, totalLight))
+//                .append(standardLiteral("  Sky:")).append(customStyle(" " + skyLight, skyLight))
+//                .append(standardLiteral("  Block:")).append(customStyle(" " + blockLight, blockLight));
+//    }
 
     // CUSTOM METHOD - Light colors numbers
-    public static Component customStyle(String number, int light) {
-        return Component.literal(String.valueOf(number)).setStyle(Style.EMPTY.withColor(light > 6 ? 0x32FC76 : 0xFF1818));
-    }
+//    public static Component customStyle(String number, int light) {
+//        return Component.literal(String.valueOf(number)).setStyle(Style.EMPTY.withColor(light > 6 ? 0x32FC76 : 0xFF1818));
+//    }
 
     // CUSTOM METHOD - Vault item display
-    public static Component itemChatMessage(Player player, BlockPos pos, ChatFormatting color) {
-        int x = pos.getX(), y = pos.getY(), z = pos.getZ();
-        return Component.literal(player.getGameProfile().getName() +
-                                 " died at [X: " + x + ", Y: " + y + ", Z: " + z + "] " +
-                                 LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")))
-                .withStyle(Style.EMPTY.withColor(color).withItalic(false));
-    }
+//    public static Component itemChatMessage(Player player, BlockPos pos, ChatFormatting color) {
+//        int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+//        return Component.literal(player.getGameProfile().getName() +
+//                                 " died at [X: " + x + ", Y: " + y + ", Z: " + z + "] " +
+//                                 LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")))
+//                .withStyle(Style.EMPTY.withColor(color).withItalic(false));
+//    }
 
     // CUSTOM METHOD - Renamed string on TOOLTIP -> Ex: Fortune etc. (Only one word) -> Capitalize First Letters
     public static String itemLine(String var, String old, String value,
