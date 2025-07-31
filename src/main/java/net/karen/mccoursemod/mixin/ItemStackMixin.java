@@ -5,7 +5,6 @@ import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.custom.MultiplierItem;
 import net.karen.mccoursemod.util.ChatUtil;
 import net.karen.mccoursemod.util.Util;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -28,13 +27,8 @@ public abstract class ItemStackMixin {
                                  TooltipFlag flag, CallbackInfoReturnable<List<Component>> cir) {
         ItemStack stack = (ItemStack) (Object) this; // Get all blocks, items, etc.
         List<Component> tooltip = new ArrayList<>(cir.getReturnValue()); // Old tooltip
-        List<DataComponentType<?>> dataBool = List.of(ModDataComponentTypes.MAGNET.get(),
-                                                      ModDataComponentTypes.AUTO_SMELT.get(),
-                                                      ModDataComponentTypes.RAINBOW.get(),
-                                                      ModDataComponentTypes.MORE_ORES.get(),
-                                                      ModDataComponentTypes.MULTIPLIER.get());
-        for (DataComponentType<?> type : dataBool) {
-            if (tooltip.size() > 1 || stack.has(type)) { tooltip.add(CommonComponents.EMPTY); }
+        if (tooltip.size() > 1 || stack.has(ModDataComponentTypes.MULTIPLIER.get())) { // Jump one line
+            tooltip.add(CommonComponents.EMPTY);
         }
         if (stack.is(ModBlocks.MAGIC.get().asItem())) { // Item checked is Magic block
             Component original = tooltip.getFirst(), // Original tooltip line 0
@@ -43,19 +37,12 @@ public abstract class ItemStackMixin {
             tooltip.add(standardTranslatable("tooltip.mccoursemod.magic_block.tooltip")); // Added more information about block
         }
 
-        if (stack.has(ModDataComponentTypes.MULTIPLIER.get())) { // Multiplier effect
+        // Multiplier, Magnet, Rainbow, Auto Smelt and More Ores effects
+        if (stack.has(ModDataComponentTypes.MULTIPLIER.get())) {
             tooltip.add(ChatUtil.componentLiteral("Multiplier x" + MultiplierItem.getMultiplierValue(stack) + "!", yellow));
-        }
-        if (stack.has(ModDataComponentTypes.MAGNET.get())) { // Magnet effect
             tooltip.add(ChatUtil.componentLiteral("Magnet!", darkGray));
-        }
-        if (stack.has(ModDataComponentTypes.RAINBOW.get())) { // Rainbow effect
             tooltip.add(ChatUtil.componentLiteral("Rainbow!", purple));
-        }
-        if (stack.has(ModDataComponentTypes.AUTO_SMELT.get())) { // Auto Smelt effect
             tooltip.add(ChatUtil.componentLiteral("Auto Smelt!", gold));
-        }
-        if (stack.has(ModDataComponentTypes.MORE_ORES.get())) { // More Ores effect
             tooltip.add(ChatUtil.componentLiteral("More Ores!", darkAqua));
         }
         cir.setReturnValue(tooltip); // New tooltip

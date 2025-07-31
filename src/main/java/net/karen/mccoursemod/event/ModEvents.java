@@ -32,7 +32,6 @@ import net.minecraftforge.event.brewing.BrewingRecipeRegisterEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
 import java.util.*;
 import static net.karen.mccoursemod.util.Util.*;
 
@@ -69,7 +68,6 @@ public class ModEvents {
         Optional<Holder<Potion>> flyPotionTwo = ModPotions.FLY_II_POTION.getHolder();
         Optional<Holder<Potion>> nothingPotion = ModPotions.NOTHING_POTION.getHolder();
         Optional<Holder<Potion>> hastePotion = ModPotions.HASTE_POTION.getHolder();
-
         // FLY POTION
         flyPotion.ifPresent(fly -> builder.addMix(Potions.AWKWARD, Items.EMERALD, fly));
 
@@ -96,7 +94,6 @@ public class ModEvents {
         if (tool.isEmpty() || !tool.has(ModDataComponentTypes.MULTIPLIER.get())) { return; }
         int fortune = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FORTUNE.getOrThrow(level), tool),
             multiplier = MultiplierItem.getMultiplierValue(tool);
-        var blockTag = ForgeRegistries.BLOCKS.tags();
         if (!level.isClientSide() && world instanceof ServerLevel serverLevel) {
             boolean cancelVanillaDrop = false; // Adapt the drop according to the enchantment being true
             List<ItemStack> finalDrops = new ArrayList<>(); // Items caused by enchantments are stored in the list
@@ -122,12 +119,14 @@ public class ModEvents {
                 }
             }
             if (multiplier > 0) { // * MORE ORES EFFECT *
-                if (state.is(ModTags.Blocks.MORE_ORES_BREAK_BLOCK) && RandomSource.create().nextFloat() < 1F) {
-                    var tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(ModTags.Blocks.MORE_ORES_ALL_DROPS);
+                if (state.is(ModTags.Blocks.MORE_ORES_BREAK_BLOCK)) {
+                    Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(ModTags.Blocks.MORE_ORES_ALL_DROPS);
                     tagBlock.forEach((block -> {
-                        ItemStack drop = new ItemStack(block.get().asItem()); // Increase ore drop with Multiplier enchantment
-                        if (fortune > 0) { drop.setCount(drop.getCount() * (1 + oresFortune)); }
-                        finalDrops.add(drop); // Break block and ore chance drop
+                        if (RandomSource.create().nextFloat() < 0.01F) {
+                            ItemStack drop = new ItemStack(block.get().asItem()); // Increase ore drop with Multiplier enchantment
+                            if (fortune > 0) { drop.setCount(drop.getCount() * (1 + oresFortune)); }
+                            finalDrops.add(drop); // Break block and ore chance drop
+                        }
                     }));
                     cancelVanillaDrop = true;
                 }
