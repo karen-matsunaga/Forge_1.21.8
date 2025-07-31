@@ -234,11 +234,6 @@ public class Util {
 //        trade.add(createTrade(items, levelCount, multiplier));
 //    }
 
-    // CUSTOM METHOD - More Ores enchantment -> Block, chance ore drop, More Ores level and required level enchantment
-    public static boolean is(BlockState state, Block block, float chance) {
-        return state.is(block) && (Math.random() < chance);
-    }
-
     // CUSTOM METHOD - Cancel vanilla drop
     public static void block(LevelAccessor world, BlockPos pos, Block block,
                              BlockEvent.BreakEvent event) {

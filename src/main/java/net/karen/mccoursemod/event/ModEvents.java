@@ -8,6 +8,7 @@ import net.karen.mccoursemod.potion.ModPotions;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
@@ -108,7 +109,10 @@ public class ModEvents {
                 Map.entry(Blocks.REDSTONE_BLOCK, Tags.Blocks.ORES_REDSTONE),
                 Map.entry(Blocks.NETHERITE_BLOCK, Tags.Blocks.ORES_NETHERITE_SCRAP));
                 for (Map.Entry<Block, TagKey<Block>> entry : rainbowMap.entrySet()) {
-                    if (state.is(entry.getValue())) { block(world, pos, entry.getKey(), event); return; }
+                    if (state.is(entry.getValue())) {
+                        block(world, pos, entry.getKey(), event);
+                        return;
+                    }
                 }
                 if (state.is(ModTags.Blocks.RAINBOW_DROPS)) {
                     ItemStack rainbowDrop = new ItemStack(state.getBlock());
@@ -118,16 +122,14 @@ public class ModEvents {
                 }
             }
             if (multiplier > 0) { // * MORE ORES EFFECT *
-                if (blockTag != null) {
-                    if (is(state, Blocks.STONE, 0.1f)) {
-                        blockTag.getTag(ModTags.Blocks.MORE_ORES_ALL_DROPS).getRandomElement(RandomSource.create())
-                                .ifPresent(block -> {
-                                    ItemStack drop = new ItemStack(block); // Increase ore drop with Multiplier enchantment
-                                    if (fortune > 0) { drop.setCount(drop.getCount() * (1 + oresFortune)); }
-                                    finalDrops.add(drop); // Break block and ore chance drop
-                                });
-                        cancelVanillaDrop = true;
-                    }
+                if (state.is(ModTags.Blocks.MORE_ORES_BREAK_BLOCK) && RandomSource.create().nextFloat() < 1F) {
+                    var tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(ModTags.Blocks.MORE_ORES_ALL_DROPS);
+                    tagBlock.forEach((block -> {
+                        ItemStack drop = new ItemStack(block.get().asItem()); // Increase ore drop with Multiplier enchantment
+                        if (fortune > 0) { drop.setCount(drop.getCount() * (1 + oresFortune)); }
+                        finalDrops.add(drop); // Break block and ore chance drop
+                    }));
+                    cancelVanillaDrop = true;
                 }
             }
             if (multiplier > 0) { // * AUTO SMELT EFFECT *
@@ -156,15 +158,7 @@ public class ModEvents {
                 finalDrops.clear(); // Remove the non-multiplied originals
                 finalDrops.addAll(multipliedDrops); // Adds the multiplied values
             }
-            if (multiplier > 0) { // * ACCUMULATOR EFFECT *
-                // Gain experience orb when mined block and checks if the broken block is one that usually does not give XP
-                if (state.is(ModTags.Blocks.ACCUMULATOR_EXPERIENCE)) {
-                    // Amount of XP you want to give - Default gain 1 experience orb per level
-                    setPlayerXP(player, level, multiplier);
-                }
-            }
-            // ** TEST ** if (multiplier > 0) (MAGNETIC works with MULTIPLIER) + (WITHOUT MULTIPLIER doesn't work)
-            if (tool.has(ModDataComponentTypes.ITEM_STAGE.get()) && !state.isAir()) { // * MAGNETIC EFFECT *
+            if (multiplier > 0 && !state.isAir()) { // * MAGNETIC EFFECT *
                 if (finalDrops.isEmpty()) { // FinalDrops empty list added all items on it is
                     finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
                 }

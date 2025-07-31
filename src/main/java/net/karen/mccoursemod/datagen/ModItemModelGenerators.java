@@ -38,6 +38,9 @@ public class ModItemModelGenerators extends ItemModelGenerators {
         this.generateFlatItem(ModItems.GEM_EFFECT_SATURATION.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.MULTIPLIER.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.MAGNET.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RAINBOW.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.AUTO_SMELT.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.MORE_ORES.get(), ModelTemplates.FLAT_ITEM);
 
         // Custom tools
         this.generateFlatItem(ModItems.ALEXANDRITE_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);

@@ -23,8 +23,24 @@ public class ModDataComponentTypes {
     public static final RegistryObject<DataComponentType<Integer>> MULTIPLIER = register("multiplier",
             builder -> builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
 
-    // Item Stage custom data component
-    public static final RegistryObject<DataComponentType<Boolean>> ITEM_STAGE = register("item_stage",
+    // Gem Effect custom data component
+    public static final RegistryObject<DataComponentType<Boolean>> GEM_EFFECT = register("gem_effect",
+            builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
+
+    // Magnet custom data component
+    public static final RegistryObject<DataComponentType<Boolean>> MAGNET = register("magnet",
+            builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
+
+    // Auto Smelt custom data component
+    public static final RegistryObject<DataComponentType<Boolean>> AUTO_SMELT = register("auto_smelt",
+            builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
+
+    // Rainbow custom data component
+    public static final RegistryObject<DataComponentType<Boolean>> RAINBOW = register("rainbow",
+            builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
+
+    // More Ores custom data component
+    public static final RegistryObject<DataComponentType<Boolean>> MORE_ORES = register("more_ores",
             builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
 
     // Registry all custom Data Component

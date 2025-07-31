@@ -21,22 +21,17 @@ public class ModTags {
         public static final TagKey<Block> INCORRECT_FOR_ALEXANDRITE_TOOL =
                 createTag("incorrect_for_alexandrite_tool");
 
-        // Created More Ores's drops - More Ores I, II, III, IV, V, VI, Max Level
-        public static final TagKey<Block> MORE_ORES_ONE_DROPS = createTag("more_ores_one_drops");
-        public static final TagKey<Block> MORE_ORES_TWO_DROPS = createTag("more_ores_two_drops");
-        public static final TagKey<Block> MORE_ORES_THREE_DROPS = createTag("more_ores_three_drops");
-        public static final TagKey<Block> MORE_ORES_FOUR_DROPS = createTag("more_ores_four_drops");
-        public static final TagKey<Block> MORE_ORES_FIVE_DROPS = createTag("more_ores_five_drops");
+        // Created More Ores's drops
         public static final TagKey<Block> MORE_ORES_ALL_DROPS = createTag("more_ores_all_drops");
+        public static final TagKey<Block> MORE_ORES_BREAK_BLOCK = createTag("more_ores_break_block");
 
         // Ores
         public static final TagKey<Block> ALL_ORES = createTag("all_ores");
 
         // Rainbow effect
         public static final TagKey<Block> RAINBOW_DROPS = createTag("rainbow_drops");
-
-        // Accumulator effect
-        public static final TagKey<Block> ACCUMULATOR_EXPERIENCE = createTag("accumulator_experience");
+        public static final TagKey<Block> RAINBOW_ORES = createTag("rainbow_ores");
+        public static final TagKey<Block> RAINBOW_BLOCKS = createTag("rainbow_blocks");
 
         // CUSTOM METHOD - Registry all custom block tags
         private static TagKey<Block> createTag(String name) {

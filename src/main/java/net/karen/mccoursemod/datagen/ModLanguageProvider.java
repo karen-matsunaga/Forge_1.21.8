@@ -31,6 +31,9 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.GEM_EFFECT_SATURATION, "Gem Effect Saturation");
         addItem(ModItems.MULTIPLIER, "Multiplier");
         addItem(ModItems.MAGNET, "Magnet");
+        addItem(ModItems.RAINBOW, "Rainbow");
+        addItem(ModItems.AUTO_SMELT, "Auto Smelt");
+        addItem(ModItems.MORE_ORES, "More Ores");
 
         // CUSTOM Tools
         addItem(ModItems.ALEXANDRITE_HAMMER, "Alexandrite Hammer");

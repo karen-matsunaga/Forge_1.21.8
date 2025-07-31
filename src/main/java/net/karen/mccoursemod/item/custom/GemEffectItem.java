@@ -71,13 +71,13 @@ public class GemEffectItem extends Item {
 
     // CUSTOM METHOD - Active Data Component boolean stage -> Get boolean stage True or False
     private boolean isGemEffectActive(ItemStack stack) {
-        Boolean current = stack.get(ModDataComponentTypes.ITEM_STAGE.get());
+        Boolean current = stack.get(ModDataComponentTypes.GEM_EFFECT.get());
         return current != null && current;
     }
 
     // CUSTOM METHOD - Toggle Data Component boolean stage (True -> False | False -> True)
     private void toggleGemEffectStage(ItemStack stack) {
         boolean current = isGemEffectActive(stack);
-        stack.set(ModDataComponentTypes.ITEM_STAGE.get(), !current);
+        stack.set(ModDataComponentTypes.GEM_EFFECT.get(), !current);
     }
 }

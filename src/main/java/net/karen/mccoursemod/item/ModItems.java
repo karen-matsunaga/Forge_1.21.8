@@ -1,6 +1,7 @@
 package net.karen.mccoursemod.item;
 
 import net.karen.mccoursemod.MccourseMod;
+import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.item.custom.*;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.registries.Registries;
@@ -22,8 +23,8 @@ public class ModItems {
     // Custom items
     public static final RegistryObject<Item> ALEXANDRITE = ITEMS.register("alexandrite",
             () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, "alexandrite")
-                                                       ))));
+                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                       "alexandrite")))));
 
     // Custom tools
     // CUSTOM Sword
@@ -102,13 +103,15 @@ public class ModItems {
                                                 .humanoidArmor(ModArmorMaterials.ALEXANDRITE, ArmorType.BOOTS)));
 
     // Level Charger
-    public static final RegistryObject<Item> LEVEL_CHARGER_GENERIC_PLUS = ITEMS.register("level_charger_generic_plus",
+    public static final RegistryObject<Item> LEVEL_CHARGER_GENERIC_PLUS =
+            ITEMS.register("level_charger_generic_plus",
             () -> new LevelChargerGenericItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                                           ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                           "level_charger_generic_plus")))
                                                                    .fireResistant(), 1));
 
-    public static final RegistryObject<Item> LEVEL_CHARGER_GENERIC_MINUS = ITEMS.register("level_charger_generic_minus",
+    public static final RegistryObject<Item> LEVEL_CHARGER_GENERIC_MINUS =
+            ITEMS.register("level_charger_generic_minus",
             () -> new LevelChargerGenericItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                                           ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                           "level_charger_generic_minus")))
@@ -143,12 +146,36 @@ public class ModItems {
                                                                  ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                  "multiplier"))), 10));
 
-    // Multiplier item
+    // Magnet item
     public static final RegistryObject<Item> MAGNET =
             ITEMS.register("magnet",
-            () -> new MagnetItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                 ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                 "magnet")))));
+            () -> new GemSpecialEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                       "magnet"))), ModDataComponentTypes.MAGNET.get()));
+
+    // Rainbow item
+    public static final RegistryObject<Item> RAINBOW =
+            ITEMS.register("rainbow",
+                    () -> new GemSpecialEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                               ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                               "rainbow"))),
+                                                                               ModDataComponentTypes.RAINBOW.get()));
+
+    // Auto smelt item
+    public static final RegistryObject<Item> AUTO_SMELT =
+            ITEMS.register("auto_smelt",
+            () -> new GemSpecialEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                       "auto_smelt"))),
+                                                                       ModDataComponentTypes.AUTO_SMELT.get()));
+
+    // More Ores item
+    public static final RegistryObject<Item> MORE_ORES =
+            ITEMS.register("more_ores",
+                    () -> new GemSpecialEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                               ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                               "more_ores"))),
+                                                                               ModDataComponentTypes.MORE_ORES.get()));
 
     // CUSTOM METHOD - Registry all items on MccourseMod file
     public static void register(BusGroup busGroup) { ITEMS.register(busGroup); }

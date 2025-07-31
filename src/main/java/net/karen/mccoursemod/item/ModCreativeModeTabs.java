@@ -47,6 +47,12 @@ public class ModCreativeModeTabs extends CreativeModeTabs {
                                 output.accept(ModItems.MULTIPLIER.get());
                                 // Magnet
                                 output.accept(ModItems.MAGNET.get());
+                                // Rainbow
+                                output.accept(ModItems.RAINBOW.get());
+                                // Auto Smelt
+                                output.accept(ModItems.AUTO_SMELT.get());
+                                // More Ores
+                                output.accept(ModItems.MORE_ORES.get());
                             }).build());
 
     // Register all custom blocks
