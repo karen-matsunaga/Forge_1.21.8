@@ -1,4 +1,4 @@
-// 1.21.8	2025-07-28T21:45:10.3971321	Tags for minecraft:enchantment mod id mccoursemod
+// 1.21.8	2025-07-31T11:03:33.1690526	Tags for minecraft:enchantment mod id mccoursemod
 3834a210ae1c8cb5863a4f5e598f06cacad6966a data/mccoursemod/tags/enchantment/all_enchantments.json
 07173cc2b2b9dae300de39fb690d3cef6c484092 data/mccoursemod/tags/enchantment/boots_enchantments.json
 f2065debee4ec8edc8ab9b3d2a54ef33d76610da data/mccoursemod/tags/enchantment/bow_enchantments.json
@@ -10,10 +10,10 @@ ff315407079774fe2d1b8b1b4afbf2fc3215bd92 data/mccoursemod/tags/enchantment/chest
 75aa458cd5d19f539061faf84ddd51cad14ff047 data/mccoursemod/tags/enchantment/leggings_enchantments.json
 67fcf0a80c6a4d310666954ea9d665fafda6f960 data/mccoursemod/tags/enchantment/lightning_striker_tag.json
 6f803c81e3baa2e14b4768029eb322b8d9ce5228 data/mccoursemod/tags/enchantment/mace_enchantments.json
-77ab2f5740ce7757d51d7eef543c9f3757267865 data/mccoursemod/tags/enchantment/mining_enchantments.json
+317c75c0800551e51b44abd537c77f8e8b328de1 data/mccoursemod/tags/enchantment/mining_enchantments.json
 0fefe519c39aa948c7d0881dad8dfcd2725d5ef8 data/mccoursemod/tags/enchantment/sword_enchantments.json
 a773877d589ff6a6e7c3ec3c9703acd48c9240ef data/mccoursemod/tags/enchantment/trident_enchantments.json
-67fcf0a80c6a4d310666954ea9d665fafda6f960 data/minecraft/tags/enchantment/in_enchanting_table.json
-67fcf0a80c6a4d310666954ea9d665fafda6f960 data/minecraft/tags/enchantment/non_treasure.json
-67fcf0a80c6a4d310666954ea9d665fafda6f960 data/minecraft/tags/enchantment/tooltip_order.json
-67fcf0a80c6a4d310666954ea9d665fafda6f960 data/minecraft/tags/enchantment/tradeable.json
+bb24f8b6bf4de1ec1d8c53e569eb8a0c2680ab70 data/minecraft/tags/enchantment/in_enchanting_table.json
+bb24f8b6bf4de1ec1d8c53e569eb8a0c2680ab70 data/minecraft/tags/enchantment/non_treasure.json
+bb24f8b6bf4de1ec1d8c53e569eb8a0c2680ab70 data/minecraft/tags/enchantment/tooltip_order.json
+bb24f8b6bf4de1ec1d8c53e569eb8a0c2680ab70 data/minecraft/tags/enchantment/tradeable.json

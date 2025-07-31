@@ -23,22 +23,27 @@ public class ModEnchantmentTagsProvider extends EnchantmentTagsProvider {
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         // Tooltip Order
-        this.tag(EnchantmentTags.TOOLTIP_ORDER).addOptional(ModEnchantments.LIGHTNING_STRIKER);
+        this.tag(EnchantmentTags.TOOLTIP_ORDER).addOptional(ModEnchantments.LIGHTNING_STRIKER)
+                                               .addOptional(ModEnchantments.AUTO_SMELT);
 
         // Not treasure enchantment
-        this.tag(EnchantmentTags.NON_TREASURE).addOptional(ModEnchantments.LIGHTNING_STRIKER);
+        this.tag(EnchantmentTags.NON_TREASURE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
+                                              .addOptional(ModEnchantments.AUTO_SMELT);
 
         // Villager Trade
-        this.tag(EnchantmentTags.TRADEABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER);
+        this.tag(EnchantmentTags.TRADEABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
+                                           .addOptional(ModEnchantments.AUTO_SMELT);
 
         // Enchant table
-        this.tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER);
+        this.tag(EnchantmentTags.IN_ENCHANTING_TABLE).addOptional(ModEnchantments.LIGHTNING_STRIKER)
+                                                     .addOptional(ModEnchantments.AUTO_SMELT);
 
         // Lightning Striker tag
         this.tag(ModTags.Enchantments.LIGHTNING_STRIKER_TAG).addOptional(ModEnchantments.LIGHTNING_STRIKER);
 
         // Pickaxe enchantments
         this.tag(ModTags.Enchantments.MINING_ENCHANTMENTS).add(Enchantments.EFFICIENCY)
+                                                          .addOptional(ModEnchantments.AUTO_SMELT)
                                                           .addTag(EnchantmentTags.MINING_EXCLUSIVE);
 
         // All tools enchantments

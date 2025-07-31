@@ -23,24 +23,24 @@ public class ModDataComponentTypes {
     public static final RegistryObject<DataComponentType<Integer>> MULTIPLIER = register("multiplier",
             builder -> builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
 
-    // Gem Effect custom data component
-    public static final RegistryObject<DataComponentType<Boolean>> GEM_EFFECT = register("gem_effect",
-            builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
-
     // Magnet custom data component
-    public static final RegistryObject<DataComponentType<Boolean>> MAGNET = register("magnet",
-            builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
+    public static final RegistryObject<DataComponentType<Integer>> MAGNET = register("magnet",
+            builder -> builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
 
     // Auto Smelt custom data component
-    public static final RegistryObject<DataComponentType<Boolean>> AUTO_SMELT = register("auto_smelt",
-            builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
+    public static final RegistryObject<DataComponentType<Integer>> AUTO_SMELT = register("auto_smelt",
+            builder -> builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
 
     // Rainbow custom data component
-    public static final RegistryObject<DataComponentType<Boolean>> RAINBOW = register("rainbow",
-            builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
+    public static final RegistryObject<DataComponentType<Integer>> RAINBOW = register("rainbow",
+            builder -> builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
 
     // More Ores custom data component
-    public static final RegistryObject<DataComponentType<Boolean>> MORE_ORES = register("more_ores",
+    public static final RegistryObject<DataComponentType<Integer>> MORE_ORES = register("more_ores",
+            builder -> builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
+
+    // Gem Effect custom data component
+    public static final RegistryObject<DataComponentType<Boolean>> GEM_EFFECT = register("gem_effect",
             builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
 
     // Registry all custom Data Component

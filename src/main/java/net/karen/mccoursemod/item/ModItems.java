@@ -149,33 +149,30 @@ public class ModItems {
     // Magnet item
     public static final RegistryObject<Item> MAGNET =
             ITEMS.register("magnet",
-            () -> new GemSpecialEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                       "magnet"))), ModDataComponentTypes.MAGNET.get()));
+            () -> new MultiplierItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                 ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                 "magnet"))), 1));
 
     // Rainbow item
     public static final RegistryObject<Item> RAINBOW =
             ITEMS.register("rainbow",
-                    () -> new GemSpecialEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                               ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                               "rainbow"))),
-                                                                               ModDataComponentTypes.RAINBOW.get()));
+            () -> new MultiplierItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                 ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                 "rainbow"))), 1));
 
     // Auto smelt item
     public static final RegistryObject<Item> AUTO_SMELT =
             ITEMS.register("auto_smelt",
-            () -> new GemSpecialEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                       ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                       "auto_smelt"))),
-                                                                       ModDataComponentTypes.AUTO_SMELT.get()));
+            () -> new MultiplierItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                 ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                 "auto_smelt"))), 1));
 
     // More Ores item
     public static final RegistryObject<Item> MORE_ORES =
             ITEMS.register("more_ores",
-                    () -> new GemSpecialEffectItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                               ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                               "more_ores"))),
-                                                                               ModDataComponentTypes.MORE_ORES.get()));
+            () -> new MultiplierItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                                                                 ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
+                                                                 "more_ores"))), 1));
 
     // CUSTOM METHOD - Registry all items on MccourseMod file
     public static void register(BusGroup busGroup) { ITEMS.register(busGroup); }
