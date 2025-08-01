@@ -36,7 +36,6 @@ public class ModItemModelGenerators extends ItemModelGenerators {
         this.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_MINUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.LEVEL_CHARGER_SPECIF_PLUS_FORTUNE.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.GEM_EFFECT_SATURATION.get(), ModelTemplates.FLAT_ITEM);
-        this.generateFlatItem(ModItems.MULTIPLIER.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.MAGNET.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.RAINBOW.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.AUTO_SMELT.get(), ModelTemplates.FLAT_ITEM);

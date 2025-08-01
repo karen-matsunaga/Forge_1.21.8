@@ -2,10 +2,7 @@ package net.karen.mccoursemod.mixin;
 
 import net.karen.mccoursemod.block.ModBlocks;
 import net.karen.mccoursemod.component.ModDataComponentTypes;
-import net.karen.mccoursemod.item.custom.MultiplierItem;
-import net.karen.mccoursemod.util.ChatUtil;
 import net.karen.mccoursemod.util.Util;
-import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -18,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.*;
+import static net.karen.mccoursemod.item.custom.MultiplierItem.*;
 import static net.karen.mccoursemod.util.ChatUtil.*;
 
 @Mixin(value = ItemStack.class)
@@ -27,31 +25,34 @@ public abstract class ItemStackMixin {
                                  TooltipFlag flag, CallbackInfoReturnable<List<Component>> cir) {
         ItemStack stack = (ItemStack) (Object) this; // Get all blocks, items, etc.
         List<Component> tooltip = new ArrayList<>(cir.getReturnValue()); // Old tooltip
-        if (tooltip.size() > 1 || stack.has(ModDataComponentTypes.MULTIPLIER.get())) { // Jump one line
-            tooltip.add(CommonComponents.EMPTY);
-        }
         if (stack.is(ModBlocks.MAGIC.get().asItem())) { // Item checked is Magic block
             Component original = tooltip.getFirst(), // Original tooltip line 0
                       colored = original.copy().withStyle(style -> style.withColor(0x00ff00));
             tooltip.set(0, colored); // Change only the name (first line of the tooltip) -> Color not appears on screen
             tooltip.add(standardTranslatable("tooltip.mccoursemod.magic_block.tooltip")); // Added more information about block
         }
-
-        // Multiplier, Magnet, Rainbow, Auto Smelt and More Ores effects
-        if (stack.has(ModDataComponentTypes.MULTIPLIER.get())) {
-            tooltip.add(ChatUtil.componentLiteral("Multiplier x" + MultiplierItem.getMultiplierValue(stack) + "!", yellow));
-        }
-        if (stack.has(ModDataComponentTypes.MAGNET.get())) {
-            tooltip.add(ChatUtil.componentLiteral("Magnet!", darkGray));
-        }
-        if (stack.has(ModDataComponentTypes.RAINBOW.get())) {
-            tooltip.add(ChatUtil.componentLiteral("Rainbow!", purple));
-        }
-        if (stack.has(ModDataComponentTypes.AUTO_SMELT.get())) {
-            tooltip.add(ChatUtil.componentLiteral("Auto Smelt!", gold));
-        }
-        if (stack.has(ModDataComponentTypes.MORE_ORES.get())) {
-            tooltip.add(ChatUtil.componentLiteral("More Ores!", darkAqua));
+        // AUTO SMELT, MAGNET, MORE ORES and RAINBOW custom effects
+        int insertIndex = 1; // Pattern: add after attributes (usually after line 1 or 2)
+        for (int i = 0; i < tooltip.size(); i++) {
+            Component line = tooltip.get(i);
+            String str = line.getString();
+            if (str.contains("Attack") || str.contains("Speed")) { insertIndex = i + 1; } // After the last attribute
+            if (stack.has(ModDataComponentTypes.MAGNET.get())) {
+                tooltip.add(insertIndex, componentLiteral("Magnet x" +
+                                             getMultiplierBool(stack, ModDataComponentTypes.MAGNET.get()) + "!", darkGray));
+            }
+            if (stack.has(ModDataComponentTypes.RAINBOW.get())) {
+                tooltip.add(insertIndex, componentLiteral("Rainbow x" +
+                                             getMultiplierBool(stack, ModDataComponentTypes.RAINBOW.get()) + "!", purple));
+            }
+            if (stack.has(ModDataComponentTypes.AUTO_SMELT.get())) {
+                tooltip.add(insertIndex, componentLiteral("Auto Smelt x" +
+                                             getMultiplierBool(stack, ModDataComponentTypes.AUTO_SMELT.get()) + "!", gold));
+            }
+            if (stack.has(ModDataComponentTypes.MORE_ORES.get())) {
+                tooltip.add(insertIndex, componentLiteral("More Ores x" +
+                                             getMultiplierBool(stack, ModDataComponentTypes.MORE_ORES.get()), darkAqua));
+            }
         }
         cir.setReturnValue(tooltip); // New tooltip
     }

@@ -30,7 +30,7 @@ public class ModVanillaBlockTagsProvider extends VanillaBlockTagsProvider {
         tag(ModTags.Blocks.INCORRECT_FOR_ALEXANDRITE_TOOL);
 
         // Ores
-        this.tag(ModTags.Blocks.ALL_ORES).addTag(Tags.Blocks.ORES).addTag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE);
+        this.tag(ModTags.Blocks.AUTO_SMELT_ORES).addTag(Tags.Blocks.ORES).addTag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE);
 
         // Rainbow
         this.tag(ModTags.Blocks.RAINBOW_DROPS).addTag(Tags.Blocks.STORAGE_BLOCKS_COAL)
@@ -43,44 +43,26 @@ public class ModVanillaBlockTagsProvider extends VanillaBlockTagsProvider {
                                               .addTag(Tags.Blocks.STORAGE_BLOCKS_NETHERITE)
                                               .addTag(Tags.Blocks.STORAGE_BLOCKS_REDSTONE);
 
-        this.tag(ModTags.Blocks.RAINBOW_ORES).add(Blocks.COAL_ORE).add(Blocks.DEEPSLATE_COAL_ORE)
-                                             .add(Blocks.COPPER_ORE).add(Blocks.DEEPSLATE_COPPER_ORE)
-                                             .add(Blocks.DIAMOND_ORE).add(Blocks.DEEPSLATE_DIAMOND_ORE)
-                                             .add(Blocks.EMERALD_ORE).add(Blocks.DEEPSLATE_EMERALD_ORE)
-                                             .add(Blocks.GOLD_ORE).add(Blocks.DEEPSLATE_GOLD_ORE)
-                                             .add(Blocks.IRON_ORE).add(Blocks.DEEPSLATE_IRON_ORE)
-                                             .add(Blocks.LAPIS_ORE).add(Blocks.DEEPSLATE_LAPIS_ORE)
-                                             .add(Blocks.REDSTONE_ORE).add(Blocks.DEEPSLATE_REDSTONE_ORE)
-                                             .add(Blocks.ANCIENT_DEBRIS);
+        this.tag(ModTags.Blocks.RAINBOW_ORES).add(Blocks.COAL_ORE, Blocks.DEEPSLATE_COAL_ORE,
+                                                  Blocks.COPPER_ORE, Blocks.DEEPSLATE_COPPER_ORE,
+                                                  Blocks.DIAMOND_ORE, Blocks.DEEPSLATE_DIAMOND_ORE,
+                                                  Blocks.EMERALD_ORE, Blocks.DEEPSLATE_EMERALD_ORE,
+                                                  Blocks.GOLD_ORE, Blocks.DEEPSLATE_GOLD_ORE,
+                                                  Blocks.IRON_ORE, Blocks.DEEPSLATE_IRON_ORE,
+                                                  Blocks.LAPIS_ORE, Blocks.DEEPSLATE_LAPIS_ORE,
+                                                  Blocks.REDSTONE_ORE, Blocks.DEEPSLATE_REDSTONE_ORE, Blocks.ANCIENT_DEBRIS);
 
-        this.tag(ModTags.Blocks.RAINBOW_BLOCKS).add(Blocks.COAL_BLOCK)
-                                               .add(Blocks.COPPER_BLOCK)
-                                               .add(Blocks.DIAMOND_BLOCK)
-                                               .add(Blocks.EMERALD_BLOCK)
-                                               .add(Blocks.GOLD_BLOCK)
-                                               .add(Blocks.IRON_BLOCK)
-                                               .add(Blocks.LAPIS_BLOCK)
-                                               .add(Blocks.NETHERITE_BLOCK)
-                                               .add(Blocks.REDSTONE_BLOCK);
+        this.tag(ModTags.Blocks.RAINBOW_BLOCKS).add(Blocks.COAL_BLOCK, Blocks.COPPER_BLOCK, Blocks.DIAMOND_BLOCK,
+                                                    Blocks.EMERALD_BLOCK, Blocks.GOLD_BLOCK, Blocks.IRON_BLOCK,
+                                                    Blocks.LAPIS_BLOCK, Blocks.NETHERITE_BLOCK, Blocks.REDSTONE_BLOCK);
 
         // More Ores random drop effect
-        this.tag(ModTags.Blocks.MORE_ORES_ALL_DROPS).add(Blocks.COAL_ORE)
-                                                    .add(Blocks.COPPER_ORE)
-                                                    .add(Blocks.IRON_ORE)
-                                                    .add(Blocks.LAPIS_ORE)
-                                                    .add(Blocks.REDSTONE_ORE)
-                                                    .add(Blocks.GOLD_ORE)
-                                                    .add(Blocks.DIAMOND_ORE)
-                                                    .add(Blocks.EMERALD_ORE)
-                                                    .add(Blocks.ANCIENT_DEBRIS)
-                                                    .add(Blocks.NETHER_GOLD_ORE)
-                                                    .add(Blocks.NETHER_QUARTZ_ORE);
+        this.tag(ModTags.Blocks.MORE_ORES_ALL_DROPS).add(Blocks.COAL_ORE, Blocks.COPPER_ORE, Blocks.IRON_ORE,
+                                                         Blocks.LAPIS_ORE, Blocks.REDSTONE_ORE, Blocks.GOLD_ORE,
+                                                         Blocks.DIAMOND_ORE, Blocks.EMERALD_ORE, Blocks.ANCIENT_DEBRIS,
+                                                         Blocks.NETHER_GOLD_ORE, Blocks.NETHER_QUARTZ_ORE);
 
         // More Ores break block effect
         this.tag(ModTags.Blocks.MORE_ORES_BREAK_BLOCK).add(Blocks.STONE);
-
-        // Multiplier effect
-        this.tag(ModTags.Blocks.MULTIPLIER_ORES).addTag(Tags.Blocks.ORES)
-                                                .addTag(ModTags.Blocks.RAINBOW_BLOCKS);
     }
 }

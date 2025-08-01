@@ -19,10 +19,6 @@ public class ModDataComponentTypes {
     public static final RegistryObject<DataComponentType<BlockPos>> COORDINATES = register("coordinates",
             builder -> builder.persistent(BlockPos.CODEC));
 
-    // Multiplier custom data component
-    public static final RegistryObject<DataComponentType<Integer>> MULTIPLIER = register("multiplier",
-            builder -> builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));
-
     // Magnet custom data component
     public static final RegistryObject<DataComponentType<Integer>> MAGNET = register("magnet",
             builder -> builder.persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT));

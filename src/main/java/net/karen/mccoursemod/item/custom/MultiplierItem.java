@@ -1,6 +1,5 @@
 package net.karen.mccoursemod.item.custom;
 
-import net.karen.mccoursemod.component.ModDataComponentTypes;
 import net.karen.mccoursemod.util.ModTags;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
@@ -64,11 +63,6 @@ public class MultiplierItem extends Item {
         super.appendHoverText(stack, context, display, consumer, flag);
     }
 
-    // CUSTOM METHOD - Get Multiplier data component value (Static)
-    public static Integer getMultiplierValue(ItemStack stack) {
-        return stack.get(ModDataComponentTypes.MULTIPLIER.get());
-    }
-
     // CUSTOM METHOD - Get Multiplier value (Non static)
     public Integer getMultiplierType(ItemStack stack) { return stack.get(dataName); }
 
@@ -84,5 +78,12 @@ public class MultiplierItem extends Item {
     public static Boolean getMultiplierBool(ItemStack stack, DataComponentType<Integer> dataName) {
         Integer value = getMultiplier(stack, dataName);
         return value != null && value > 0;
+    }
+
+    // CUSTOM METHOD - Get Data Component integer value (Static)
+    public static int getEffectMultiplier(ItemStack stack, DataComponentType<Integer> type, int baseValue) {
+        boolean hasEffect = MultiplierItem.getMultiplierBool(stack, type);
+        Integer multiplier = MultiplierItem.getMultiplier(stack, type);
+        return (hasEffect && multiplier != null && multiplier > 0) ? baseValue * multiplier : baseValue;
     }
 }

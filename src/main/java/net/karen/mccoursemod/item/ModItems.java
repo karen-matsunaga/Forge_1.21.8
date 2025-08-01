@@ -139,21 +139,13 @@ public class ModItems {
                                                                 "gem_effect_saturation"))),
                                                                 MobEffects.SATURATION, -1, 0));
 
-    // Multiplier item
-    public static final RegistryObject<Item> MULTIPLIER =
-            ITEMS.register("multiplier",
-            () -> new MultiplierItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                                                                 ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
-                                                                 "multiplier"))),
-                                                                 ModDataComponentTypes.MULTIPLIER.get(), 10));
-
     // Magnet item
     public static final RegistryObject<Item> MAGNET =
             ITEMS.register("magnet",
             () -> new MultiplierItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                                  ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                  "magnet"))),
-                                                                 ModDataComponentTypes.MAGNET.get(), 1));
+                                                                 ModDataComponentTypes.MAGNET.get(), 10));
 
     // Rainbow item
     public static final RegistryObject<Item> RAINBOW =
@@ -161,7 +153,7 @@ public class ModItems {
             () -> new MultiplierItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                                  ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                  "rainbow"))),
-                                                                 ModDataComponentTypes.RAINBOW.get(), 1));
+                                                                 ModDataComponentTypes.RAINBOW.get(), 10));
 
     // Auto smelt item
     public static final RegistryObject<Item> AUTO_SMELT =
@@ -169,7 +161,7 @@ public class ModItems {
             () -> new MultiplierItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                                  ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                  "auto_smelt"))),
-                                                                 ModDataComponentTypes.AUTO_SMELT.get(), 1));
+                                                                 ModDataComponentTypes.AUTO_SMELT.get(), 10));
 
     // More Ores item
     public static final RegistryObject<Item> MORE_ORES =
@@ -177,7 +169,7 @@ public class ModItems {
             () -> new MultiplierItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
                                                                  ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID,
                                                                  "more_ores"))),
-                                                                 ModDataComponentTypes.MORE_ORES.get(), 1));
+                                                                 ModDataComponentTypes.MORE_ORES.get(), 10));
 
     // CUSTOM METHOD - Registry all items on MccourseMod file
     public static void register(BusGroup busGroup) { ITEMS.register(busGroup); }

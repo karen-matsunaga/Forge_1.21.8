@@ -26,15 +26,12 @@ public class ModTags {
         public static final TagKey<Block> MORE_ORES_BREAK_BLOCK = createTag("more_ores_break_block");
 
         // Ores
-        public static final TagKey<Block> ALL_ORES = createTag("all_ores");
+        public static final TagKey<Block> AUTO_SMELT_ORES = createTag("auto_smelt_ores");
 
         // Rainbow effect
         public static final TagKey<Block> RAINBOW_DROPS = createTag("rainbow_drops");
         public static final TagKey<Block> RAINBOW_ORES = createTag("rainbow_ores");
         public static final TagKey<Block> RAINBOW_BLOCKS = createTag("rainbow_blocks");
-
-        // Multiplier effect
-        public static final TagKey<Block> MULTIPLIER_ORES = createTag("multiplier_ores");
 
         // CUSTOM METHOD - Registry all custom block tags
         private static TagKey<Block> createTag(String name) {
@@ -54,7 +51,6 @@ public class ModTags {
         public static final TagKey<Item> LEVEL_CHARGER_ITEMS = createTag("level_charger_items");
         public static final TagKey<Item> LEVEL_CHARGER_GENERIC = createTag("level_charger_generic");
         public static final TagKey<Item> LEVEL_CHARGER_SPECIF = createTag("level_charger_specif");
-        public static final TagKey<Item> LEVEL_CHARGER_ENCHANTABLE = createTag("level_charger_enchantable");
         public static final TagKey<Item> LEVEL_CHARGER_GREEN = createTag("level_charger_green");
         public static final TagKey<Item> LEVEL_CHARGER_RED = createTag("level_charger_red");
 
@@ -72,12 +68,6 @@ public class ModTags {
 
         // Armor ingredient
         public static final TagKey<Item> REPAIRS_ALEXANDRITE_ARMOR = createTag("repairs_alexandrite_armor");
-
-        // Ores
-        public static final TagKey<Item> MULTIPLIER_ORES = createTag("multiplier_ores");
-
-        // Ore block items
-        public static final TagKey<Item> ORE_BLOCK_ITEMS = createTag("ore_block_items");
 
         // Data Component tags
         public static final TagKey<Item> MULTIPLIER_ITEMS = createTag("multiplier_items");

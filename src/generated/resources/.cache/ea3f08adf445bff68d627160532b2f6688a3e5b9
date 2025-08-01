@@ -1,4 +1,4 @@
-// 1.21.8	2025-07-31T21:17:28.1127696	Tags for minecraft:item mod id mccoursemod
+// 1.21.8	2025-08-01T19:24:00.7301567	Tags for minecraft:item mod id mccoursemod
 23322585108afbbd5f20fd5e29aa83527532621d data/mccoursemod/tags/item/alexandrite_armor.json
 532ef531eaf6c7a49e75f41afd3805e794ee9491 data/mccoursemod/tags/item/alexandrite_tools.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/alexandrite_tool_materials.json
@@ -6,16 +6,13 @@ d45d4111413aab72202a4c8f187cbbc3f21ed31f data/mccoursemod/tags/item/boots_fly.js
 34cda53d5b073a8b36e6ae776797bc148890b805 data/mccoursemod/tags/item/chestplate_fly.json
 a5985a831c29f5e2c153a2f02ff6caf4e8ecd745 data/mccoursemod/tags/item/helmet_fly.json
 8144dad1b686f566a86b154565be552914597116 data/mccoursemod/tags/item/leggings_fly.json
-4d4acaf97f045bb5e8bbba8d0fcec1f8eab36ae5 data/mccoursemod/tags/item/level_charger_enchantable.json
 67330d0adf55b62dd108765727e04d7437d6441a data/mccoursemod/tags/item/level_charger_generic.json
 3b77be0ffbf6858688fcb45c18a0773afc9018d1 data/mccoursemod/tags/item/level_charger_green.json
 3cc75d41e3e6ae7e599fe35327cb9082729c861c data/mccoursemod/tags/item/level_charger_items.json
 565fa3bcd84d88f945f7ac9e622a8db2910916a1 data/mccoursemod/tags/item/level_charger_red.json
 e1296da21ce7727ca34c6b4ca53792959f1c4ce3 data/mccoursemod/tags/item/level_charger_specif.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/magic_block.json
-31f3c6f69ec90974f40da5decdb481c9e113273d data/mccoursemod/tags/item/multiplier_items.json
-2433c25db68f43091559346562e63c5a4a841c3f data/mccoursemod/tags/item/multiplier_ores.json
-14f2f0d7fa0b19b565d7a9c81210b119d89bc447 data/mccoursemod/tags/item/ore_block_items.json
+f3fde543588e8e70cb02cf2a1145d3e5afce946d data/mccoursemod/tags/item/multiplier_items.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/mccoursemod/tags/item/repairs_alexandrite_armor.json
 cf21164e7fa78b937328e7306078456ee2ff9923 data/minecraft/tags/item/axes.json
 17ea5cec12a112e44e075ea33b36af4a6cc4527a data/minecraft/tags/item/beacon_payment_items.json
