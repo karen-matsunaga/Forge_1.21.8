@@ -1,7 +1,6 @@
 package net.karen.mccoursemod.enchantment;
 
 import net.karen.mccoursemod.MccourseMod;
-import net.karen.mccoursemod.enchantment.custom.AutoSmeltEnchantmentEffect;
 import net.karen.mccoursemod.enchantment.custom.LightningStrikerEnchantmentEffect;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -17,7 +16,6 @@ import net.minecraft.world.item.enchantment.LevelBasedValue;
 public class ModEnchantments {
     // Registry all custom enchantments -> enchantment name on JSON file
     public static final ResourceKey<Enchantment> LIGHTNING_STRIKER = createTag("lightning_striker");
-    public static final ResourceKey<Enchantment> AUTO_SMELT = createTag("auto_smelt");
 
     // CUSTOM METHOD - Registry all custom enchantments (JSON file)
     public static void bootstrap(BootstrapContext<Enchantment> context) {
@@ -33,22 +31,11 @@ public class ModEnchantments {
                             .withEffect(EnchantmentEffectComponents.POST_ATTACK, EnchantmentTarget.ATTACKER,
                                         EnchantmentTarget.VICTIM, new LightningStrikerEnchantmentEffect(
                                         LevelBasedValue.perLevel(0.5F, 0.15F))));
-
-        // Auto Smelt - Pickaxe tool
-        register(context, AUTO_SMELT,
-                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
-                                                                5, 10,
-                                                                Enchantment.dynamicCost(5, 8),
-                                                                Enchantment.dynamicCost(25, 8),
-                                                                2, EquipmentSlotGroup.MAINHAND))
-                                                    .withEffect(EnchantmentEffectComponents.DAMAGE, new AutoSmeltEnchantmentEffect(
-                                                                LevelBasedValue.perLevel(1.0F, 1.0F))));
     }
 
     // CUSTOM METHOD - Registry all custom enchantments -> DATA GEN
     private static void register(BootstrapContext<Enchantment> registry,
-                                 ResourceKey<Enchantment> key,
-                                 Enchantment.Builder builder) {
+                                 ResourceKey<Enchantment> key, Enchantment.Builder builder) {
         registry.register(key, builder.build(key.location()));
     }
 

@@ -39,19 +39,20 @@ public abstract class ItemStackMixin {
             if (str.contains("Attack") || str.contains("Speed")) { insertIndex = i + 1; } // After the last attribute
             if (stack.has(ModDataComponentTypes.MAGNET.get())) {
                 tooltip.add(insertIndex, componentLiteral("Magnet x" +
-                                             getMultiplierBool(stack, ModDataComponentTypes.MAGNET.get()) + "!", darkGray));
+                            getMultiplierBool(stack, ModDataComponentTypes.MAGNET.get()) + "!", darkGray));
             }
             if (stack.has(ModDataComponentTypes.RAINBOW.get())) {
                 tooltip.add(insertIndex, componentLiteral("Rainbow x" +
-                                             getMultiplierBool(stack, ModDataComponentTypes.RAINBOW.get()) + "!", purple));
+                            getMultiplierBool(stack, ModDataComponentTypes.RAINBOW.get()) + "!", purple));
             }
             if (stack.has(ModDataComponentTypes.AUTO_SMELT.get())) {
                 tooltip.add(insertIndex, componentLiteral("Auto Smelt x" +
-                                             getMultiplierBool(stack, ModDataComponentTypes.AUTO_SMELT.get()) + "!", gold));
+                            getMultiplierBool(stack, ModDataComponentTypes.AUTO_SMELT.get()) + "!", gold));
+                tooltip.add(insertIndex + 1, componentTranslatable("tooltip.mccoursemod.auto_smelt.tooltip", gold));
             }
             if (stack.has(ModDataComponentTypes.MORE_ORES.get())) {
                 tooltip.add(insertIndex, componentLiteral("More Ores x" +
-                                             getMultiplierBool(stack, ModDataComponentTypes.MORE_ORES.get()), darkAqua));
+                            getMultiplierBool(stack, ModDataComponentTypes.MORE_ORES.get()), darkAqua));
             }
         }
         cir.setReturnValue(tooltip); // New tooltip

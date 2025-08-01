@@ -1,10 +1,6 @@
 {
   "values": [
     "minecraft:efficiency",
-    {
-      "id": "mccoursemod:auto_smelt",
-      "required": false
-    },
     "#minecraft:exclusive_set/mining"
   ]
 }

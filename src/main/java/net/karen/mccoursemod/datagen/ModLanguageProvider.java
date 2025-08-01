@@ -57,13 +57,10 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // CUSTOM Enchantment
         add("enchantment.mccoursemod.lightning_striker", "Lightning Striker");
-        add("enchantment.mccoursemod.auto_smelt", "Auto Smelt");
 
         // MOD
         add("enchantment.mccoursemod.lightning_striker.desc",
             "When applied on sword when player hits on entities appears lightning, but player receive damage if attacked.");
-        add("enchantment.mccoursemod.auto_smelt.desc",
-            "When applied on pickaxe transform all items that can be roasted on furnace.");
 
         // MINING
         add("enchantment.minecraft.efficiency.desc", "When applied on axe, pickaxe, shovel or hoe increases mining speed.");
@@ -183,6 +180,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         // CUSTOM TOOLTIP
         add("tooltip.mccoursemod.magic_block.tooltip", "This Block is quite §9MAGICAL§r");
+        add("tooltip.mccoursemod.auto_smelt.tooltip", "When applied on pickaxe transform all items that can be roasted on furnace.");
 
         // CUSTOM Effects and Potions
         // FLY effect + potion
