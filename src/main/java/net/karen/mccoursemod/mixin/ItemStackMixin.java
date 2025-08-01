@@ -40,9 +40,17 @@ public abstract class ItemStackMixin {
         // Multiplier, Magnet, Rainbow, Auto Smelt and More Ores effects
         if (stack.has(ModDataComponentTypes.MULTIPLIER.get())) {
             tooltip.add(ChatUtil.componentLiteral("Multiplier x" + MultiplierItem.getMultiplierValue(stack) + "!", yellow));
+        }
+        if (stack.has(ModDataComponentTypes.MAGNET.get())) {
             tooltip.add(ChatUtil.componentLiteral("Magnet!", darkGray));
+        }
+        if (stack.has(ModDataComponentTypes.RAINBOW.get())) {
             tooltip.add(ChatUtil.componentLiteral("Rainbow!", purple));
+        }
+        if (stack.has(ModDataComponentTypes.AUTO_SMELT.get())) {
             tooltip.add(ChatUtil.componentLiteral("Auto Smelt!", gold));
+        }
+        if (stack.has(ModDataComponentTypes.MORE_ORES.get())) {
             tooltip.add(ChatUtil.componentLiteral("More Ores!", darkAqua));
         }
         cir.setReturnValue(tooltip); // New tooltip

@@ -91,14 +91,21 @@ public class ModEvents {
         BlockState state = event.getState();
         ItemStack tool = player.getMainHandItem();
         Level level = (Level) event.getLevel();
-        if (tool.isEmpty() || !tool.has(ModDataComponentTypes.MULTIPLIER.get())) { return; }
+        if (tool.isEmpty()) { return; } // * PROBLEMS *
         int fortune = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FORTUNE.getOrThrow(level), tool),
             multiplier = MultiplierItem.getMultiplierValue(tool);
+        // * FIX TOMORROW *
+        boolean hasMultiplier = MultiplierItem.getMultiplierBool(tool, ModDataComponentTypes.MULTIPLIER.get()),
+                hasRainbow = MultiplierItem.getMultiplierBool(tool, ModDataComponentTypes.RAINBOW.get()),
+                hasMoreOres = MultiplierItem.getMultiplierBool(tool, ModDataComponentTypes.MORE_ORES.get()),
+                hasAutoSmelt = MultiplierItem.getMultiplierBool(tool, ModDataComponentTypes.AUTO_SMELT.get()),
+                hasMagnet = MultiplierItem.getMultiplierBool(tool, ModDataComponentTypes.MAGNET.get());
         if (!level.isClientSide() && world instanceof ServerLevel serverLevel) {
             boolean cancelVanillaDrop = false; // Adapt the drop according to the enchantment being true
             List<ItemStack> finalDrops = new ArrayList<>(); // Items caused by enchantments are stored in the list
             int oresFortune = serverLevel.random.nextInt(fortune + 1);
-            if (multiplier > 0) { // * RAINBOW EFFECT *
+            // * RAINBOW EFFECT *
+            if (hasRainbow) {
                 Map<Block, TagKey<Block>> rainbowMap = Map.ofEntries(Map.entry(Blocks.COAL_BLOCK, Tags.Blocks.ORES_COAL),
                 Map.entry(Blocks.COPPER_BLOCK, Tags.Blocks.ORES_COPPER), Map.entry(Blocks.DIAMOND_BLOCK, Tags.Blocks.ORES_DIAMOND),
                 Map.entry(Blocks.EMERALD_BLOCK, Tags.Blocks.ORES_EMERALD), Map.entry(Blocks.GOLD_BLOCK, Tags.Blocks.ORES_GOLD),
@@ -118,7 +125,8 @@ public class ModEvents {
                     cancelVanillaDrop = true;
                 }
             }
-            if (multiplier > 0) { // * MORE ORES EFFECT *
+            // * MORE ORES EFFECT *
+            if (hasMoreOres) {
                 if (state.is(ModTags.Blocks.MORE_ORES_BREAK_BLOCK)) {
                     Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(ModTags.Blocks.MORE_ORES_ALL_DROPS);
                     tagBlock.forEach((block -> {
@@ -131,7 +139,8 @@ public class ModEvents {
                     cancelVanillaDrop = true;
                 }
             }
-            if (multiplier > 0) { // * AUTO SMELT EFFECT *
+            // * AUTO SMELT EFFECT *
+            if (hasAutoSmelt) {
                 SingleRecipeInput singleRecipe = new SingleRecipeInput(new ItemStack(state.getBlock()));
                 ServerLevel worldServer = serverLevel.getLevel();
                 Optional<RecipeHolder<SmeltingRecipe>> recipe =
@@ -140,12 +149,12 @@ public class ModEvents {
                     ItemStack result = recipe.get().value().assemble(singleRecipe, worldServer.registryAccess());
                     int drop = 1;
                     if (state.is(ModTags.Blocks.ALL_ORES) && fortune > 0) { drop += oresFortune; }
-                    drop *= multiplier;
                     for (int i = 0; i < drop; i++) { finalDrops.add(result.copy()); }
                 }
                 cancelVanillaDrop = true;
             }
-            if (multiplier > 1 && !finalDrops.isEmpty()) { // * MULTIPLIER EFFECT *
+            // * MULTIPLIER EFFECT *
+            if (hasMultiplier && !finalDrops.isEmpty()) {
                 List<ItemStack> multipliedDrops = new ArrayList<>();
                 finalDrops.forEach(drop -> {
                     ItemStack multiplied = drop.copy(); // Copy ORIGINAL drop
@@ -157,7 +166,8 @@ public class ModEvents {
                 finalDrops.clear(); // Remove the non-multiplied originals
                 finalDrops.addAll(multipliedDrops); // Adds the multiplied values
             }
-            if (multiplier > 0 && !state.isAir()) { // * MAGNETIC EFFECT *
+            // * MAGNETIC EFFECT *
+            if (hasMagnet && !state.isAir()) {
                 if (finalDrops.isEmpty()) { // FinalDrops empty list added all items on it is
                     finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
                 }

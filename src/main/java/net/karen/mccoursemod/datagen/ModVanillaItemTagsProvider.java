@@ -88,5 +88,12 @@ public class ModVanillaItemTagsProvider extends VanillaItemTagsProvider {
                                                .addTag(Tags.Items.STORAGE_BLOCKS_LAPIS)
                                                .addTag(Tags.Items.STORAGE_BLOCKS_NETHERITE)
                                                .addTag(Tags.Items.STORAGE_BLOCKS_REDSTONE);
+
+        // Multiplier items
+        this.tag(ModTags.Items.MULTIPLIER_ITEMS).add(ModItems.AUTO_SMELT.get())
+                                                .add(ModItems.MAGNET.get())
+                                                .add(ModItems.MORE_ORES.get())
+                                                .add(ModItems.MULTIPLIER.get())
+                                                .add(ModItems.RAINBOW.get());
     }
 }

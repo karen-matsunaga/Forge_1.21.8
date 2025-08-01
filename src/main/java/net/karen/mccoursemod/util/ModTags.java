@@ -76,6 +76,9 @@ public class ModTags {
         // Ore block items
         public static final TagKey<Item> ORE_BLOCK_ITEMS = createTag("ore_block_items");
 
+        // Data Component tags
+        public static final TagKey<Item> MULTIPLIER_ITEMS = createTag("multiplier_items");
+
         // CUSTOM METHOD - Registry all custom item tags
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));
