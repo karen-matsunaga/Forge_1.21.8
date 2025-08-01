@@ -78,5 +78,9 @@ public class ModVanillaBlockTagsProvider extends VanillaBlockTagsProvider {
 
         // More Ores break block effect
         this.tag(ModTags.Blocks.MORE_ORES_BREAK_BLOCK).add(Blocks.STONE);
+
+        // Multiplier effect
+        this.tag(ModTags.Blocks.MULTIPLIER_ORES).addTag(Tags.Blocks.ORES)
+                                                .addTag(ModTags.Blocks.RAINBOW_BLOCKS);
     }
 }

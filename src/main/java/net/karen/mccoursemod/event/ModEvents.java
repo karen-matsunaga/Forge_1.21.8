@@ -82,7 +82,7 @@ public class ModEvents {
         hastePotion.ifPresent(haste -> builder.addMix(Potions.AWKWARD, Items.CARROT, haste));
     }
 
-    // CUSTOM EVENT -> MULTIPLIER CUSTOM TAG (** TOOLTIP DESCRIPTION; MULTIPLIER VALUE **)
+    // CUSTOM EVENT -> AUTO SMELT, MAGNET, MORE ORES, MULTIPLIER and RAINBOW custom effects
     @SubscribeEvent
     public static void onBlockBreakWithCustomEnchantments(BlockEvent.BreakEvent event) {
         Player player = event.getPlayer();
@@ -94,7 +94,6 @@ public class ModEvents {
         if (tool.isEmpty()) { return; } // * PROBLEMS *
         int fortune = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FORTUNE.getOrThrow(level), tool),
             multiplier = MultiplierItem.getMultiplierValue(tool);
-        // * FIX TOMORROW *
         boolean hasMultiplier = MultiplierItem.getMultiplierBool(tool, ModDataComponentTypes.MULTIPLIER.get()),
                 hasRainbow = MultiplierItem.getMultiplierBool(tool, ModDataComponentTypes.RAINBOW.get()),
                 hasMoreOres = MultiplierItem.getMultiplierBool(tool, ModDataComponentTypes.MORE_ORES.get()),
@@ -103,9 +102,12 @@ public class ModEvents {
         if (!level.isClientSide() && world instanceof ServerLevel serverLevel) {
             boolean cancelVanillaDrop = false; // Adapt the drop according to the enchantment being true
             List<ItemStack> finalDrops = new ArrayList<>(); // Items caused by enchantments are stored in the list
-            int oresFortune = serverLevel.random.nextInt(fortune + 1);
-            // * RAINBOW EFFECT *
-            if (hasRainbow) {
+            int oresFortune = serverLevel.random.nextInt(fortune + 1),
+                hasFortune = (fortune > 0) ? (1 + oresFortune) : 1,
+                hasRain = hasRainbow ? multiplier : 1,
+                hasMore = hasMoreOres ? multiplier : 1,
+                hasAuto = hasAutoSmelt ? multiplier : 1;
+            if (hasRainbow) { // * RAINBOW EFFECT *
                 Map<Block, TagKey<Block>> rainbowMap = Map.ofEntries(Map.entry(Blocks.COAL_BLOCK, Tags.Blocks.ORES_COAL),
                 Map.entry(Blocks.COPPER_BLOCK, Tags.Blocks.ORES_COPPER), Map.entry(Blocks.DIAMOND_BLOCK, Tags.Blocks.ORES_DIAMOND),
                 Map.entry(Blocks.EMERALD_BLOCK, Tags.Blocks.ORES_EMERALD), Map.entry(Blocks.GOLD_BLOCK, Tags.Blocks.ORES_GOLD),
@@ -120,27 +122,25 @@ public class ModEvents {
                 }
                 if (state.is(ModTags.Blocks.RAINBOW_DROPS)) {
                     ItemStack rainbowDrop = new ItemStack(state.getBlock());
-                    if (fortune > 0) { rainbowDrop.setCount(rainbowDrop.getCount() * (1 + oresFortune)); }
+                    rainbowDrop.setCount((rainbowDrop.getCount() * hasFortune) * hasRain);
                     finalDrops.add(rainbowDrop);
                     cancelVanillaDrop = true;
                 }
             }
-            // * MORE ORES EFFECT *
-            if (hasMoreOres) {
+            if (hasMoreOres) { // * MORE ORES EFFECT *
                 if (state.is(ModTags.Blocks.MORE_ORES_BREAK_BLOCK)) {
                     Iterable<Holder<Block>> tagBlock = BuiltInRegistries.BLOCK.getTagOrEmpty(ModTags.Blocks.MORE_ORES_ALL_DROPS);
                     tagBlock.forEach((block -> {
                         if (RandomSource.create().nextFloat() < 0.01F) {
                             ItemStack drop = new ItemStack(block.get().asItem()); // Increase ore drop with Multiplier enchantment
-                            if (fortune > 0) { drop.setCount(drop.getCount() * (1 + oresFortune)); }
+                            drop.setCount((drop.getCount() * hasFortune) * hasMore);
                             finalDrops.add(drop); // Break block and ore chance drop
                         }
                     }));
                     cancelVanillaDrop = true;
                 }
             }
-            // * AUTO SMELT EFFECT *
-            if (hasAutoSmelt) {
+            if (hasAutoSmelt) { // * AUTO SMELT EFFECT *
                 SingleRecipeInput singleRecipe = new SingleRecipeInput(new ItemStack(state.getBlock()));
                 ServerLevel worldServer = serverLevel.getLevel();
                 Optional<RecipeHolder<SmeltingRecipe>> recipe =
@@ -148,26 +148,15 @@ public class ModEvents {
                 if (recipe.isPresent()) {
                     ItemStack result = recipe.get().value().assemble(singleRecipe, worldServer.registryAccess());
                     int drop = 1;
-                    if (state.is(ModTags.Blocks.ALL_ORES) && fortune > 0) { drop += oresFortune; }
+                    if (state.is(ModTags.Blocks.ALL_ORES)) {
+                        drop += hasFortune;
+                        drop *= hasAuto;
+                    }
                     for (int i = 0; i < drop; i++) { finalDrops.add(result.copy()); }
                 }
                 cancelVanillaDrop = true;
             }
-            // * MULTIPLIER EFFECT *
-            if (hasMultiplier && !finalDrops.isEmpty()) {
-                List<ItemStack> multipliedDrops = new ArrayList<>();
-                finalDrops.forEach(drop -> {
-                    ItemStack multiplied = drop.copy(); // Copy ORIGINAL drop
-                    if (drop.is(ModTags.Items.MULTIPLIER_ORES)) {
-                        multiplied.setCount(drop.getCount() * multiplier); // Duplicate drops with Multiplier
-                        multipliedDrops.add(multiplied);
-                    }
-                    else { multipliedDrops.add(multiplied); }});
-                finalDrops.clear(); // Remove the non-multiplied originals
-                finalDrops.addAll(multipliedDrops); // Adds the multiplied values
-            }
-            // * MAGNETIC EFFECT *
-            if (hasMagnet && !state.isAir()) {
+            if (hasMagnet && !state.isAir()) { // * MAGNETIC EFFECT *
                 if (finalDrops.isEmpty()) { // FinalDrops empty list added all items on it is
                     finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool));
                 }

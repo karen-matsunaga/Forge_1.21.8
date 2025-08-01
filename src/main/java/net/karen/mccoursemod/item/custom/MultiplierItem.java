@@ -70,14 +70,10 @@ public class MultiplierItem extends Item {
     }
 
     // CUSTOM METHOD - Get Multiplier value (Non static)
-    public Integer getMultiplierType(ItemStack stack) {
-        return stack.get(dataName);
-    }
+    public Integer getMultiplierType(ItemStack stack) { return stack.get(dataName); }
 
     // CUSTOM METHOD - Set Multiplier value (Non static)
-    private void setMultiplierValue(ItemStack stack) {
-        stack.set(dataName, value);
-    }
+    private void setMultiplierValue(ItemStack stack) { stack.set(dataName, value); }
 
     // CUSTOM METHOD - Get Data Component value (Static)
     public static Integer getMultiplier(ItemStack stack, DataComponentType<Integer> dataName) {

@@ -18,6 +18,7 @@
     "VibrationListenerMixin"
   ],
   "client": [
-    "AnvilScreenMixin"
+    "AnvilScreenMixin",
+    "EnchantmentScreenMixin"
   ]
 }

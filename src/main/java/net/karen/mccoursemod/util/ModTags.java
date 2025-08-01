@@ -33,6 +33,9 @@ public class ModTags {
         public static final TagKey<Block> RAINBOW_ORES = createTag("rainbow_ores");
         public static final TagKey<Block> RAINBOW_BLOCKS = createTag("rainbow_blocks");
 
+        // Multiplier effect
+        public static final TagKey<Block> MULTIPLIER_ORES = createTag("multiplier_ores");
+
         // CUSTOM METHOD - Registry all custom block tags
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(MccourseMod.MOD_ID, name));

@@ -1,8 +1,9 @@
-// 1.21.8	2025-07-30T18:37:32.7501898	Tags for minecraft:block mod id mccoursemod
+// 1.21.8	2025-08-01T10:49:02.3268485	Tags for minecraft:block mod id mccoursemod
 0b0c6b9a09714b191ff530fef97c80463b571fe3 data/mccoursemod/tags/block/all_ores.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/incorrect_for_alexandrite_tool.json
 fd0f5b5db276bd24d510d374d9918bc10e68ed6d data/mccoursemod/tags/block/more_ores_all_drops.json
 f92c41ce4c3dd51d875dafefe81e048bf6b8f9ed data/mccoursemod/tags/block/more_ores_break_block.json
+705f1eefacd797ad4ad97d655ee572be06727948 data/mccoursemod/tags/block/multiplier_ores.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mccoursemod/tags/block/needs_alexandrite_tool.json
 990afa96a60c739378a60e07b8d89cac1a7addb0 data/mccoursemod/tags/block/rainbow_blocks.json
 14f2f0d7fa0b19b565d7a9c81210b119d89bc447 data/mccoursemod/tags/block/rainbow_drops.json
