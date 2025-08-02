@@ -142,16 +142,16 @@ public class ModEvents {
                 ServerLevel worldServer = serverLevel.getLevel();
                 Optional<RecipeHolder<SmeltingRecipe>> recipe =
                         serverLevel.getServer().getRecipeManager().getRecipeFor(RecipeType.SMELTING, singleRecipe, worldServer);
-                if (recipe.isPresent()) {
-                    ItemStack result = recipe.get().value().assemble(singleRecipe, worldServer.registryAccess());
-                    int drop = 1;
+                recipe.ifPresent(result -> {
+                    ItemStack recipeValue = result.value().assemble(singleRecipe, worldServer.registryAccess()),
+                                     drop = new ItemStack(recipeValue.getItem().asItem());
                     if (state.is(ModTags.Blocks.AUTO_SMELT_ORES)) {
-                        drop += hasFortune;
-                        drop *= (getEffectMultiplier(tool, ModDataComponentTypes.AUTO_SMELT.get(), 1));
+                        drop.setCount((drop.getCount() * hasFortune) *
+                                      (getEffectMultiplier(tool, ModDataComponentTypes.AUTO_SMELT.get(), 1)));
                     }
-                    for (int i = 0; i < drop; i++) { finalDrops.add(result.copy()); }
-                }
-                else { finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool)); }
+                    finalDrops.add(drop);
+                });
+                if (recipe.isEmpty()) { finalDrops.addAll(Block.getDrops(state, serverLevel, pos, null, player, tool)); }
                 cancelVanillaDrop = true;
             }
             if (hasMagnet && !state.isAir()) { // * MAGNETIC EFFECT *
