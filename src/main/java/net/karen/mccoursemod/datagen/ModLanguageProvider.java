@@ -11,7 +11,7 @@ public class ModLanguageProvider extends LanguageProvider {
         super(output, MccourseMod.MOD_ID, locale);
     }
 
-    String item = "item.mccoursemod.";
+    String item = "item.mccoursemod.", ench = "enchantment.mccoursemod.", desc = "When applied on ";
 
     @Override
     protected void addTranslations() {
@@ -56,11 +56,11 @@ public class ModLanguageProvider extends LanguageProvider {
         add(item + "magic", "Magic Block");
 
         // CUSTOM Enchantment
-        add("enchantment.mccoursemod.lightning_striker", "Lightning Striker");
+        add(ench + "lightning_striker", "Lightning Striker");
 
         // MOD
-        add("enchantment.mccoursemod.lightning_striker.desc",
-            "When applied on sword when player hits on entities appears lightning, but player receive damage if attacked.");
+        add(ench + "lightning_striker.desc", desc +
+            "sword when player hits on entities appears lightning, but player receive damage if attacked.");
 
         // MINING
         add("enchantment.minecraft.efficiency.desc", "When applied on axe, pickaxe, shovel or hoe increases mining speed.");
